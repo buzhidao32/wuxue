@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>气血计算系统</title>
+    <link href="extern/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="extern/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/modules/calc/calc.js"></script>
+    <script type="module" src="js/base.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header text-center d-flex justify-content-between align-items-center">
+            <h1>气血计算系统</h1>
+            <small class="text-muted align-self-end" style="font-size: 0.8em;">数据日期：2025.11.25</small>
+            <span class="option-btn" id="optionBtn" style="margin-right: 10px;">☰</span>
+            <div class="option-menu" id="optionMenu">
+                <a href="index.html">武学查询</a>
+                <a href="yinmai.html">隐脉查询</a>
+                <a href="calc.html">气血计算</a>
+            </div>
+        </div>
+
+        <div class="showcase-card mt-4 p-3">
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <a href="static/攻击.jpg" target="_blank"><img src="static/攻击.jpg" alt="系统说明" class="img-fluid rounded-3 showcase-img"></a>
+                    <a href="static/攻速.jpg" target="_blank" ><img src="static/攻速.jpg" alt="系统说明" class="img-fluid rounded-3 showcase-img"></a>
+                    
+                </div>
+               
+                <div class="col-md-7">
+                    <h3 class="showcase-title mb-3">计算说明</h3>
+                    <div class="showcase-text">
+                        <ul class="list-unstyled">
+                            <li>✅ 该排行为打桩排行不考虑技能</li>
+                            <li>✅ 保留最优和次优神兵</li>
+                            <li>✅ 攻击和攻速计算公式点击左图放大</li>
+                            <li>✅ 更新武学平均部位系数</li>
+                            <li>✅ 请先填写打桩数据和排序方式</li>
+                        </ul>
+                        <div class="alert alert-info mt-2">
+                            <small>数据更新：2025-11-25</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="calcForm" class="form-inline">
+            <div class="mb-3 row g-3">
+                <label for="prepSkillLevel" class="col-form-label col-sm-2">准备技能等级</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="prepSkillLevel" required value="1650">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="maxNeili" class="col-form-label col-sm-2">最大内力</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="maxNeili" required value="35000">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="characterExp" class="col-form-label col-sm-2">角色经验</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="characterExp" required value="700000000">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="effectiveArmStrength" class="col-form-label col-sm-2">有效臂力</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="effectiveArmStrength" required value="230">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="armStrength" class="col-form-label col-sm-2">总臂力</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="armStrength" required value="285">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="effectiveDex" class="col-form-label col-sm-2">有效身法</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="effectiveDex" required value="150">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="currDex" class="col-form-label col-sm-2">总身法</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="currDex" required value="205">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="effectiveCon" class="col-form-label col-sm-2">有效根骨</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="effectiveCon" required value="70">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="currCon" class="col-form-label col-sm-2">总根骨</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="currCon" required value="125">
+                </div>
+            </div>
+            
+            <div class="mb-3 row g-3">
+                <label for="powerValue" class="col-form-label col-sm-2">加力值</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="powerValue" required value="825">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="opponentDefense" class="col-form-label col-sm-2">对手防御</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="opponentDefense" required value="25000">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="protect" class="col-form-label col-sm-2">对手防护力</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="protect" required value="450">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="dodgeValue" class="col-form-label col-sm-2">对手闪避力</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="dodgeValue" required value="30000">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="parryLv" class="col-form-label col-sm-2">对手准备招架等级</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="parryLv" required value="1650">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="parryFactor" class="col-form-label col-sm-2">对手准备招架系数</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="parryFactor" required value="85">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="enemyExp" class="col-form-label col-sm-2">对手经验</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="enemyExp" required value="700000000">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="wxAtkSpeedFactor" class="col-form-label col-sm-2">武学攻速系数</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="wxAtkSpeedFactor" required value="105">
+                </div>
+            </div>
+            <div class="mb-3 row g-3">
+                <label for="sortOrder" class="col-form-label col-sm-2">排序方式</label>
+                <div class="col-sm-10">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            秒伤排序
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" data-value="dps">秒伤排序</a></li>
+                            <li><a class="dropdown-item" href="#" data-value="qixueDamage">气血伤害排序</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" id="sortOrder" name="sortOrder" value="dps">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">计算</button>
+        </form>
+
+        <div class="mt-3">
+            <ul class="nav nav-tabs" id="tabContainer" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">气血计算</button>
+                </li>
+                
+            </ul>
+            <div class="tab-content" id="tabContentContainer">
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+                    <div id="result"></div>
+                </div>
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+                    <div id="result2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
