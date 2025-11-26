@@ -1,5 +1,5 @@
 // UI管理模块
-import { activeSkillData, getElementName, getMethodName  } from './dataLoader.js';
+import { activeSkillData, getElementName, getMethodName } from './dataLoader.js';
 import { updateSkillList } from './skillDisplay.js'; // 导入 updateSkillList 函数
 import { skillData } from './wuxue.js'; // 导入 skillData
 
@@ -8,7 +8,7 @@ export const modalManager = {
     openModals: [],
     baseZIndex: 1050,
 
-    open: function(modal, element) {
+    open: function (modal, element) {
         const zIndex = this.baseZIndex + (this.openModals.length * 20);
         const modalInfo = {
             modal: modal,
@@ -37,12 +37,12 @@ export const modalManager = {
         });
     },
 
-    close: function(element) {
+    close: function (element) {
         const index = this.openModals.findIndex(m => m.element === element);
         if (index !== -1) {
             this.openModals.splice(index, 1);
             element.classList.remove('top-modal');
-            
+
             const backdrop = document.querySelector(`[data-modal-backdrop="${element.id}"]`);
             if (backdrop) {
                 backdrop.remove();
@@ -68,12 +68,12 @@ export let jsonModal = null;
 export function initModals() {
     const effectElement = document.getElementById('effectModal');
     const jsonElement = document.getElementById('jsonModal');
-    
+
     effectModal = new bootstrap.Modal(effectElement);
     jsonModal = new bootstrap.Modal(jsonElement);
 
     [effectElement, jsonElement].forEach(element => {
-        element.addEventListener('hidden.bs.modal', function() {
+        element.addEventListener('hidden.bs.modal', function () {
             modalManager.close(this);
         });
 
@@ -106,11 +106,11 @@ export function createFilterBadges(containerId, values, filterType) {
         badge.className = 'badge bg-secondary filter-badge';
 
         const typeHandlers = {
-            'element' : (val) => getElementName(val),
-            'methods' : (val) => getMethodName(val)
+            'element': (val) => getElementName(val),
+            'methods': (val) => getMethodName(val)
         };
-        badge.textContent = typeHandlers[filterType] ?.(value) ?? value;
-        
+        badge.textContent = typeHandlers[filterType]?.(value) ?? value;
+
         badge.onclick = () => toggleFilter(badge, value, filterType);
         container.appendChild(badge);
     });
@@ -119,7 +119,7 @@ export function createFilterBadges(containerId, values, filterType) {
 // 清除过滤器
 export function clearFilters(filterType) {
     skillFilters[filterType].clear();
-    
+
     const containerId = filterType === 'family' ? 'familyFilters' : 'methodFilters';
     const badges = document.querySelectorAll(`#${containerId} .filter-badge`);
     badges.forEach(badge => badge.classList.remove('active'));
@@ -148,27 +148,49 @@ export function toggleFilter(badge, value, filterType) {
 // 检查技能是否匹配过滤条件
 export function matchesFilters(skill) {
     const searchText = document.getElementById('searchInput').value.toLowerCase();
-    
-    const searchMatch = !searchText || 
+
+    // 基础搜索：检查技能自身属性
+    const searchMatch = !searchText ||
         Object.entries(skill).some(([key, value]) => {
             if (value === null || value === undefined) return false;
             return String(value).toLowerCase().includes(searchText);
         });
 
-    const familyMatch = skillFilters.family.size === 0 || 
+    // 扩展搜索：检查关联的主动技能名称
+    let activeSkillMatch = !searchText;
+    if (searchText && !searchMatch && activeSkillData && activeSkillData.skillRelation) {
+        // 遍历所有主动技能关系，查找与当前武学关联的主动技能
+        for (const [activeSkillId, relation] of Object.entries(activeSkillData.skillRelation)) {
+            if (relation.skillId === skill.id) {
+                // 获取主动技能的基础ID
+                const baseSkillId = relation.id;
+                // 获取主动技能数据
+                const activeSkill = activeSkillData.ActiveZhao[baseSkillId];
+                if (activeSkill && activeSkill.name) {
+                    // 检查主动技能名称是否包含搜索文本
+                    if (activeSkill.name.toLowerCase().includes(searchText)) {
+                        activeSkillMatch = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    const familyMatch = skillFilters.family.size === 0 ||
         (skill.familyList && skillFilters.family.has(skill.familyList));
 
-    const juexueMatch = !skillFilters.isJueXue || 
+    const juexueMatch = !skillFilters.isJueXue ||
         (skill.mcmrestrict && skill.mcmrestrict.includes(',300'));
 
-    const zhishiMatch = !skillFilters.isZhiShi || 
+    const zhishiMatch = !skillFilters.isZhiShi ||
         (skill.wxclassify && skill.wxclassify === 'zhishi');
 
     const elementMatch = skillFilters.element.size === 0 || // 处理 element 过滤器
         (skill.zhaoJiaDefDamageClass && skillFilters.element.has(String(skill.zhaoJiaDefDamageClass)));
-    
-    const methodsMatch = skillFilters.methods.size === 0 || // 处理 element 过滤器
-    (skill.methods && String(skill.methods).split(',').some(item => skillFilters.methods.has(item)));
 
-    return searchMatch && familyMatch && juexueMatch && zhishiMatch && elementMatch && methodsMatch;
+    const methodsMatch = skillFilters.methods.size === 0 || // 处理 methods 过滤器
+        (skill.methods && String(skill.methods).split(',').some(item => skillFilters.methods.has(item)));
+
+    return (searchMatch || activeSkillMatch) && familyMatch && juexueMatch && zhishiMatch && elementMatch && methodsMatch;
 }
