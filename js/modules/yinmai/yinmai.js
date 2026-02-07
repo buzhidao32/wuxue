@@ -1,4 +1,5 @@
-import * as pako from '../../../extern/pako_2.0.4_esm.js';
+
+import { getData, saveData, fetchGzip } from '../../db.js';
 
 let acupointConfig = {};
 let meridianMap = {};
@@ -12,160 +13,104 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 });
 
+async function loadWithCache(filename) {
+    const cachedData = await getData(filename);
+    if (cachedData) {
+        console.log(`从缓存读取 ${filename}`);
+        return cachedData;
+    }
+
+    console.log(`从服务器加载 ${filename}.gz（首次加载）`);
+    const data = await fetchGzip(`data/${filename}.gz`);
+    saveData(filename, data).catch(err => console.warn(`保存 ${filename} 缓存失败:`, err));
+    return data;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     Promise.all([
-        fetch('data/MeridianMapConfig.json.gz')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.arrayBuffer();
-            })
-            .then(gzippedData => {
-                const data = pako.inflate(gzippedData, { to: 'string' });
-                return JSON.parse(data);
-            })
+        loadWithCache('MeridianMapConfig.json')
             .then(data => {
-                meridianMap = data['玄脉图']; //节点依赖关系
+                meridianMap = data['玄脉图'];
             }),
-        fetch('data/AcupointConfig.json.gz')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.arrayBuffer();
-            })
-            .then(gzippedData => {
-                const data = pako.inflate(gzippedData, { to: 'string' });
-                return JSON.parse(data);
-            })
+        loadWithCache('AcupointConfig.json')
             .then(data => {
-                acupointConfig = data['玄脉图'];//窍穴定义
+                acupointConfig = data['玄脉图'];
             }),
-        fetch('data/MeridianLinkConfig.json.gz')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.arrayBuffer();
-            })
-            .then(gzippedData => {
-                const data = pako.inflate(gzippedData, { to: 'string' });
-                return JSON.parse(data);
-            })
+        loadWithCache('MeridianLinkConfig.json')
             .then(data => {
-                meridianLinkConfig = data['玄络'];//属性加成
+                meridianLinkConfig = data['玄络'];
             })
     ])
-    .then(() => {
-        const meridianMapContainer = document.getElementById('meridianMap');
-        meridianMapContainer.innerHTML = ''; // Clear loading spinner
-        const sortedKeys = Object.keys(meridianMap).sort((a, b) => {
-            const numA = parseInt(a.match(/\d+/)[0], 10);
-            const numB = parseInt(b.match(/\d+/)[0], 10);
-            return numA - numB;
-        });
-
-        // Populate dropdown menu
-        const dropdownMenu = document.getElementById('mindItemDropdownMenu');
-        sortedKeys.forEach(mindItemKey => {
-            const dropdownItem = document.createElement('li');
-            const dropdownLink = document.createElement('a');
-            dropdownLink.className = 'dropdown-item';
-            dropdownLink.href = '#';
-            dropdownLink.textContent = `玄络图${mindItemKey.match(/\d+/)[0]}`;
-            dropdownLink.dataset.mindItemKey = mindItemKey;
-            dropdownItem.appendChild(dropdownLink);
-            dropdownMenu.appendChild(dropdownItem);
-        });
-
-
-        dropdownMenu.addEventListener('click', (event) => {
-            totalAttributes = {};
-            refreshTotalDisplay();
-            if (event.target && event.target.matches('a.dropdown-item')) {
-                const mindItemKey = event.target.dataset.mindItemKey;
-                const mindItem = meridianMap[mindItemKey];
-                meridianMapContainer.innerHTML = ''; 
-                document.getElementById('meridianLinkTabs').classList.add('d-none'); 
-                const mindItemElement = createMindItemElement(mindItem, mindItemKey);
-                meridianMapContainer.appendChild(mindItemElement);
-            }
-        });
-
- 
-        if (sortedKeys.length > 0) {
-            const firstMindItemKey = sortedKeys[0];
-            const firstMindItem = meridianMap[firstMindItemKey];
-            const firstMindItemElement = createMindItemElement(firstMindItem, firstMindItemKey);
-            meridianMapContainer.appendChild(firstMindItemElement);
-        }
-
-
-        const dropdownButton = document.getElementById('mindItemDropdown');
-        const showMeridianLinkButton = document.createElement('button');
-        showMeridianLinkButton.className = 'btn btn-secondary ms-2';
-        showMeridianLinkButton.textContent = '展示玄络';
-        showMeridianLinkButton.addEventListener('click', () => {
-
-            totalAttributes = {};
-            refreshTotalDisplay();
+        .then(() => {
+            const meridianMapContainer = document.getElementById('meridianMap');
             meridianMapContainer.innerHTML = '';
-            document.getElementById('meridianLinkTabs').classList.remove('d-none'); 
-            const meridianLinkElement = createMeridianLinkElement();
-            document.getElementById('zhengji').innerHTML = meridianLinkElement['正基'];
-            document.getElementById('zhongdan').innerHTML = meridianLinkElement['中丹'];
-            document.getElementById('tongyuan').innerHTML = meridianLinkElement['通元'];
-        });
-        dropdownButton.parentNode.insertBefore(showMeridianLinkButton, dropdownButton.nextSibling);
-    })
-    .catch(error => console.error('Error loading JSON files:', error));
+            const sortedKeys = Object.keys(meridianMap).sort((a, b) => {
+                const numA = parseInt(a.match(/\d+/)[0], 10);
+                const numB = parseInt(b.match(/\d+/)[0], 10);
+                return numA - numB;
+            });
+
+            // Populate dropdown menu
+            const dropdownMenu = document.getElementById('mindItemDropdownMenu');
+            sortedKeys.forEach(mindItemKey => {
+                const dropdownItem = document.createElement('li');
+                const dropdownLink = document.createElement('a');
+                dropdownLink.className = 'dropdown-item';
+                dropdownLink.href = '#';
+                dropdownLink.textContent = `玄络图${mindItemKey.match(/\d+/)[0]}`;
+                dropdownLink.dataset.mindItemKey = mindItemKey;
+                dropdownItem.appendChild(dropdownLink);
+                dropdownMenu.appendChild(dropdownItem);
+            });
+
+            // Add event listener to dropdown items
+            dropdownMenu.addEventListener('click', (event) => {
+                totalAttributes = {};
+                refreshTotalDisplay();
+                if (event.target && event.target.matches('a.dropdown-item')) {
+                    const mindItemKey = event.target.dataset.mindItemKey;
+                    const mindItem = meridianMap[mindItemKey];
+                    meridianMapContainer.innerHTML = '';
+                    document.getElementById('meridianLinkTabs').classList.add('d-none');
+                    const mindItemElement = createMindItemElement(mindItem, mindItemKey);
+                    meridianMapContainer.appendChild(mindItemElement);
+                }
+            });
+
+            // Display the first mind item by default
+            if (sortedKeys.length > 0) {
+                const firstMindItemKey = sortedKeys[0];
+                const firstMindItem = meridianMap[firstMindItemKey];
+                const firstMindItemElement = createMindItemElement(firstMindItem, firstMindItemKey);
+                meridianMapContainer.appendChild(firstMindItemElement);
+            }
+
+            // 新增"展示玄络"按钮
+            const dropdownButton = document.getElementById('mindItemDropdown');
+            const showMeridianLinkButton = document.createElement('button');
+            showMeridianLinkButton.className = 'btn btn-secondary ms-2';
+            showMeridianLinkButton.textContent = '展示玄络';
+            showMeridianLinkButton.addEventListener('click', () => {
+                totalAttributes = {};
+                refreshTotalDisplay();
+                meridianMapContainer.innerHTML = '';
+                document.getElementById('meridianLinkTabs').classList.remove('d-none');
+                const meridianLinkElement = createMeridianLinkElement();
+                document.getElementById('zhengji').innerHTML = meridianLinkElement['正基'];
+                document.getElementById('zhongdan').innerHTML = meridianLinkElement['中丹'];
+                document.getElementById('tongyuan').innerHTML = meridianLinkElement['通元'];
+            });
+            dropdownButton.parentNode.insertBefore(showMeridianLinkButton, dropdownButton.nextSibling);
+        })
+        .catch(error => console.error('Error loading JSON files:', error));
 });
-let totalAttributes = {}; // {属性键: 累计值}
-
-// 效果代码映射函数
-function getEffectDisplayName(effectCode) {
-    const effectMap = {
-        'YMXLFYQHHF': '气血恢复效果',
-        'YMXLFYQHHD': '护盾效果', 
-        'YMXLFYQHSH': '【耀】闪躲回血效果',
-        'YMXLFYQHZH': '【御】招架回血效果',
-        'YMXLFYQHFZ': '【震】伤害效果',
-        'YMXLFYQHNX': '【凝】回血效果',
-        'YMXLFYQHXL': '【卸】减伤效果',
-        'YMXLFYQHZG': '【真】承伤效果'
-    };
-    return effectMap[effectCode] || `特殊效果[${effectCode}]`;
-}
-
-//  添加幽冥共贯的特殊处理
-function formatProperties(properties) {
-    return properties.map(prop => {
-        const [propType, attrType, elementId, value] = prop;
-        
-        // 处理新的 activeEffect 类型
-        if (propType === 'activeEffect') {
-            const effectName = getEffectDisplayName(attrType);
-            return `${effectName}: 8%`; // 固定8%
-        }
-        
-        
-        if (attrType === 'atkDamageClass' && elementId === '6') {
-            return `阴性毒伤: ${Number(value * 100).toFixed(2)}%`;
-        }
-        
-        
-        const element = getElementName(elementId);
-        const type = getElementName(attrType) === 'defDamageClass' ? '防御' : '伤害';
-        return `${element}${type}: ${Number(value * 100).toFixed(2)}%`;
-    }).join(', ');
-}
+let totalAttributes = {};
 
 function createMindItemElement(mindItem, mindItemKey) {
     const mindItemElement = document.createElement('div');
     mindItemElement.className = 'col-md-12 mb-3';
 
-   
+    // 标题和基础信息部分
     const idNumber = mindItemKey.match(/\d+/)[0];
     const nameElement = document.createElement('h5');
     nameElement.textContent = `玄络图${idNumber} - ${mindItem.name}`;
@@ -191,7 +136,7 @@ function createMindItemElement(mindItem, mindItemKey) {
 
     // 创建九宫格容器
     const gridContainer = document.createElement('div');
-    gridContainer.className = 'meridian-grid'; // 通过CSS定义网格布局
+    gridContainer.className = 'meridian-grid';
     mindItemElement.appendChild(gridContainer);
 
     // 生成网格项
@@ -245,11 +190,11 @@ function createMindItemElement(mindItem, mindItemKey) {
             timeWrapper.innerHTML = `<i class="bi-clock-history"></i>${formatTime(grooveInfo.time)}`;
             gridItem.appendChild(timeWrapper);
 
-       
+            // 前置条件
             if (precondition.length > 0) {
                 const preconditionWrapper = document.createElement('div');
                 preconditionWrapper.className = 'precondition-wrapper mt-2';
-                
+
                 const title = document.createElement('div');
                 title.className = 'precondition-title text-muted small';
                 title.textContent = '前置要求：';
@@ -287,8 +232,7 @@ function createMindItemElement(mindItem, mindItemKey) {
                     const linkData = meridianLinkConfig[gridItem.dataset.linkId];
                     updateTotalAttributes('remove', linkData);
                     delete gridItem.dataset.linkId;
-                    
-                    // 即时反馈
+
                     uninstallButton.innerHTML = '<i class="bi-check2"></i> 已卸下';
                     setTimeout(() => {
                         uninstallButton.innerHTML = '<i class="bi-trash"></i> 卸下';
@@ -300,7 +244,6 @@ function createMindItemElement(mindItem, mindItemKey) {
                     updateTotalAttributes('remove', linkData);
                     delete gridItem.dataset.linkId;
                 }
-                // 删除属性元素
                 gridItem.querySelectorAll('.highlight-property, .highlight-special, .highlight-unlock-conditions').forEach(el => el.remove());
             });
 
@@ -315,7 +258,6 @@ function createMindItemElement(mindItem, mindItemKey) {
     return mindItemElement;
 }
 
-// 修改 createMeridianLinkModal 函数
 function createMeridianLinkModal(xltype, xlclass, grooveElement) {
     const modal = document.createElement('div');
     modal.className = 'modal fade';
@@ -330,8 +272,8 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
                 <div class="modal-body">
                     <ul class="list-group">
                         ${Object.values(meridianLinkConfig)
-                            .filter(link => link.type === xltype && link.class <= xlclass)
-                            .map(link => `
+            .filter(link => link.type === xltype && link.class <= xlclass)
+            .map(link => `
                                 <li class="list-group-item ${isLinkEquipped(link.id, grooveElement) ? 'disabled' : ''}">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <div>
@@ -343,9 +285,8 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
                                     <div class="ps-3">
                                         <p class="mb-1 small">解锁条件: ${link.Unlocktext}</p>
                                         <p class="mb-1 small">属性加成: ${formatProperties(link.property)}</p>
-                                        ${link.specialproperty.length > 0 ? 
-                                            `<p class="mb-1 small">特殊加成: ${formatProperties(link.specialproperty)}</p>` : ''}
-                                        ${link.specialtext ? `<p class="mb-1 small text-success"><strong>特殊效果: ${link.specialtext}</strong></p>` : ''}
+                                        ${link.specialproperty.length > 0 ?
+                    `<p class="mb-1 small">特殊加成: ${formatProperties(link.specialproperty)}</p>` : ''}
                                     </div>
                                     <div class="text-end mt-2">
                                         <button class="btn btn-primary btn-sm select-link" 
@@ -362,7 +303,6 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
         </div>
     `;
 
-    // 检查玄络是否已被装备
     function isLinkEquipped(linkId, currentGroove) {
         const gridContainer = currentGroove.closest('.meridian-grid');
         return Array.from(gridContainer.querySelectorAll('.grid-item'))
@@ -370,30 +310,33 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
             .some(item => item.dataset.linkId === linkId);
     }
 
-    // 修改装备事件处理
+    function formatProperties(properties) {
+        return properties.map(prop => {
+            const element = getElementName(prop[2]);
+            const type = getElementName(prop[1]) === 'defDamageClass' ? '防御' : '伤害';
+            return `${element}${type}: ${Number(prop[3] * 100).toFixed(2)}%`;
+        }).join(', ');
+    }
+
     modal.addEventListener('click', (event) => {
         if (event.target.closest('.select-link')) {
             const button = event.target.closest('.select-link');
             const linkId = button.dataset.linkId;
-            
+
             if (button.disabled) return;
 
-            // 移除旧玄络
             if (grooveElement.dataset.linkId) {
                 const prevLink = meridianLinkConfig[grooveElement.dataset.linkId];
                 updateTotalAttributes('remove', prevLink);
             }
 
-            // 设置新玄络
             const selectedLink = meridianLinkConfig[linkId];
             grooveElement.dataset.linkId = linkId;
             updateTotalAttributes('add', selectedLink);
 
-            // 更新按钮状态
             button.textContent = '已装备';
             button.disabled = true;
-            
-            // 关闭模态框
+
             setTimeout(() => bootstrap.Modal.getInstance(modal).hide(), 1000);
         }
     });
@@ -401,33 +344,27 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
 
-    // 延迟绑定事件
     modal.addEventListener('shown.bs.modal', () => {
         modal.querySelectorAll('.select-link').forEach(button => {
             button.addEventListener('click', () => {
                 const linkId = button.dataset.linkId;
                 const selectedLink = meridianLinkConfig[linkId];
                 if (selectedLink) {
-                    // 删除旧的属性加成和特殊加成元素
                     const existingProperties = grooveElement.querySelectorAll('.highlight-property, .highlight-special, .highlight-unlock-conditions');
                     existingProperties.forEach(el => el.remove());
 
-                    // 创建新的属性加成元素
                     const propertyElement = document.createElement('p');
                     propertyElement.className = 'highlight-property';
-                    propertyElement.textContent = `属性加成: ${formatProperties(selectedLink.property)}`;
+                    propertyElement.textContent = `属性加成: ${selectedLink.property.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
 
-                    // 创建新的特殊加成元素
                     const specialElement = document.createElement('p');
                     specialElement.className = 'highlight-special';
-                    specialElement.textContent = `特殊加成: ${formatProperties(selectedLink.specialproperty)}`;
+                    specialElement.textContent = `特殊加成: ${selectedLink.specialproperty.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
 
-                    // 解锁条件
                     const unlockConditionsElement = document.createElement('p');
                     unlockConditionsElement.className = 'highlight-unlock-conditions';
                     unlockConditionsElement.textContent = `解锁条件: ${selectedLink.Unlocktext}`;
 
-                    // 插入新元素
                     const lastChild = grooveElement.lastElementChild;
                     if (lastChild) {
                         grooveElement.insertBefore(unlockConditionsElement, lastChild.nextSibling);
@@ -439,9 +376,7 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
                         grooveElement.appendChild(propertyElement);
                     }
 
-                    // 存储玄络数据到DOM元素
                     grooveElement.dataset.linkId = linkId;
-                    // 更新总属性
                     updateTotalAttributes('add', selectedLink);
                 }
             });
@@ -452,18 +387,17 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
 }
 
 function isConflict(prop, linkData) {
-    return linkData.property.some(p => 
-        p[1] === prop[1] && 
-        p[2] === prop[2] && 
+    return linkData.property.some(p =>
+        p[1] === prop[1] &&
+        p[2] === prop[2] &&
         p[3] * prop[3] < 0
     );
 }
 
-// 属性更新方法
 function updateTotalAttributes(operation, linkData) {
     const modifier = operation === 'add' ? 1 : -1;
-    
-    if (operation === 'add' && 
+
+    if (operation === 'add' &&
         Object.values(meridianLinkConfig)
             .filter(l => l.id !== linkData.id)
             .some(l => l.property.some(p => isConflict(p, linkData)))
@@ -472,75 +406,39 @@ function updateTotalAttributes(operation, linkData) {
         return;
     }
 
-    // 处理常规属性
     linkData.property.forEach(prop => {
-        const [propType, attrType, elementId, value] = prop;
-        if (propType === 'damageAttr') {
-            const key = `${attrType}_${elementId}`;
-            totalAttributes[key] = (totalAttributes[key] || 0) + value * modifier;
-        }
+        const [_, propType, elementId, value] = prop;
+        const key = `${propType}_${elementId}`;
+        totalAttributes[key] = (totalAttributes[key] || 0) + value * modifier;
     });
 
-    // 处理特殊属性
     linkData.specialproperty.forEach(prop => {
-        const [propType, attrType, elementId, value] = prop;
-        
-        if (propType === 'damageAttr') {
-           
-            const key = `${attrType}_${elementId}`;
-            totalAttributes[key] = (totalAttributes[key] || 0) + value * modifier;
-        } else if (propType === 'activeEffect') {
-            // 新的特殊效果 - 使用效果代码作为key
-            const effectKey = `effect_${attrType}`;
-            // 固定8%的效果，直接存储0.08
-            totalAttributes[effectKey] = (totalAttributes[effectKey] || 0) + 0.08 * modifier;
-        }
+        const [_, propType, elementId, value] = prop;
+        const key = `${propType}_${elementId}`;
+        totalAttributes[key] = (totalAttributes[key] || 0) + value * modifier;
     });
 
-    // 立即更新显示
     refreshTotalDisplay();
 }
 
-// 修改：属性显示刷新方法 - 添加毒伤的特殊处理
 function refreshTotalDisplay() {
     const container = document.querySelector('.total-attributes');
     if (!container) return;
 
     container.innerHTML = '<h6>总属性</h6>';
-    
+
     Object.entries(totalAttributes).forEach(([key, value]) => {
         if (value <= 0) return;
-        
-        if (key.startsWith('defDamageClass_') || key.startsWith('atkDamageClass_')) {
-            // 常规伤害/防御属性
-            const [attrType, elementId] = key.split('_');
-            const element = document.createElement('p');
-            element.className = 'highlight-property';
-            
-            const elementName = getElementName(elementId);
-            
-            // 特殊处理：毒伤属性（属性ID为6）
-            if (elementId === '6' && attrType === 'atkDamageClass') {
-                element.textContent = `阴性毒伤: ${(value * 100).toFixed(2)}%`;
-            } else {
-                const typeName = getElementName(attrType) === 'defDamageClass' ? '防御' : '伤害';
-                element.textContent = `${elementName}${typeName}: ${(value * 100).toFixed(2)}%`;
-            }
-            
-            container.appendChild(element);
-        } else if (key.startsWith('effect_')) {
-            // 特殊效果属性
-            const [_, effectCode] = key.split('_');
-            const element = document.createElement('p');
-            element.className = 'highlight-special';
-            
-            const effectName = getEffectDisplayName(effectCode);
-            element.textContent = `${effectName}: ${(value * 100).toFixed(0)}%`;
-            container.appendChild(element);
-        }
+
+        const [propType, elementId] = key.split('_');
+        const element = document.createElement('p');
+        element.className = 'highlight-special';
+        element.textContent = `${getElementName(elementId)}${getElementName(propType) === 'defDamageClass' ? '防御' : '伤害'
+            }: ${(value * 100).toFixed(2)}%`;
+
+        container.appendChild(element);
     });
 }
-
 
 function getTypeClass(type) {
     return {
@@ -639,22 +537,15 @@ function createMeridianLinkElement() {
             linkElement.appendChild(resourceElement);
 
             const propertyElement = document.createElement('p');
-            propertyElement.textContent = `属性加成: ${formatProperties(link.property)}`;
+            propertyElement.textContent = `属性加成: ${link.property.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
             linkElement.appendChild(propertyElement);
 
             const specialTextElement = document.createElement('p');
-            specialTextElement.textContent = `特殊加成: ${formatProperties(link.specialproperty)}`;
+            specialTextElement.textContent = `特殊加成: ${link.specialproperty.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
             linkElement.appendChild(specialTextElement);
 
-            if (link.specialtext) {
-                const specialEffectElement = document.createElement('p');
-                specialEffectElement.className = 'text-success';
-                specialEffectElement.textContent = `特殊效果: ${link.specialtext}`;
-                linkElement.appendChild(specialEffectElement);
-            }
-
             const specialUnlockTextElement = document.createElement('p');
-            specialUnlockTextElement.textContent = `特殊加成解锁条件: ${link.SUnlocktext||""}`;
+            specialUnlockTextElement.textContent = `特殊加成解锁条件: ${link.SUnlocktext || ""}`;
             linkElement.appendChild(specialUnlockTextElement);
 
             result[category] += linkElement.outerHTML;
