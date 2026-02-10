@@ -547,12 +547,22 @@ document.getElementById('calcForm').addEventListener('submit', function (event) 
         tabContent.setAttribute('role', 'tabpanel');
         tabContent.setAttribute('aria-labelledby', `${methodName}-tab`);
 
+        // 创建表格容器，用于实现表头固定
+        const tableContainer = document.createElement('div');
+        tableContainer.className = 'table-responsive';
+        tableContainer.style.overflowY = 'auto';
+        tableContainer.style.height = 'fit-content';
+        tableContainer.style.maxHeight = '80vh'; // 设置最大高度为视口高度的80%，确保在内容多时也能滚动
+
         // 创建表格
         const table = document.createElement('table');
         table.className = 'table table-striped';
 
         // 创建表头
         const thead = document.createElement('thead');
+        thead.className = 'sticky-top bg-white'; // 添加sticky-top类和背景色
+        thead.style.top = '0'; // 设置top值
+        thead.style.zIndex = '10'; // 设置z-index确保表头在上方
         const headerRow = document.createElement('tr');
         const headers = [
             '排位',
@@ -721,8 +731,9 @@ document.getElementById('calcForm').addEventListener('submit', function (event) 
             tbody.appendChild(row);
         });
         table.appendChild(tbody);
+        tableContainer.appendChild(table); // 将表格添加到容器中
 
-        tabContent.appendChild(table);
+        tabContent.appendChild(tableContainer); // 将容器添加到tabContent中
         tabContentContainer.appendChild(tabContent);
     });
 });
