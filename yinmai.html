@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>隐脉查询系统</title>
     <link href="extern/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <script src="extern/bootstrap.bundle.min.js"></script>
-    <script type="module" src="js/modules/yinmai/yinmai.js"></script>
-    <script type="module" src="js/base.js"></script>
+    <script src="extern/bootstrap.bundle.min.js" defer></script>
+    <script type="module" src="js/modules/yinmai/yinmai.js" defer></script>
+    <script src="js/base.js" defer></script>
 </head>
+
 <body>
     <div class="container">
         <div class="page-header text-center d-flex justify-content-between align-items-center">
             <h1>隐脉查询系统</h1>
-            <small class="text-muted align-self-end" style="font-size: 0.8em;">数据日期：2026.01.28</small>
+            <small class="text-muted align-self-end" style="font-size: 0.8em;">数据日期：2026.02.10</small>
             <span class="option-btn" id="optionBtn" style="margin-right: 10px;">☰</span>
             <div class="option-menu" id="optionMenu">
                 <a href="index.html">武学查询</a>
@@ -24,7 +26,8 @@
         </div>
 
         <div class="dropdown mb-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="mindItemDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="mindItemDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 选择玄络图
             </button>
             <ul class="dropdown-menu" aria-labelledby="mindItemDropdown" id="mindItemDropdownMenu">
@@ -34,13 +37,16 @@
         <div id="meridianLinkTabs" class="d-none">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="zhengji-tab" data-bs-toggle="tab" data-bs-target="#zhengji" type="button" role="tab" aria-controls="zhengji" aria-selected="true">正基</button>
+                    <button class="nav-link active" id="zhengji-tab" data-bs-toggle="tab" data-bs-target="#zhengji"
+                        type="button" role="tab" aria-controls="zhengji" aria-selected="true">正基</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="zhongdan-tab" data-bs-toggle="tab" data-bs-target="#zhongdan" type="button" role="tab" aria-controls="zhongdan" aria-selected="false">中丹</button>
+                    <button class="nav-link" id="zhongdan-tab" data-bs-toggle="tab" data-bs-target="#zhongdan"
+                        type="button" role="tab" aria-controls="zhongdan" aria-selected="false">中丹</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tongyuan-tab" data-bs-toggle="tab" data-bs-target="#tongyuan" type="button" role="tab" aria-controls="tongyuan" aria-selected="false">通元</button>
+                    <button class="nav-link" id="tongyuan-tab" data-bs-toggle="tab" data-bs-target="#tongyuan"
+                        type="button" role="tab" aria-controls="tongyuan" aria-selected="false">通元</button>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -59,7 +65,8 @@
             </div>
         </div>
 
-       
+
     </div>
 </body>
+
 </html>

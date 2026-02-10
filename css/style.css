@@ -1,35 +1,46 @@
 /* 模态窗口堆叠管理 */
 .modal {
-    z-index: 1050; /* 基础层级 */
+    z-index: 1050;
+    /* 基础层级 */
 }
+
 .modal-backdrop {
     z-index: 1040;
 }
+
 .modal.show {
-    pointer-events: none; /* 默认禁止所有模态窗口的交互 */
+    pointer-events: none;
+    /* 默认禁止所有模态窗口的交互 */
 }
+
 .modal.show.top-modal {
-    pointer-events: auto; /* 只允许最上层模态窗口交互 */
+    pointer-events: auto;
+    /* 只允许最上层模态窗口交互 */
 }
+
 body {
     background-color: #f5f5f5;
     padding: 20px;
     font-family: 'Microsoft YaHei', Arial, sans-serif;
 }
+
 .card {
     margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
+
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
 .card-header {
     background-color: #f8f9fa;
     font-weight: bold;
-    border-bottom: 1px solid rgba(0,0,0,0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
+
 /* 开关样式优化 */
 .switch {
     position: relative;
@@ -68,11 +79,11 @@ body {
     border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(26px);
 }
 
@@ -127,67 +138,87 @@ input:checked + .slider:before {
     font-size: 0.9rem;
     color: #555;
 }
+
 .badge {
     margin-right: 5px;
     margin-bottom: 5px;
 }
+
 #searchInput {
     border-radius: 20px;
     padding-left: 20px;
     border: 1px solid #ddd;
 }
+
 .filter-badge {
     cursor: pointer;
     margin: 5px;
     user-select: none;
     transition: all 0.2s;
 }
+
 .filter-badge:hover {
     opacity: 0.8;
 }
+
 .filter-badge.active {
     background-color: #0d6efd !important;
 }
+
 .loading {
     text-align: center;
     padding: 20px;
 }
+
 .stats {
     margin-bottom: 15px;
     color: #666;
     font-size: 0.9rem;
 }
+
 .page-header {
     background-color: #343a40;
     color: white;
     padding: 20px 0;
     margin-bottom: 20px;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .page-header h1 {
-    margin: 0 auto; /* 确保标题居中 */
-    flex: 1; /* 让标题占据剩余空间，使其居中 */
-    text-align: center; /* 确保标题文本居中 */
+    margin: 0 auto;
+    /* 确保标题居中 */
+    flex: 1;
+    /* 让标题占据剩余空间，使其居中 */
+    text-align: center;
+    /* 确保标题文本居中 */
 }
+
 .attribute-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
     font-size: 0.85rem;
 }
+
 .attribute-label {
     font-weight: bold;
     color: #555;
 }
+
 .attribute-value {
     color: #212529;
 }
+
 .clear-filters {
     cursor: pointer;
     color: #dc3545;
     font-size: 0.9rem;
     text-decoration: underline;
 }
+
 pre {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
@@ -195,15 +226,19 @@ pre {
     padding: 15px;
     font-size: 0.9rem;
 }
+
 .table-responsive {
     margin-top: 1rem;
 }
+
 .table {
     font-size: 0.9rem;
 }
+
 .table td {
     vertical-align: middle;
 }
+
 .jue-xue-badge {
     position: absolute;
     top: 5px;
@@ -212,7 +247,7 @@ pre {
     padding: 4px 8px;
     border-radius: 12px;
     transform: rotate(-15deg);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* 技能详情列表样式 */
@@ -265,36 +300,43 @@ pre {
 .skill-details-list::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
 .option-btn {
     cursor: pointer;
     font-size: 24px;
-    
+
 }
+
 .option-menu {
     display: none;
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
 .option-menu a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
+
 .option-menu a:hover {
     background-color: #f1f1f1;
 }
+
 .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
 }
+
 /* 添加样式以美化段落 */
 .mb-3 p {
     margin-bottom: 0.5rem;
 }
+
 /* 新增样式以美化玄络展示 */
 .meridian-link {
     border: 1px solid #ccc;
@@ -302,19 +344,23 @@ pre {
     margin-bottom: 1rem;
     border-radius: 0.25rem;
 }
+
 .meridian-link h6 {
     margin-bottom: 0.5rem;
     font-weight: bold;
 }
+
 .meridian-link p {
     margin-left: 1rem;
 }
+
 .dropdown-toggle::after {
     content: none;
 }
 
 .dropdown-toggle::before {
-    content: '\25BC'; /* 下拉箭头 */
+    content: '\25BC';
+    /* 下拉箭头 */
     float: right;
     margin-left: 0.25rem;
     font-size: 0.625em;
@@ -323,23 +369,30 @@ pre {
 }
 
 .highlight-property {
-    background-color: #e6f7ff; /* 浅蓝色背景 */
-    font-weight: bold; /* 加粗字体 */
+    background-color: #e6f7ff;
+    /* 浅蓝色背景 */
+    font-weight: bold;
+    /* 加粗字体 */
     padding: 5px;
     border-radius: 4px;
     margin-top: 10px;
 }
 
 .highlight-special {
-    background-color: #fff0f6; /* 浅粉色背景 */
-    font-weight: bold; /* 加粗字体 */
+    background-color: #fff0f6;
+    /* 浅粉色背景 */
+    font-weight: bold;
+    /* 加粗字体 */
     padding: 5px;
     border-radius: 4px;
     margin-top: 10px;
 }
+
 .highlight-unlock-conditions {
-    background-color: #8be79137; /* 浅粉色背景 */
-    font-weight: bold; /* 加粗字体 */
+    background-color: #8be79137;
+    /* 浅粉色背景 */
+    font-weight: bold;
+    /* 加粗字体 */
     padding: 5px;
     border-radius: 4px;
     margin-top: 10px;
@@ -347,18 +400,27 @@ pre {
 
 /* 新增样式以美化显示按钮 */
 .show-link-btn {
-    background-color: #007bff; /* 蓝色背景 */
-    color: white; /* 白色文字 */
-    border: none; /* 去掉边框 */
-    padding: 5px 10px; /* 内边距 */
-    border-radius: 4px; /* 圆角 */
-    cursor: pointer; /* 鼠标悬停时显示手型 */
-    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+    background-color: #007bff;
+    /* 蓝色背景 */
+    color: white;
+    /* 白色文字 */
+    border: none;
+    /* 去掉边框 */
+    padding: 5px 10px;
+    /* 内边距 */
+    border-radius: 4px;
+    /* 圆角 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型 */
+    transition: background-color 0.3s ease;
+    /* 平滑过渡效果 */
 }
 
 .show-link-btn:hover {
-    background-color: #0056b3; /* 鼠标悬停时颜色变深 */
+    background-color: #0056b3;
+    /* 鼠标悬停时颜色变深 */
 }
+
 /* 九宫格布局 */
 .meridian-grid {
     display: grid;
@@ -378,7 +440,7 @@ pre {
 
 .grid-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 序号标识 */
@@ -440,6 +502,7 @@ pre {
     margin-right: 5px;
     font-weight: normal;
 }
+
 /* 前置条件样式 */
 .precondition-wrapper {
     margin-top: 12px;
@@ -464,6 +527,7 @@ pre {
     border: 1px solid #dee2e6 !important;
     border-radius: 10px;
 }
+
 /* 按钮过渡效果 */
 .btn {
     transition: all 0.3s ease;
@@ -480,11 +544,13 @@ pre {
     margin-top: 15px;
     gap: 8px;
 }
+
 /* 禁用状态样式 */
 .list-group-item.disabled {
     opacity: 0.6;
     background-color: #f8f9fa;
 }
+
 .list-group-item.disabled .btn {
     pointer-events: none;
 }
@@ -494,22 +560,12 @@ pre {
     cursor: not-allowed;
 }
 
-/* 即时反馈动画 */
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-.instant-feedback {
-    animation: fadeOut 1s ease-out forwards;
-}
-
 /* 展示框样式 */
 .showcase-card {
     background: linear-gradient(145deg, #f8f9fa 0%, #ecedee 100%);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease;
 }
 
@@ -517,7 +573,7 @@ pre {
     height: 220px;
     object-fit: cover;
     border: 2px solid #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .showcase-title {
@@ -548,10 +604,13 @@ pre {
         margin-bottom: 1.5rem;
     }
 }
+
 .table td {
-    vertical-align: middle !important; /* 垂直居中 */
+    vertical-align: middle !important;
+    /* 垂直居中 */
 }
 
 .table-hover tbody tr:hover {
-    --bs-table-hover-bg: rgba(13,110,253,0.05); /* 浅蓝色悬停背景 */
+    --bs-table-hover-bg: rgba(13, 110, 253, 0.05);
+    /* 浅蓝色悬停背景 */
 }

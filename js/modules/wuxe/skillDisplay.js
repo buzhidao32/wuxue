@@ -2,6 +2,10 @@
 import { findActiveSkills, getMethodName, getElementName, getWeapontype, skillData } from './dataLoader.js';
 import { modalManager, effectModal } from './uiManager.js';
 
+// 渲染优化参数
+const renderBatchSize = 20; // 每次渲染的卡片数量
+let renderTimeout = null; // 渲染超时定时器
+
 // 解析effects字符串，返回效果ID数组
 function parseEffects(effectsStr) {
     if (!effectsStr) return [];
@@ -40,12 +44,12 @@ function isPotentialEffectId(str) {
 // 递归处理JSON对象中的效果ID
 function processEffectIds(obj, currentId, processedIds = new Set()) {
     if (!obj) return obj;
-    
+
     if (processedIds.has(currentId)) return obj;
     processedIds.add(currentId);
-    
+
     const result = {};
-    
+
     for (const [key, value] of Object.entries(obj)) {
         if (key.startsWith('arg') && isPotentialEffectId(value) && value !== currentId) {
             result[key] = `<span class="effect-link json-effect-link" data-effect-id="${value}" style="color: #007bff; text-decoration: underline; cursor: pointer;">${value}</span>`;
@@ -55,7 +59,7 @@ function processEffectIds(obj, currentId, processedIds = new Set()) {
             result[key] = value;
         }
     }
-    
+
     return result;
 }
 
@@ -79,10 +83,10 @@ export function showEffectDetails(effectId, activeSkillData) {
         const effectData = activeSkillData.Effect[effectId];
         const modalElement = document.getElementById('effectModal');
         document.getElementById('effectModalLabel').textContent = `效果详情: ${effectId}`;
-        
+
         const contentElement = document.getElementById('effectContent');
         contentElement.innerHTML = jsonToHtmlWithEffectLinks(effectData, effectId);
-        
+
         contentElement.querySelectorAll('.json-effect-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -90,7 +94,7 @@ export function showEffectDetails(effectId, activeSkillData) {
                 showEffectDetails(nestedEffectId, activeSkillData);
             });
         });
-        
+
         modalManager.open(effectModal, modalElement);
     } catch (error) {
         console.error('Error showing effect details:', error);
@@ -101,7 +105,7 @@ export function showEffectDetails(effectId, activeSkillData) {
 export function showPassiveSkills(skillId, skillAutoData) {
     const container = document.getElementById('passiveSkillsList'); // 修改为被动技能内容区域的ID
     const passiveSkills = skillAutoData[skillId];
-    
+
     if (!passiveSkills) {
         container.innerHTML = '<div class="alert alert-info">该武学没有关联的被动技能。</div>';
         return;
@@ -166,7 +170,7 @@ export function showPassiveSkills(skillId, skillAutoData) {
             <td>${skill.atk || 0}</td>
             <td>${skill.dam || 0}</td>
             <td>${skill.hitRate || 0}</td>
-            <td>${(skill.preDuration+skill.aftDuration).toFixed(2) || 0}</td>
+            <td>${(skill.preDuration + skill.aftDuration).toFixed(2) || 0}</td>
             <td>${skill.damageType}</td>
             <td>${skill.lv}</td>
         </tr>`;
@@ -185,26 +189,26 @@ export function showPassiveSkills(skillId, skillAutoData) {
 export function showActiveSkills(skillId, activeSkillData, name) {
     const container = document.getElementById('activeSkillsList');
     const skillGroups = findActiveSkills(skillId, activeSkillData, name);
-    
+
     if (skillGroups.length === 0) {
         container.innerHTML = '<div class="alert alert-info">该武学没有关联的主动技能。</div>';
         return;
     }
 
     let html = '';
-    
+
     skillGroups.forEach((group, groupIndex) => {
-        const {activeId, baseActive, allActives, name} = group;
-        
+        const { activeId, baseActive, allActives, name } = group;
+
         if (groupIndex > 0) {
             html += '<hr class="my-4">';
         }
-        
+
         html += `
         <div class="mb-3">
             <h4 class="text-primary">${baseActive.name || activeId}</h4>
         </div>`;
-        
+
         html += `
         <div class="mb-4">
             <h5>技能基础数据</h5>
@@ -233,44 +237,44 @@ export function showActiveSkills(skillId, activeSkillData, name) {
                         </thead>
                         <tbody>`;
             // 检查 use_id_2, use_id_3, use_id_4 等字段
-                for (let i = 2; i <= 4; i++) {
-                    const useIdKey = `use_id_${i}`;
-                    const useTypeKey = `use_type_${i}`;
-                    const useValueKey = `use_value_${i}`;
-                    if (selectedSkills[0].data[useIdKey] && selectedSkills[0].data[useTypeKey] && selectedSkills[0].data[useValueKey]) {
-                        const boundactiveId = selectedSkills[0].data[useIdKey].split(' or ');
-                        const boundMethodId = selectedSkills[0].data[useValueKey];
-                        if (boundMethodId == "是") {
-                            boundactiveId.forEach((id) => {
-                                const boundSkillName = skillData.skills[id] ?.name ?? id;
+            for (let i = 2; i <= 4; i++) {
+                const useIdKey = `use_id_${i}`;
+                const useTypeKey = `use_type_${i}`;
+                const useValueKey = `use_value_${i}`;
+                if (selectedSkills[0].data[useIdKey] && selectedSkills[0].data[useTypeKey] && selectedSkills[0].data[useValueKey]) {
+                    const boundactiveId = selectedSkills[0].data[useIdKey].split(' or ');
+                    const boundMethodId = selectedSkills[0].data[useValueKey];
+                    if (boundMethodId == "是") {
+                        boundactiveId.forEach((id) => {
+                            const boundSkillName = skillData.skills[id]?.name ?? id;
 
-                                html += `
+                            html += `
                                 <tr>
                                     <td> <strong>准备 ${boundSkillName}</td>
                                 </tr>`;
-                            });
-                        }
-                        else {
-                            boundactiveId.forEach((id) => {
-                                const boundSkillName = skillData.skills[id] ?.name ?? id;
+                        });
+                    }
+                    else {
+                        boundactiveId.forEach((id) => {
+                            const boundSkillName = skillData.skills[id]?.name ?? id;
 
-                                html += `
+                            html += `
                                 <tr>
                                     <td> <strong>准备 ${boundSkillName} 为 ${getMethodName(boundMethodId)}</td>
                                 </tr>`;
-                            });
-                        }
+                        });
                     }
-                    
                 }
-                // 主动准备位置条件
-                if (selectedSkills[0].data['methods']) {
-                    html += `
+
+            }
+            // 主动准备位置条件
+            if (selectedSkills[0].data['methods']) {
+                html += `
                         <tr>
                             <td> <strong>准备 ${name} 为 ${getMethodName(selectedSkills[0].data['methods'])}</td>
                         </tr>`;
-                }
-             html += `
+            }
+            html += `
                         </tbody>
                     </table>
                 </div>
@@ -299,7 +303,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
                         })
                         .join('<br>');
 
-                    
+
                     if (skillText) {
                         html += `
                         <tr>
@@ -317,7 +321,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
             </div>`;
         }
     });
-    
+
     container.innerHTML = html;
 
     container.addEventListener('click', (e) => {
@@ -326,115 +330,137 @@ export function showActiveSkills(skillId, activeSkillData, name) {
             const effectId = link.getAttribute('data-effect-id');
             showEffectDetails(effectId, activeSkillData);
         }
-    });
+});
+}
+
+// 批处理渲染函数
+function renderSkillCards(cards, container, startIndex = 0) {
+    if (renderTimeout) {
+        clearTimeout(renderTimeout);
+    }
+
+    const endIndex = Math.min(startIndex + renderBatchSize, cards.length);
+    
+    // 渲染当前批次的卡片
+    for (let i = startIndex; i < endIndex; i++) {
+        container.appendChild(cards[i]);
+    }
+
+    // 如果还有卡片需要渲染，设置定时器继续渲染
+    if (endIndex < cards.length) {
+        renderTimeout = setTimeout(() => {
+            renderSkillCards(cards, container, endIndex);
+        }, 50); // 50ms 延迟，让浏览器有时间处理UI更新
+    }
 }
 
 // 更新技能列表
 export function updateSkillList(skillData, matchesFilters) {
     const container = document.getElementById('skillList');
     container.innerHTML = '';
-    
+
     let filteredCount = 0;
     const totalCount = Object.keys(skillData.skills).length;
-    
+    const cardsToRender = [];
+
     Object.entries(skillData.skills).sort((subArrA, subArrB) => {
         const strA = subArrA[1].name; // 提取子数组的[0]成员（字符串）
         const strB = subArrB[1].name;
         return strA.localeCompare(strB); // 字典序比较结果
-      }).forEach(([id, skill]) => {
+    }).forEach(([id, skill]) => {
         if (typeof skill === 'object' && skill !== null && matchesFilters(skill)) {
             filteredCount++;
             const col = document.createElement('div');
             col.className = 'col-md-4 col-lg-3';
-            
+
             const card = document.createElement('div');
             card.className = 'card h-100';
             card.style.cursor = 'pointer';
-            
+
             card.onclick = async () => {
                 const modal = new bootstrap.Modal(document.getElementById('jsonModal'));
                 const jsonContent = document.getElementById('jsonContent');
                 jsonContent.textContent = JSON.stringify(skill, null, 2);
                 document.getElementById('jsonModalLabel').textContent = `${skill.name || id} - 武学详情`;
-                
+
                 try {
                     console.log('Loading active skill data for skill:', id);
                     const activeSkillData = await import('./dataLoader.js').then(module => module.loadActiveSkillData());
                     console.log('Loaded activeSkillData:', activeSkillData ? 'success' : 'null');
                     showActiveSkills(id, activeSkillData, skill.name);
-                    
+
                     // 加载被动技能数据
                     const skillAutoData = await import('./dataLoader.js').then(module => module.loadSkillAutoData());
                     console.log('Loaded skillAutoData:', skillAutoData ? 'success' : 'null');
                     showPassiveSkills(id, skillAutoData);
                 } catch (error) {
                     console.error('Error loading skill data:', error);
-                    document.getElementById('activeSkillsList').innerHTML = 
+                    document.getElementById('activeSkillsList').innerHTML =
                         '<div class="alert alert-danger">加载技能数据时出错</div>';
                 }
-                
+
                 modal.show();
             };
-            
+
             const cardHeader = document.createElement('div');
             cardHeader.className = 'card-header';
             cardHeader.textContent = skill.name || id;
-            
+
             if (skill.mcmrestrict && skill.mcmrestrict.includes(',300')) {
                 const jueXueBadge = document.createElement('span');
                 jueXueBadge.className = 'badge bg-danger jue-xue-badge';
                 jueXueBadge.textContent = '绝学';
                 cardHeader.appendChild(jueXueBadge);
             }
-            if (skill.wxclassify && skill.wxclassify == 'zhishi') { // 添加“知识”标识
+            if (skill.wxclassify && skill.wxclassify == 'zhishi') { // 添加"知识"标识
                 const zhiShiBadge = document.createElement('span');
                 zhiShiBadge.className = 'badge bg-danger jue-xue-badge';
                 zhiShiBadge.textContent = '知识';
                 cardHeader.appendChild(zhiShiBadge);
             }
-            
+
             const cardBody = document.createElement('div');
             cardBody.className = 'card-body';
-            
+
             let content = '';
-            
+
             if (skill.dsc) {
                 const shortDesc = skill.dsc.replace(/HIW|NOR/g, '').split('\\n')[0];
                 content += `<p class="skill-description" style="max-height: 3.6em; overflow-y: auto;">${shortDesc}</p>`;
             }
-            
+
             if (skill.familyList) {
                 content += `<p><strong>门派：</strong><span class="badge bg-info">${skill.familyList}</span></p>`;
             }
-            
+
             if (skill.methods) {
                 content += '<p><strong>武学类型：</strong>';
-                const methodArray = typeof skill.methods === 'string' 
-                    ? skill.methods.split(',') 
+                const methodArray = typeof skill.methods === 'string'
+                    ? skill.methods.split(',')
                     : [String(skill.methods)];
-                    
+
                 methodArray.forEach(method => {
                     const methodName = getMethodName(method.trim());
                     content += `<span class="badge bg-success">${methodName}</span> `;
                 });
                 content += '</p>';
             }
-            
+
             if (skill.weapontype) {
                 content += '<p><strong>装备类型：</strong>';
-                const methodArray = typeof skill.weapontype === 'string' 
-                    ? skill.weapontype.split(',') 
+                const methodArray = typeof skill.weapontype === 'string'
+                    ? skill.weapontype.split(',')
                     : [String(skill.weapontype)];
-                
+
                 methodArray.forEach(type => {
                     const Weapontype = getWeapontype(type.trim());
                     content += `<span class="badge bg-success">${Weapontype}</span> `;
                 });
                 content += '</p>';
             }
-            
+
             content += '<div class="mt-3">';
-            
+
             const attributes = [
                 { key: 'potEfficiency', label: '潜能效率' },
                 { key: 'atk', label: '攻击力系数' },
@@ -463,13 +489,16 @@ export function updateSkillList(skillData, matchesFilters) {
             });
 
             content += '</div>';
-            
+
             cardBody.innerHTML = content;
-            
+
             card.appendChild(cardHeader);
             card.appendChild(cardBody);
             col.appendChild(card);
-            container.appendChild(col);
+            cardsToRender.push(col);
         }
     });
+
+    // 开始批处理渲染
+    renderSkillCards(cardsToRender, container);
 }

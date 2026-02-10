@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=2592000, public">
+    <meta name="theme-color" content="#0d6efd">
     <title>武学技能查询系统</title>
     <link href="extern/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script src="extern/bootstrap.bundle.min.js"></script>
-    <script type="module" src="js/modules/wuxe/wuxue.js"></script>
-    <script type="module" src="js/base.js"></script>
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <script src="extern/bootstrap.bundle.min.js" defer></script>
+    <script type="module" src="js/modules/wuxe/wuxue.js" defer></script>
+    <script src="js/base.js" defer></script>
 </head>
+
 <body>
     <div class="container">
         <div class="page-header text-center d-flex justify-content-between align-items-center">
             <h1>武学技能查询系统</h1>
-            <small class="text-muted align-self-end" style="font-size: 0.8em;">数据日期：2026.01.28</small>
+            <small class="text-muted align-self-end" style="font-size: 0.8em;">数据日期：2026.02.10</small>
             <span class="option-btn" id="optionBtn" style="margin-right: 10px;">☰</span>
             <div class="option-menu" id="optionMenu">
                 <a href="index.html">武学查询</a>
@@ -22,14 +27,16 @@
                 <a href="calc.html">气血计算</a>
             </div>
         </div>
-        
+
         <div class="filter-section">
             <div class="row g-3">
                 <div class="col-md-12">
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light border-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                             </svg>
                         </span>
                         <input type="text" id="searchInput" class="form-control" placeholder="搜索技能名称、描述或其他属性...">
@@ -79,7 +86,7 @@
         </div>
 
         <div id="skillList" class="row">
-            <div class="loading">
+            <div class="loading" id="initialLoading">
                 <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -114,14 +121,17 @@
                 <div class="modal-body">
                     <ul class="nav nav-tabs" id="modalTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#dataContent" type="button" role="tab">基础属性</button>
+                            <button class="nav-link active" id="data-tab" data-bs-toggle="tab"
+                                data-bs-target="#dataContent" type="button" role="tab">基础属性</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skillsContent" type="button" role="tab">主动技能</button>
+                            <button class="nav-link" id="skills-tab" data-bs-toggle="tab"
+                                data-bs-target="#skillsContent" type="button" role="tab">主动技能</button>
                         </li>
                         <!-- 添加被动技能选项卡 -->
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="passive-skills-tab" data-bs-toggle="tab" data-bs-target="#passiveSkillsContent" type="button" role="tab">被动技能</button>
+                            <button class="nav-link" id="passive-skills-tab" data-bs-toggle="tab"
+                                data-bs-target="#passiveSkillsContent" type="button" role="tab">被动技能</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="modalTabContent">
@@ -133,7 +143,8 @@
                         </div>
                         <!-- 添加被动技能内容区域 -->
                         <div class="tab-pane fade" id="passiveSkillsContent" role="tabpanel">
-                            <div id="passiveSkillsList" style="max-height: 70vh; overflow-y: auto; padding: 15px;"></div>
+                            <div id="passiveSkillsList" style="max-height: 70vh; overflow-y: auto; padding: 15px;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,4 +153,5 @@
     </div>
 
 </body>
+
 </html>
