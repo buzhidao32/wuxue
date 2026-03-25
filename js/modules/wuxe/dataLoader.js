@@ -1,5 +1,5 @@
 // 数据加载模块
-import { getData, saveData, fetchGzip, fetchAndCacheData, checkVersion } from '../../db.js';
+import { getData, saveData, fetchGzip, fetchAndCacheData, checkVersion, fetchDataJson } from '../../db.js';
 
 export let skillData = {
     "正气需求": [],
@@ -14,18 +14,9 @@ async function checkAndUpdateCache(filename) {
     try {
         // 每次都从服务器获取最新的 version.json（禁用所有缓存）
         console.log('检查版本...');
-        const timestamp = new Date().getTime();
-        const response = await fetch(`data/version.json?t=${timestamp}`, {
-            cache: 'no-store',
-            headers: {
-                'Cache-Control': 'no-cache, no-store, must-revalidate',
-                'Pragma': 'no-cache'
-            }
+        const serverVersion = await fetchDataJson('data/version.json', {
+            preferRemote: true
         });
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const serverVersion = await response.json();
 
         // 从缓存获取本地的 version.json
         const localVersion = await getData('version.json');

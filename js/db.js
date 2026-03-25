@@ -1,3 +1,5 @@
+import { getDataUrlCandidates, isNativeApp } from './runtimeConfig.js';
+
 const DB_NAME = 'wuxue_data_cache';
 const DB_VERSION = 1;
 const STORE_NAME = 'json_data';
@@ -5,7 +7,7 @@ const STORE_NAME = 'json_data';
 let dbPromise = null;
 let memoryCache = new Map();
 
-function getDataUrlCandidates(url) {
+function getJsonUrlVariants(url) {
     if (url.endsWith('.json.gz')) {
         return [url.replace(/\.gz$/, ''), url];
     }
@@ -15,10 +17,25 @@ function getDataUrlCandidates(url) {
     return [url];
 }
 
-async function fetchJsonFromCandidates(url) {
+function getFetchUrlCandidates(path, options = {}) {
+    const baseCandidates = getDataUrlCandidates(path, options);
+    const candidates = [];
+
+    for (const baseUrl of baseCandidates) {
+        for (const variant of getJsonUrlVariants(baseUrl)) {
+            if (!candidates.includes(variant)) {
+                candidates.push(variant);
+            }
+        }
+    }
+
+    return candidates;
+}
+
+async function fetchJsonFromCandidates(path, options = {}) {
     let lastError = null;
 
-    for (const candidate of getDataUrlCandidates(url)) {
+    for (const candidate of getFetchUrlCandidates(path, options)) {
         try {
             if (candidate.endsWith('.gz')) {
                 const response = await fetch(candidate, { cache: 'no-store' });
@@ -61,7 +78,11 @@ async function fetchJsonFromCandidates(url) {
         }
     }
 
-    throw lastError || new Error(`Unable to load data from ${url}`);
+    throw lastError || new Error(`Unable to load data from ${path}`);
+}
+
+async function fetchDataJson(path, options = {}) {
+    return fetchJsonFromCandidates(path, options);
 }
 
 function initDB() {
@@ -152,7 +173,9 @@ async function saveData(filename, data) {
 async function checkVersion() {
     try {
         const localVersion = await getData('version.json');
-        const serverVersion = await fetchJsonFromCandidates('data/version.json');
+        const serverVersion = await fetchJsonFromCandidates('data/version.json', {
+            preferRemote: isNativeApp()
+        });
 
         if (!localVersion) {
             return { needUpdate: true, serverVersion };
@@ -162,12 +185,14 @@ async function checkVersion() {
         return { needUpdate, localVersion, serverVersion };
     } catch (error) {
         console.error('Check version failed:', error);
-        return { needUpdate: true, error };
+        return { needUpdate: false, error };
     }
 }
 
 async function fetchGzip(url) {
-    return fetchJsonFromCandidates(url);
+    return fetchJsonFromCandidates(url, {
+        preferRemote: isNativeApp()
+    });
 }
 
 async function fetchAndCacheData(filename) {
@@ -179,7 +204,9 @@ async function fetchAndCacheData(filename) {
 
         const data = isGzip
             ? await fetchGzip(url)
-            : await fetchJsonFromCandidates(url);
+            : await fetchJsonFromCandidates(url, {
+                preferRemote: isNativeApp()
+            });
 
         const cacheFilename = isGzip ? filename.replace('.gz', '') : filename;
         await saveData(cacheFilename, data);
@@ -290,6 +317,7 @@ export {
     getData,
     saveData,
     checkVersion,
+    fetchDataJson,
     fetchAndCacheData,
     fetchGzip,
     loadAllData,

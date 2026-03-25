@@ -85,14 +85,19 @@ jobs:
           cd android
           ./gradlew assembleRelease bundleRelease
 
+      - name: Rename Android packages
+        run: |
+          cp android/app/build/outputs/apk/release/app-release.apk android/app/build/outputs/apk/release/武学技能查询.apk
+          cp android/app/build/outputs/bundle/release/app-release.aab android/app/build/outputs/bundle/release/武学技能查询.aab
+
       - name: Upload Android artifacts
         uses: actions/upload-artifact@v4
         with:
           name: android-release-artifacts
           if-no-files-found: error
           path: |
-            ${{ env.APP_DIR }}/android/app/build/outputs/apk/release/*.apk
-            ${{ env.APP_DIR }}/android/app/build/outputs/bundle/release/*.aab
+            ${{ env.APP_DIR }}/android/app/build/outputs/apk/release/武学技能查询.apk
+            ${{ env.APP_DIR }}/android/app/build/outputs/bundle/release/武学技能查询.aab
 
       - name: Publish Android packages to Release
         if: startsWith(github.ref, 'refs/tags/v')
@@ -105,8 +110,8 @@ jobs:
             --title "$TAG_NAME" \
             --generate-notes
           gh release upload "$TAG_NAME" \
-            android/app/build/outputs/apk/release/*.apk \
-            android/app/build/outputs/bundle/release/*.aab \
+            android/app/build/outputs/apk/release/武学技能查询.apk \
+            android/app/build/outputs/bundle/release/武学技能查询.aab \
             --repo "$GITHUB_REPOSITORY" \
             --clobber
 
@@ -165,31 +170,3 @@ jobs:
             -derivedDataPath ios/build \
             CODE_SIGNING_ALLOWED=NO \
             build
-
-      - name: Package iOS release asset
-        run: |
-          cd ios/build/Build/Products/Debug-iphonesimulator
-          ditto -c -k --sequesterRsrc --keepParent App.app App-simulator.zip
-
-      - name: Upload iOS artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-simulator-artifacts
-          if-no-files-found: error
-          path: |
-            ${{ env.APP_DIR }}/ios/build/Build/Products/Debug-iphonesimulator/App-simulator.zip
-
-      - name: Publish iOS package to Release
-        if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.ref_name }}
-        run: |
-          gh release view "$TAG_NAME" --repo "$GITHUB_REPOSITORY" || gh release create "$TAG_NAME" \
-            --repo "$GITHUB_REPOSITORY" \
-            --title "$TAG_NAME" \
-            --generate-notes
-          gh release upload "$TAG_NAME" \
-            ios/build/Build/Products/Debug-iphonesimulator/App-simulator.zip \
-            --repo "$GITHUB_REPOSITORY" \
-            --clobber
