@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+
+wuxue-app/node_modules/
+wuxue-app/www/
+wuxue-app/android/.gradle/
+wuxue-app/android/app/build/
+wuxue-app/ios/App/Pods/
+wuxue-app/ios/build/
+*.apk
+*.aab
