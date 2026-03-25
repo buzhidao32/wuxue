@@ -120,7 +120,15 @@ export function createFilterBadges(containerId, values, filterType) {
 export function clearFilters(filterType) {
     skillFilters[filterType].clear();
 
-    const containerId = filterType === 'family' ? 'familyFilters' : 'methodFilters';
+    const containerId = {
+        family: 'familyFilters',
+        element: 'elementFilters',
+        methods: 'methodsFilters'
+    }[filterType];
+    if (!containerId) {
+        return;
+    }
+
     const badges = document.querySelectorAll(`#${containerId} .filter-badge`);
     badges.forEach(badge => badge.classList.remove('active'));
 }

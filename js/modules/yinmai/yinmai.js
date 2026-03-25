@@ -1,5 +1,4 @@
-
-import { getData, saveData, fetchGzip } from '../../db.js';
+import { loadVersionedResource } from '../../services/dataService.js';
 
 let acupointConfig = {};
 let meridianMap = {};
@@ -14,16 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function loadWithCache(filename) {
-    const cachedData = await getData(filename);
-    if (cachedData) {
-        console.log(`从缓存读取 ${filename}`);
-        return cachedData;
-    }
+    const resourceMap = {
+        'MeridianMapConfig.json': 'meridianMapConfig',
+        'AcupointConfig.json': 'acupointConfig',
+        'MeridianLinkConfig.json': 'meridianLinkConfig'
+    };
 
-    console.log(`从服务器加载 ${filename}.gz（首次加载）`);
-    const data = await fetchGzip(`data/${filename}.gz`);
-    saveData(filename, data).catch(err => console.warn(`保存 ${filename} 缓存失败:`, err));
-    return data;
+    return loadVersionedResource(resourceMap[filename], {
+        preferRemote: true
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -105,6 +103,77 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading JSON files:', error));
 });
 let totalAttributes = {};
+
+function clearGrooveHighlights(grooveElement) {
+    grooveElement.querySelectorAll('.highlight-property, .highlight-special, .highlight-unlock-conditions')
+        .forEach(element => element.remove());
+}
+
+function renderEquippedLinkDetails(grooveElement, selectedLink) {
+    clearGrooveHighlights(grooveElement);
+
+    const propertyElement = document.createElement('p');
+    propertyElement.className = 'highlight-property';
+    propertyElement.textContent = `灞炴€у姞鎴? ${selectedLink.property.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '闃插尽' : '浼ゅ'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
+
+    const specialElement = document.createElement('p');
+    specialElement.className = 'highlight-special';
+    specialElement.textContent = `鐗规畩鍔犳垚: ${selectedLink.specialproperty.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '闃插尽' : '浼ゅ'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
+
+    const unlockConditionsElement = document.createElement('p');
+    unlockConditionsElement.className = 'highlight-unlock-conditions';
+    unlockConditionsElement.textContent = `瑙ｉ攣鏉′欢: ${selectedLink.Unlocktext}`;
+
+    const lastChild = grooveElement.lastElementChild;
+    if (lastChild) {
+        grooveElement.insertBefore(unlockConditionsElement, lastChild.nextSibling);
+        grooveElement.insertBefore(specialElement, lastChild.nextSibling);
+        grooveElement.insertBefore(propertyElement, lastChild.nextSibling);
+    } else {
+        grooveElement.appendChild(unlockConditionsElement);
+        grooveElement.appendChild(specialElement);
+        grooveElement.appendChild(propertyElement);
+    }
+}
+
+function unequipLink(grooveElement) {
+    const linkId = grooveElement.dataset.linkId;
+    if (!linkId) {
+        clearGrooveHighlights(grooveElement);
+        return false;
+    }
+
+    const currentLink = meridianLinkConfig[linkId];
+    if (currentLink) {
+        updateTotalAttributes('remove', currentLink);
+    }
+
+    delete grooveElement.dataset.linkId;
+    clearGrooveHighlights(grooveElement);
+    return true;
+}
+
+function equipLink(grooveElement, linkId) {
+    const selectedLink = meridianLinkConfig[linkId];
+    if (!selectedLink) {
+        return false;
+    }
+
+    const previousLinkId = grooveElement.dataset.linkId;
+    if (previousLinkId === linkId) {
+        renderEquippedLinkDetails(grooveElement, selectedLink);
+        return true;
+    }
+
+    if (previousLinkId) {
+        unequipLink(grooveElement);
+    }
+
+    grooveElement.dataset.linkId = linkId;
+    updateTotalAttributes('add', selectedLink);
+    renderEquippedLinkDetails(grooveElement, selectedLink);
+    return true;
+}
 
 function createMindItemElement(mindItem, mindItemKey) {
     const mindItemElement = document.createElement('div');
@@ -228,23 +297,12 @@ function createMindItemElement(mindItem, mindItemKey) {
             uninstallButton.className = 'btn btn-outline-danger btn-sm';
             uninstallButton.innerHTML = '<i class="bi-trash"></i> 卸下';
             uninstallButton.addEventListener('click', () => {
-                if (gridItem.dataset.linkId) {
-                    const linkData = meridianLinkConfig[gridItem.dataset.linkId];
-                    updateTotalAttributes('remove', linkData);
-                    delete gridItem.dataset.linkId;
-
+                if (unequipLink(gridItem)) {
                     uninstallButton.innerHTML = '<i class="bi-check2"></i> 已卸下';
                     setTimeout(() => {
                         uninstallButton.innerHTML = '<i class="bi-trash"></i> 卸下';
                     }, 1000);
                 }
-                const linkId = gridItem.dataset.linkId;
-                if (linkId) {
-                    const linkData = meridianLinkConfig[linkId];
-                    updateTotalAttributes('remove', linkData);
-                    delete gridItem.dataset.linkId;
-                }
-                gridItem.querySelectorAll('.highlight-property, .highlight-special, .highlight-unlock-conditions').forEach(el => el.remove());
             });
 
             buttonWrapper.appendChild(installButton);
@@ -319,69 +377,23 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
     }
 
     modal.addEventListener('click', (event) => {
-        if (event.target.closest('.select-link')) {
-            const button = event.target.closest('.select-link');
-            const linkId = button.dataset.linkId;
-
-            if (button.disabled) return;
-
-            if (grooveElement.dataset.linkId) {
-                const prevLink = meridianLinkConfig[grooveElement.dataset.linkId];
-                updateTotalAttributes('remove', prevLink);
-            }
-
-            const selectedLink = meridianLinkConfig[linkId];
-            grooveElement.dataset.linkId = linkId;
-            updateTotalAttributes('add', selectedLink);
-
-            button.textContent = '已装备';
-            button.disabled = true;
-
-            setTimeout(() => bootstrap.Modal.getInstance(modal).hide(), 1000);
+        const button = event.target.closest('.select-link');
+        if (!button || button.disabled) {
+            return;
         }
+
+        if (!equipLink(grooveElement, button.dataset.linkId)) {
+            return;
+        }
+
+        button.textContent = '已装备';
+        button.disabled = true;
+
+        setTimeout(() => bootstrap.Modal.getInstance(modal).hide(), 1000);
     });
 
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
-
-    modal.addEventListener('shown.bs.modal', () => {
-        modal.querySelectorAll('.select-link').forEach(button => {
-            button.addEventListener('click', () => {
-                const linkId = button.dataset.linkId;
-                const selectedLink = meridianLinkConfig[linkId];
-                if (selectedLink) {
-                    const existingProperties = grooveElement.querySelectorAll('.highlight-property, .highlight-special, .highlight-unlock-conditions');
-                    existingProperties.forEach(el => el.remove());
-
-                    const propertyElement = document.createElement('p');
-                    propertyElement.className = 'highlight-property';
-                    propertyElement.textContent = `属性加成: ${selectedLink.property.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
-
-                    const specialElement = document.createElement('p');
-                    specialElement.className = 'highlight-special';
-                    specialElement.textContent = `特殊加成: ${selectedLink.specialproperty.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
-
-                    const unlockConditionsElement = document.createElement('p');
-                    unlockConditionsElement.className = 'highlight-unlock-conditions';
-                    unlockConditionsElement.textContent = `解锁条件: ${selectedLink.Unlocktext}`;
-
-                    const lastChild = grooveElement.lastElementChild;
-                    if (lastChild) {
-                        grooveElement.insertBefore(unlockConditionsElement, lastChild.nextSibling);
-                        grooveElement.insertBefore(specialElement, lastChild.nextSibling);
-                        grooveElement.insertBefore(propertyElement, lastChild.nextSibling);
-                    } else {
-                        grooveElement.appendChild(unlockConditionsElement);
-                        grooveElement.appendChild(specialElement);
-                        grooveElement.appendChild(propertyElement);
-                    }
-
-                    grooveElement.dataset.linkId = linkId;
-                    updateTotalAttributes('add', selectedLink);
-                }
-            });
-        });
-    });
 
     return modal;
 }

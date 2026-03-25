@@ -1,5 +1,5 @@
 // 数据加载模块
-import { getData, saveData, fetchGzip, checkVersion, syncVersionedDataFiles } from '../../db.js';
+import { loadVersionedResource, warmVersionedResources } from '../../services/dataService.js';
 
 export let skillData = {
     "正气需求": [],
@@ -15,7 +15,7 @@ function warmRemainingDataFiles(files) {
         return backgroundRefreshPromise;
     }
 
-    backgroundRefreshPromise = syncVersionedDataFiles(files, {
+    backgroundRefreshPromise = warmVersionedResources(files, {
         preferRemote: true
     }).catch(error => {
         console.warn('Background refresh failed:', error);
@@ -26,43 +26,6 @@ function warmRemainingDataFiles(files) {
     return backgroundRefreshPromise;
 }
 
-// 检查是否需要更新缓存
-async function checkAndUpdateCache(filename) {
-    try {
-        console.log('检查版本...');
-        const files = [
-            'skill.json.gz',
-            'activeZhao.json.gz',
-            'skillAuto.json.gz',
-            'MeridianMapConfig.json.gz',
-            'AcupointConfig.json.gz',
-            'MeridianLinkConfig.json.gz'
-        ];
-        const normalizedFilename = filename.endsWith('.gz')
-            ? filename
-            : `${filename}.gz`;
-        const syncResult = await syncVersionedDataFiles([normalizedFilename], {
-            preferRemote: true
-        });
-        const needUpdate = !syncResult.localVersion || syncResult.filesToUpdate.length > 0 || syncResult.savedVersion;
-
-        if (needUpdate) {
-            console.log('检测到新版本，开始更新缓存...');
-            const primaryData = await getData(filename.replace('.gz', ''));
-            const remainingFiles = files.filter(file => file !== normalizedFilename);
-            void warmRemainingDataFiles(remainingFiles);
-            console.log('缓存更新完成');
-            return primaryData || await getData(filename.replace('.gz', ''));
-        }
-
-        console.log('版本一致，使用本地缓存');
-        return null;
-    } catch (error) {
-        console.error('检查版本失败:', error);
-        return null;
-    }
-}
-
 // 从 JSON 文件加载数据（带缓存和版本检查，使用 gzip 压缩）
 export async function loadSkillData() {
     if (skillData && Object.keys(skillData.skills).length > 0) {
@@ -70,22 +33,16 @@ export async function loadSkillData() {
     }
 
     try {
-        const remoteFirstData = await checkAndUpdateCache('skill.json');
-        if (remoteFirstData) {
-            skillData = remoteFirstData;
-            console.log('优先使用远端 skill.json.gz');
-        } else {
-            const cachedData = await getData('skill.json');
-
-            if (cachedData) {
-                console.log('远端无更新或不可用，从缓存读取 skill.json');
-                skillData = cachedData;
-            } else {
-                console.log('远端同步失败且无缓存，从服务器加载 skill.json.gz');
-                skillData = await fetchGzip('data/skill.json.gz');
-                saveData('skill.json', skillData).catch(err => console.warn('保存 skill.json 缓存失败:', err));
-            }
-        }
+        skillData = await loadVersionedResource('skill', {
+            preferRemote: true
+        });
+        void warmRemainingDataFiles([
+            'activeZhao',
+            'skillAuto',
+            'meridianMapConfig',
+            'acupointConfig',
+            'meridianLinkConfig'
+        ]);
 
         skillData.skills.yidaoliu.weapontype = "jianfa1,jianfa2,jianfa3,jianfa4,jianfa5,daofa1,daofa2,daofa3,daofa4,daofa5";
         return skillData;
@@ -102,28 +59,9 @@ export async function loadActiveSkillData() {
     if (activeSkillData) return activeSkillData;
 
     try {
-        const syncResult = await syncVersionedDataFiles(['activeZhao.json.gz'], {
+        activeSkillData = await loadVersionedResource('activeZhao', {
             preferRemote: true
         });
-        if (syncResult.updatedFiles.length > 0 || syncResult.savedVersion) {
-            console.log('优先使用远端 activeZhao.json.gz');
-            const newData = await getData('activeZhao.json');
-            if (newData) {
-                activeSkillData = newData;
-                return activeSkillData;
-            }
-        }
-
-        const cachedData = await getData('activeZhao.json');
-        if (cachedData) {
-            console.log('远端无更新或不可用，从缓存读取 activeZhao.json');
-            activeSkillData = cachedData;
-            return activeSkillData;
-        }
-
-        console.log('远端同步失败且无缓存，从服务器加载 activeZhao.json.gz');
-        activeSkillData = await fetchGzip('data/activeZhao.json.gz');
-        saveData('activeZhao.json', activeSkillData).catch(err => console.warn('保存 activeZhao.json 缓存失败:', err));
         return activeSkillData;
     } catch (error) {
         console.error('Error loading active skill data:', error);
@@ -136,28 +74,9 @@ export async function loadSkillAutoData() {
     if (skillAutoData) return skillAutoData;
 
     try {
-        const syncResult = await syncVersionedDataFiles(['skillAuto.json.gz'], {
+        skillAutoData = await loadVersionedResource('skillAuto', {
             preferRemote: true
         });
-        if (syncResult.updatedFiles.length > 0 || syncResult.savedVersion) {
-            console.log('优先使用远端 skillAuto.json.gz');
-            const newData = await getData('skillAuto.json');
-            if (newData) {
-                skillAutoData = newData;
-                return skillAutoData;
-            }
-        }
-
-        const cachedData = await getData('skillAuto.json');
-        if (cachedData) {
-            console.log('远端无更新或不可用，从缓存读取 skillAuto.json');
-            skillAutoData = cachedData;
-            return skillAutoData;
-        }
-
-        console.log('远端同步失败且无缓存，从服务器加载 skillAuto.json.gz');
-        skillAutoData = await fetchGzip('data/skillAuto.json.gz');
-        saveData('skillAuto.json', skillAutoData).catch(err => console.warn('保存 skillAuto.json 缓存失败:', err));
         return skillAutoData;
     } catch (error) {
         console.error('Error loading skill auto data:', error);

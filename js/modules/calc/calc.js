@@ -1,6 +1,5 @@
 
-
-import { getData, saveData, fetchGzip } from '../../db.js';
+import { loadVersionedResource } from '../../services/dataService.js';
 
 let skillData = null;
 let skillAutoData = null;
@@ -23,20 +22,9 @@ async function loadSkillData() {
     }
 
     try {
-        const cachedData = await getData('skill.json');
-        if (cachedData) {
-            console.log('从缓存读取 skill.json');
-            skillData = cachedData;
-            return skillData;
-        }
-
-        console.log('从服务器加载 skill.json.gz（首次加载）');
-        skillData = await fetchGzip('data/skill.json.gz');
-
-        // 并行保存缓存（不等待完成）
-        saveData('skill.json', skillData).catch(err => console.warn('保存 skill.json 缓存失败:', err));
-
-        console.log('从服务器加载 skill.json.gz 完成');
+        skillData = await loadVersionedResource('skill', {
+            preferRemote: true
+        });
         return skillData;
     } catch (error) {
         console.error('Error loading skill data:', error);
@@ -51,20 +39,9 @@ async function loadSkillAutoData() {
     if (skillAutoData) return skillAutoData;
 
     try {
-        const cachedData = await getData('skillAuto.json');
-        if (cachedData) {
-            console.log('从缓存读取 skillAuto.json');
-            skillAutoData = cachedData;
-            return skillAutoData;
-        }
-
-        console.log('从服务器加载 skillAuto.json.gz（首次加载）');
-        skillAutoData = await fetchGzip('data/skillAuto.json.gz');
-
-        // 并行保存缓存（不等待完成）
-        saveData('skillAuto.json', skillAutoData).catch(err => console.warn('保存 skillAuto.json 缓存失败:', err));
-
-        console.log('从服务器加载 skillAuto.json.gz 完成');
+        skillAutoData = await loadVersionedResource('skillAuto', {
+            preferRemote: true
+        });
         return skillAutoData;
     } catch (error) {
         console.error('Error loading skill auto data:', error);

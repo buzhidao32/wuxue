@@ -1,7 +1,7 @@
 const DEFAULT_REMOTE_BASE_URLS = [
-    'https://buzhidao159.netlify.app/',
     'https://buzhidao32.github.io/wuxue/',
-    'https://cdn.jsdelivr.net/gh/buzhidao32/wuxue@main/'
+    'https://cdn.jsdelivr.net/gh/buzhidao32/wuxue@main/',
+    'https://buzhidao159.netlify.app/'
 ];
 
 export function isNativeApp() {
