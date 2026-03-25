@@ -1,11 +1,11 @@
 {
-  "version": "2026.02.10",
+  "version": "2026.02.11",
   "files": {
-    "skill.json": "2026.02.10",
-    "activeZhao.json": "2026.02.10",
-    "skillAuto.json": "2026.02.10",
-    "MeridianMapConfig.json": "2026.02.10",
-    "AcupointConfig.json": "2026.02.10",
-    "MeridianLinkConfig.json": "2026.02.10"
+    "skill.json": "2026.02.11",
+    "activeZhao.json": "2026.02.11",
+    "skillAuto.json": "2026.02.11",
+    "MeridianMapConfig.json": "2026.02.11",
+    "AcupointConfig.json": "2026.02.11",
+    "MeridianLinkConfig.json": "2026.02.11"
   }
 }
