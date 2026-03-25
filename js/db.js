@@ -7,6 +7,29 @@ const STORE_NAME = 'json_data';
 let dbPromise = null;
 let memoryCache = new Map();
 
+function normalizeCacheFilename(filename) {
+    return filename.replace(/^data\//, '').replace(/\.gz$/, '');
+}
+
+function normalizeVersionFilename(filename) {
+    return normalizeCacheFilename(filename);
+}
+
+function getChangedDataFiles(localVersion, serverVersion, filenames = []) {
+    if (!filenames.length) {
+        return [];
+    }
+
+    if (!localVersion?.files || !serverVersion?.files) {
+        return [...filenames];
+    }
+
+    return filenames.filter(filename => {
+        const key = normalizeVersionFilename(filename);
+        return localVersion.files[key] !== serverVersion.files[key];
+    });
+}
+
 function getJsonUrlVariants(url) {
     if (url.endsWith('.json.gz')) {
         return [url.replace(/\.gz$/, ''), url];
@@ -189,6 +212,23 @@ async function checkVersion() {
     }
 }
 
+async function getVersionState(filenames = [], options = {}) {
+    const preferRemote = options.preferRemote ?? isNativeApp();
+    const localVersion = await getData('version.json');
+    const serverVersion = await fetchJsonFromCandidates('data/version.json', {
+        preferRemote
+    });
+    const changedFiles = getChangedDataFiles(localVersion, serverVersion, filenames);
+    const versionChanged = !localVersion || localVersion.version !== serverVersion.version;
+
+    return {
+        localVersion,
+        serverVersion,
+        changedFiles,
+        versionChanged
+    };
+}
+
 async function fetchGzip(url) {
     return fetchJsonFromCandidates(url, {
         preferRemote: isNativeApp()
@@ -219,6 +259,38 @@ async function fetchAndCacheData(filename) {
     }
 }
 
+async function syncVersionedDataFiles(filenames, options = {}) {
+    const preferRemote = options.preferRemote ?? isNativeApp();
+    const versionState = await getVersionState(filenames, { preferRemote });
+    const filesToUpdate = versionState.localVersion ? versionState.changedFiles : [...filenames];
+    const updatedFiles = [];
+    const failedFiles = [];
+
+    for (const filename of filesToUpdate) {
+        const data = await fetchAndCacheData(filename);
+        if (data) {
+            updatedFiles.push(filename);
+        } else {
+            failedFiles.push(filename);
+        }
+    }
+
+    const shouldSaveVersion = failedFiles.length === 0
+        && (updatedFiles.length > 0 || versionState.versionChanged);
+
+    if (shouldSaveVersion) {
+        await saveData('version.json', versionState.serverVersion);
+    }
+
+    return {
+        ...versionState,
+        filesToUpdate,
+        updatedFiles,
+        failedFiles,
+        savedVersion: shouldSaveVersion
+    };
+}
+
 async function loadAllData(filenames) {
     const versionInfo = await checkVersion();
     const result = {};
@@ -226,13 +298,18 @@ async function loadAllData(filenames) {
     if (versionInfo.needUpdate) {
         console.log('Detected a new version, refreshing cache');
 
-        await fetchAndCacheData('version.json');
+        const syncResult = await syncVersionedDataFiles(filenames);
 
         for (const filename of filenames) {
-            const data = await fetchAndCacheData(filename);
+            const cacheFilename = normalizeCacheFilename(filename);
+            const data = await getData(cacheFilename);
             if (data) {
                 result[filename] = data;
             }
+        }
+
+        if (syncResult.failedFiles.length > 0) {
+            console.warn('Some files failed to refresh:', syncResult.failedFiles);
         }
     } else {
         console.log('Using local cache');
@@ -317,10 +394,12 @@ export {
     getData,
     saveData,
     checkVersion,
+    getVersionState,
     fetchDataJson,
     fetchAndCacheData,
     fetchGzip,
     loadAllData,
+    syncVersionedDataFiles,
     clearCache,
     getCacheInfo
 };

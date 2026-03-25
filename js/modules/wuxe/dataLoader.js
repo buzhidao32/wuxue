@@ -1,5 +1,5 @@
 // 数据加载模块
-import { getData, saveData, fetchGzip, fetchAndCacheData, checkVersion, fetchDataJson } from '../../db.js';
+import { getData, saveData, fetchGzip, checkVersion, syncVersionedDataFiles } from '../../db.js';
 
 export let skillData = {
     "正气需求": [],
@@ -8,54 +8,62 @@ export let skillData = {
 export let activeSkillData = null;
 export let skillAutoData = null;
 export let skillRelationData = null;
+let backgroundRefreshPromise = null;
+
+function warmRemainingDataFiles(files) {
+    if (backgroundRefreshPromise) {
+        return backgroundRefreshPromise;
+    }
+
+    backgroundRefreshPromise = syncVersionedDataFiles(files, {
+        preferRemote: true
+    }).catch(error => {
+        console.warn('Background refresh failed:', error);
+    }).finally(() => {
+        backgroundRefreshPromise = null;
+    });
+
+    return backgroundRefreshPromise;
+}
 
 // 检查是否需要更新缓存
 async function checkAndUpdateCache(filename) {
     try {
-        // 每次都从服务器获取最新的 version.json（禁用所有缓存）
         console.log('检查版本...');
-        const serverVersion = await fetchDataJson('data/version.json', {
+        const files = [
+            'skill.json.gz',
+            'activeZhao.json.gz',
+            'skillAuto.json.gz',
+            'MeridianMapConfig.json.gz',
+            'AcupointConfig.json.gz',
+            'MeridianLinkConfig.json.gz'
+        ];
+        const normalizedFilename = filename.endsWith('.gz')
+            ? filename
+            : `${filename}.gz`;
+        const syncResult = await syncVersionedDataFiles([normalizedFilename], {
             preferRemote: true
         });
-
-        // 从缓存获取本地的 version.json
-        const localVersion = await getData('version.json');
-
-        // 比较版本号
-        const needUpdate = !localVersion || localVersion.version !== serverVersion.version;
+        const needUpdate = !syncResult.localVersion || syncResult.filesToUpdate.length > 0 || syncResult.savedVersion;
 
         if (needUpdate) {
-            console.log(`检测到新版本，开始更新缓存...`);
-
-            const files = [
-                'skill.json.gz',
-                'activeZhao.json.gz',
-                'skillAuto.json.gz',
-                'MeridianMapConfig.json.gz',
-                'AcupointConfig.json.gz',
-                'MeridianLinkConfig.json.gz'
-            ];
-
-            for (const file of files) {
-                await fetchAndCacheData(file);
-            }
-
-            // 保存 version.json 到缓存
-            saveData('version.json', serverVersion);
-
+            console.log('检测到新版本，开始更新缓存...');
+            const primaryData = await getData(filename.replace('.gz', ''));
+            const remainingFiles = files.filter(file => file !== normalizedFilename);
+            void warmRemainingDataFiles(remainingFiles);
             console.log('缓存更新完成');
-            return await getData(filename.replace('.gz', ''));
-        } else {
-            console.log('版本一致，使用本地缓存');
-            return null; // 版本一致，不需要更新
+            return primaryData || await getData(filename.replace('.gz', ''));
         }
+
+        console.log('版本一致，使用本地缓存');
+        return null;
     } catch (error) {
         console.error('检查版本失败:', error);
         return null;
     }
 }
 
-// 从JSON文件加载数据（带缓存和版本检查，使用gzip压缩）
+// 从 JSON 文件加载数据（带缓存和版本检查，使用 gzip 压缩）
 export async function loadSkillData() {
     if (skillData && Object.keys(skillData.skills).length > 0) {
         return skillData;
@@ -67,11 +75,14 @@ export async function loadSkillData() {
         if (cachedData) {
             const versionInfo = await checkVersion();
             if (versionInfo.needUpdate) {
-                console.log(`检测到新版本，开始更新缓存...`);
+                console.log('检测到新版本，开始更新缓存...');
                 const newData = await checkAndUpdateCache('skill.json');
                 if (newData) {
                     skillData = newData;
                     console.log('从服务器重新加载 skill.json.gz（版本更新）');
+                } else {
+                    skillData = cachedData;
+                    console.warn('skill.json update failed, using cached data');
                 }
             } else {
                 console.log('从缓存读取 skill.json');
@@ -93,7 +104,7 @@ export async function loadSkillData() {
     }
 }
 
-// 加载主动技能数据（带缓存和版本检查，使用gzip压缩）
+// 加载主动技能数据（带缓存和版本检查，使用 gzip 压缩）
 export async function loadActiveSkillData() {
     if (activeSkillData) return activeSkillData;
 
@@ -101,13 +112,19 @@ export async function loadActiveSkillData() {
         const cachedData = await getData('activeZhao.json');
 
         if (cachedData) {
-            const versionInfo = await checkVersion();
-            if (versionInfo.needUpdate) {
-                console.log(`检测到新版本，更新 activeZhao.json...`);
-                const newData = await fetchGzip('data/activeZhao.json.gz');
-                activeSkillData = newData;
-                saveData('activeZhao.json', activeSkillData).catch(err => console.warn('保存 activeZhao.json 缓存失败:', err));
-                console.log('从服务器重新加载 activeZhao.json.gz（版本更新）');
+            const syncResult = await syncVersionedDataFiles(['activeZhao.json.gz'], {
+                preferRemote: true
+            });
+            if (syncResult.updatedFiles.length > 0) {
+                console.log('检测到新版本，更新 activeZhao.json...');
+                const newData = await getData('activeZhao.json');
+                if (newData) {
+                    activeSkillData = newData;
+                    console.log('从服务器重新加载 activeZhao.json.gz（版本更新）');
+                    return activeSkillData;
+                }
+                activeSkillData = cachedData;
+                console.warn('activeZhao.json update failed, using cached data');
                 return activeSkillData;
             }
             console.log('从缓存读取 activeZhao.json');
@@ -125,7 +142,7 @@ export async function loadActiveSkillData() {
     }
 }
 
-// 加载被动技能数据（带缓存和版本检查，使用gzip压缩）
+// 加载被动技能数据（带缓存和版本检查，使用 gzip 压缩）
 export async function loadSkillAutoData() {
     if (skillAutoData) return skillAutoData;
 
@@ -133,13 +150,19 @@ export async function loadSkillAutoData() {
         const cachedData = await getData('skillAuto.json');
 
         if (cachedData) {
-            const versionInfo = await checkVersion();
-            if (versionInfo.needUpdate) {
-                console.log(`检测到新版本，更新 skillAuto.json...`);
-                const newData = await fetchGzip('data/skillAuto.json.gz');
-                skillAutoData = newData;
-                saveData('skillAuto.json', skillAutoData).catch(err => console.warn('保存 skillAuto.json 缓存失败:', err));
-                console.log('从服务器重新加载 skillAuto.json.gz（版本更新）');
+            const syncResult = await syncVersionedDataFiles(['skillAuto.json.gz'], {
+                preferRemote: true
+            });
+            if (syncResult.updatedFiles.length > 0) {
+                console.log('检测到新版本，更新 skillAuto.json...');
+                const newData = await getData('skillAuto.json');
+                if (newData) {
+                    skillAutoData = newData;
+                    console.log('从服务器重新加载 skillAuto.json.gz（版本更新）');
+                    return skillAutoData;
+                }
+                skillAutoData = cachedData;
+                console.warn('skillAuto.json update failed, using cached data');
                 return skillAutoData;
             }
             console.log('从缓存读取 skillAuto.json');
@@ -193,12 +216,12 @@ export function getMethodName(methodId) {
     return methodNames[methodId] || methodId;
 }
 
-// 获取武学类属性
+// 获取武学属性
 export function getElementName(elementId) {
     const elementname = {
-        "1": "无性",
-        "3": "阳性",
-        "5": "阴性",
+        "1": "无属性",
+        "3": "阳属性",
+        "5": "阴属性",
         "7": "混元",
         "9": "外功"
     };
@@ -216,7 +239,7 @@ export function getWeapontype(weapontypeId) {
         "daofa2": "短刀",
         "daofa3": "弯刀",
         "daofa4": "大环刀",
-        "daofa5": "双刃斧",
+        "daofa5": "双刀斩",
         "gunfa1": "长棍",
         "gunfa2": "长枪",
         "gunfa3": "三节棍",
@@ -225,8 +248,8 @@ export function getWeapontype(weapontypeId) {
         "bianfa1": "长鞭",
         "bianfa2": "软鞭",
         "bianfa3": "九节鞭",
-        "bianfa4": "杆子鞭",
-        "bianfa5": "链枷",
+        "bianfa4": "杖子鞭",
+        "bianfa5": "链子镖",
         "anqi1": "锥形暗器",
         "anqi2": "圆形暗器",
         "anqi3": "针形暗器",
