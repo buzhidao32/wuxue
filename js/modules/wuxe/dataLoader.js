@@ -15,9 +15,7 @@ function warmRemainingDataFiles(files) {
         return backgroundRefreshPromise;
     }
 
-    backgroundRefreshPromise = warmVersionedResources(files, {
-        preferRemote: true
-    }).catch(error => {
+    backgroundRefreshPromise = warmVersionedResources(files).catch(error => {
         console.warn('Background refresh failed:', error);
     }).finally(() => {
         backgroundRefreshPromise = null;
@@ -33,9 +31,7 @@ export async function loadSkillData() {
     }
 
     try {
-        skillData = await loadVersionedResource('skill', {
-            preferRemote: true
-        });
+        skillData = await loadVersionedResource('skill');
         void warmRemainingDataFiles([
             'activeZhao',
             'skillAuto',
@@ -59,9 +55,7 @@ export async function loadActiveSkillData() {
     if (activeSkillData) return activeSkillData;
 
     try {
-        activeSkillData = await loadVersionedResource('activeZhao', {
-            preferRemote: true
-        });
+        activeSkillData = await loadVersionedResource('activeZhao');
         return activeSkillData;
     } catch (error) {
         console.error('Error loading active skill data:', error);
@@ -74,9 +68,7 @@ export async function loadSkillAutoData() {
     if (skillAutoData) return skillAutoData;
 
     try {
-        skillAutoData = await loadVersionedResource('skillAuto', {
-            preferRemote: true
-        });
+        skillAutoData = await loadVersionedResource('skillAuto');
         return skillAutoData;
     } catch (error) {
         console.error('Error loading skill auto data:', error);

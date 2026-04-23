@@ -22,9 +22,7 @@ async function loadSkillData() {
     }
 
     try {
-        skillData = await loadVersionedResource('skill', {
-            preferRemote: true
-        });
+        skillData = await loadVersionedResource('skill');
         return skillData;
     } catch (error) {
         console.error('Error loading skill data:', error);
@@ -39,9 +37,7 @@ async function loadSkillAutoData() {
     if (skillAutoData) return skillAutoData;
 
     try {
-        skillAutoData = await loadVersionedResource('skillAuto', {
-            preferRemote: true
-        });
+        skillAutoData = await loadVersionedResource('skillAuto');
         return skillAutoData;
     } catch (error) {
         console.error('Error loading skill auto data:', error);

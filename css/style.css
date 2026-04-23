@@ -323,8 +323,41 @@ pre {
     display: block;
 }
 
-.option-menu a:hover {
+.option-menu a:hover,
+.option-menu-action:hover {
     background-color: #f1f1f1;
+}
+
+.option-menu-divider {
+    border-top: 1px solid #eee;
+    margin: 4px 0;
+}
+
+.option-menu-action {
+    background: none;
+    border: 0;
+    color: black;
+    cursor: pointer;
+    display: block;
+    padding: 12px 16px;
+    text-align: left;
+    width: 100%;
+}
+
+.option-menu-action:focus {
+    background-color: #f1f1f1;
+    outline: none;
+}
+
+.force-refresh-modal .modal-dialog {
+    max-width: 420px;
+}
+
+@media (max-width: 576px) {
+    .force-refresh-modal .modal-dialog {
+        margin: 0.75rem;
+        max-width: none;
+    }
 }
 
 .dropdown-menu {

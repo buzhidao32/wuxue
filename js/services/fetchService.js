@@ -1,4 +1,4 @@
-import { getDataUrlCandidates, getRemoteBaseUrls } from '../runtimeConfig.js';
+import { getDataUrlCandidates, getRemoteBaseUrls, isNativeApp } from '../runtimeConfig.js';
 import { debugError, debugInfo, debugWarn } from './debugLogService.js';
 
 const PATH_FORMAT_HINTS = new Map();
@@ -72,12 +72,26 @@ function shouldCooldownOrigin(error) {
     return true;
 }
 
+function resolvePreferredFormat(path, options = {}) {
+    if (options.preferFormat) {
+        return options.preferFormat;
+    }
+
+    if (options.localOnly && isNativeApp() && !path.endsWith('version.json')) {
+        return 'json';
+    }
+
+    return getPreferredFormat(path);
+}
+
 function getFetchUrlCandidates(path, options = {}) {
     const normalizedPath = path.replace(/^\/+/, '');
-    const preferredFormat = options.preferFormat ?? getPreferredFormat(normalizedPath);
+    const preferredFormat = resolvePreferredFormat(normalizedPath, options);
     const baseCandidates = options.remoteOnly
         ? getRemoteBaseUrls().map(baseUrl => new URL(normalizedPath, baseUrl).toString())
-        : getDataUrlCandidates(path, options);
+        : options.localOnly
+            ? [normalizedPath]
+            : getDataUrlCandidates(path, options);
     const candidates = [];
 
     for (const baseUrl of baseCandidates) {
@@ -92,6 +106,7 @@ function getFetchUrlCandidates(path, options = {}) {
     debugInfo('fetch.candidates.resolved', {
         path: normalizedPath,
         preferRemote: options.preferRemote,
+        localOnly: options.localOnly,
         remoteOnly: options.remoteOnly,
         preferFormat: preferredFormat,
         candidates,

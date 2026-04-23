@@ -1,4 +1,3 @@
-import { isNativeApp } from '../runtimeConfig.js';
 import { getCachedData } from './cacheService.js';
 import { debugInfo, debugWarn } from './debugLogService.js';
 import { fetchAndCacheResource, syncVersionedResources } from './versionService.js';
@@ -36,56 +35,82 @@ async function resolveCachedOrRescue(resourceId, options = {}) {
     debugWarn('data.cache.miss', {
         resourceId: definition.id,
         cacheKey: definition.cacheKey,
-        fallback: 'rescue-fetch'
+        fallback: 'rescue-fetch',
+        selectedSource: options.source ?? null,
+        fallbackSource: options.fallbackSource ?? null
     });
+
+    if (options.source === 'cache' && options.fallbackSource) {
+        const rescue = await fetchAndCacheResource(resourceId, {
+            source: options.fallbackSource,
+            saveToCache: false
+        });
+        console.log(`缓存缺失，临时使用${options.fallbackSource === 'remote' ? '远端' : '本地'} ${definition.cacheKey}`);
+        debugWarn('data.cache.miss.degraded_fallback', {
+            resourceId: definition.id,
+            cacheKey: definition.cacheKey,
+            fallbackSource: options.fallbackSource,
+            source: rescue.url
+        });
+        return rescue.data;
+    }
+
     const rescue = await fetchAndCacheResource(resourceId, {
-        preferRemote: options.preferRemote,
-        remoteOnly: false
+        source: options.source
     });
     console.log(`从 ${rescue.url} 恢复 ${definition.cacheKey}`);
     debugInfo('data.rescue.succeeded', {
         resourceId: definition.id,
         cacheKey: definition.cacheKey,
-        source: rescue.url
+        source: rescue.url,
+        selectedSource: rescue.selectedSource ?? options.source ?? null
     });
     return rescue.data;
 }
 
 async function loadVersionedResource(resourceId, options = {}) {
-    const preferRemote = options.preferRemote ?? isNativeApp();
     const definition = getResourceDefinition(resourceId);
 
     return withSingleFlight(inflightLoads, definition.id, async () => {
         debugInfo('data.load.started', {
             resourceId: definition.id,
-            cacheKey: definition.cacheKey,
-            preferRemote
+            cacheKey: definition.cacheKey
         });
-        const syncResult = await syncVersionedResources([definition.id], {
-            preferRemote
-        });
+        const syncResult = await syncVersionedResources([definition.id], options);
 
         if (syncResult.versionCheckFailed) {
-            console.warn(`远端版本检查失败，回退缓存 ${definition.cacheKey}`);
+            console.warn(`版本源检查失败，回退缓存 ${definition.cacheKey}`);
             debugWarn('data.load.version_check_failed', {
                 resourceId: definition.id,
-                cacheKey: definition.cacheKey
+                cacheKey: definition.cacheKey,
+                message: String(syncResult.error?.message || syncResult.error || 'version-check-failed')
             });
-            return resolveCachedOrRescue(definition.id, { preferRemote });
-        }
-
-        const shouldUseRemoteData = !syncResult.localVersion
-            || syncResult.updatedResourceIds.length > 0
-            || syncResult.savedVersion;
-
-        if (shouldUseRemoteData) {
-            const freshData = await getCachedData(definition.cacheKey);
-            if (freshData) {
-                console.log(`优先使用远端 ${definition.cacheKey}`);
+            const cachedData = await getCachedData(definition.cacheKey);
+            if (cachedData) {
                 debugInfo('data.load.completed', {
                     resourceId: definition.id,
                     cacheKey: definition.cacheKey,
-                    source: 'remote-or-refreshed-cache',
+                    source: 'cache-after-version-check-failed'
+                });
+                return cachedData;
+            }
+
+            throw syncResult.error || new Error(`Unable to load ${definition.cacheKey} without a valid version source`);
+        }
+
+        const shouldUseSelectedSourceData = !syncResult.localVersion
+            || syncResult.updatedResourceIds.length > 0
+            || syncResult.savedVersion;
+
+        if (shouldUseSelectedSourceData) {
+            const freshData = await getCachedData(definition.cacheKey);
+            if (freshData) {
+                console.log(`优先使用${syncResult.selectedSource === 'remote' ? '远端' : '本地'} ${definition.cacheKey}`);
+                debugInfo('data.load.completed', {
+                    resourceId: definition.id,
+                    cacheKey: definition.cacheKey,
+                    source: 'selected-source-or-refreshed-cache',
+                    selectedSource: syncResult.selectedSource,
                     updatedResourceIds: syncResult.updatedResourceIds,
                     savedVersion: syncResult.savedVersion
                 });
@@ -93,15 +118,20 @@ async function loadVersionedResource(resourceId, options = {}) {
             }
         }
 
-        console.log(`远端版本未变化，使用缓存 ${definition.cacheKey}`);
+        console.log(`选中来源版本未变化，使用缓存 ${definition.cacheKey}`);
         debugInfo('data.load.completed', {
             resourceId: definition.id,
             cacheKey: definition.cacheKey,
             source: 'cache',
+            selectedSource: syncResult.selectedSource,
+            fallbackSource: syncResult.fallbackSource,
             updatedResourceIds: syncResult.updatedResourceIds,
             savedVersion: syncResult.savedVersion
         });
-        return resolveCachedOrRescue(definition.id, { preferRemote });
+        return resolveCachedOrRescue(definition.id, {
+            source: syncResult.selectedSource,
+            fallbackSource: syncResult.fallbackSource
+        });
     });
 }
 
@@ -117,24 +147,24 @@ async function loadVersionedResources(resourceIds, options = {}) {
 }
 
 async function warmVersionedResources(resourceIds = getVersionedResourceIds(), options = {}) {
-    const preferRemote = options.preferRemote ?? isNativeApp();
     const ids = resourceIds.map(resourceId => getResourceDefinition(resourceId).id).sort();
     const key = ids.join('|');
 
     return withSingleFlight(inflightWarmups, key, async () => {
         debugInfo('data.warmup.started', {
-            resourceIds: ids,
-            preferRemote
+            resourceIds: ids
         });
-        const syncResult = await syncVersionedResources(ids, { preferRemote });
+        const syncResult = await syncVersionedResources(ids, options);
         if (syncResult.versionCheckFailed) {
-            console.warn('Background refresh skipped because remote version check failed');
+            console.warn('Background refresh skipped because version source resolution failed');
             debugWarn('data.warmup.version_check_failed', {
-                resourceIds: ids
+                resourceIds: ids,
+                message: String(syncResult.error?.message || syncResult.error || 'version-check-failed')
             });
         }
         debugInfo('data.warmup.completed', {
             resourceIds: ids,
+            selectedSource: syncResult.selectedSource,
             updatedResourceIds: syncResult.updatedResourceIds,
             failedResourceIds: syncResult.failedResourceIds,
             savedVersion: syncResult.savedVersion

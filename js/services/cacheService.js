@@ -148,6 +148,56 @@ async function clearAllCachedData() {
     }
 }
 
+async function replaceAllCachedData(records) {
+    try {
+        const timestamp = Date.now();
+        const nextMemoryCache = new Map();
+        const normalizedRecords = records.map(record => {
+            const normalizedRecord = {
+                filename: record.filename,
+                data: record.data,
+                timestamp,
+                source: record.source ?? 'unknown',
+                version: record.version ?? null
+            };
+
+            nextMemoryCache.set(normalizedRecord.filename, normalizedRecord);
+            return normalizedRecord;
+        });
+
+        const db = await initCacheDB();
+        return await new Promise((resolve, reject) => {
+            const transaction = db.transaction([STORE_NAME], 'readwrite');
+            const store = transaction.objectStore(STORE_NAME);
+
+            transaction.oncomplete = () => {
+                memoryCache.clear();
+                for (const [filename, record] of nextMemoryCache) {
+                    memoryCache.set(filename, record);
+                }
+                console.log('Cache replaced');
+                resolve(true);
+            };
+
+            transaction.onerror = () => reject(transaction.error);
+            transaction.onabort = () => reject(transaction.error);
+
+            try {
+                store.clear();
+                for (const record of normalizedRecords) {
+                    store.put(record);
+                }
+            } catch (error) {
+                transaction.abort();
+                reject(error);
+            }
+        });
+    } catch (error) {
+        console.error('Replace cache failed:', error);
+        return false;
+    }
+}
+
 async function getCacheSnapshot() {
     try {
         const db = await initCacheDB();
@@ -191,5 +241,6 @@ export {
     getCachedData,
     getCachedRecord,
     initCacheDB,
+    replaceAllCachedData,
     saveCachedData
 };

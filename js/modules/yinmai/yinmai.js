@@ -19,9 +19,7 @@ async function loadWithCache(filename) {
         'MeridianLinkConfig.json': 'meridianLinkConfig'
     };
 
-    return loadVersionedResource(resourceMap[filename], {
-        preferRemote: true
-    });
+    return loadVersionedResource(resourceMap[filename]);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

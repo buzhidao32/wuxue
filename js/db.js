@@ -26,17 +26,18 @@ async function saveData(filename, data) {
     return saveCachedData(normalizeResourceFilename(filename), data);
 }
 
-async function checkVersion() {
+async function checkVersion(options = {}) {
     try {
-        const versionState = await getUnifiedVersionState(getVersionedResourceIds(), {
-            preferRemote: true
-        });
+        const versionState = await getUnifiedVersionState(getVersionedResourceIds(), options);
 
         return {
             needUpdate: versionState.versionChanged,
+            remoteNeedUpdate: versionState.remoteVersionChanged ?? false,
             localVersion: versionState.localVersion,
             serverVersion: versionState.serverVersion,
-            serverVersionUrl: versionState.serverVersionUrl
+            serverVersionUrl: versionState.serverVersionUrl,
+            selectedSource: versionState.selectedSource,
+            selectedVersion: versionState.selectedVersion
         };
     } catch (error) {
         console.error('Check version failed:', error);
@@ -57,17 +58,29 @@ async function fetchDataJson(path, options = {}) {
 }
 
 async function fetchGzip(path) {
-    return fetchJsonData(path, {
-        preferRemote: true
-    });
+    return fetchJsonData(path);
 }
 
-async function fetchAndCacheData(filename) {
+async function fetchAndCacheData(filename, options = {}) {
     try {
         const definition = getResourceDefinition(normalizeResourceFilename(filename));
-        const result = await fetchAndCacheResource(definition.id, {
-            preferRemote: true
-        });
+        const syncResult = await syncVersionedResources([definition.id], options);
+        const cachedData = await getCachedData(definition.cacheKey);
+
+        if (cachedData) {
+            console.log(`Downloaded and cached ${normalizeResourceFilename(filename)}`);
+            return cachedData;
+        }
+
+        if (syncResult.selectedSource === 'cache' && syncResult.fallbackSource) {
+            const result = await fetchAndCacheResource(definition.id, {
+                source: syncResult.fallbackSource,
+                saveToCache: false
+            });
+            return result.data;
+        }
+
+        const result = await fetchAndCacheResource(definition.id, options);
         console.log(`Downloaded and cached ${normalizeResourceFilename(filename)}`);
         return result.data;
     } catch (error) {
@@ -88,11 +101,9 @@ async function syncVersionedDataFiles(filenames, options = {}) {
     };
 }
 
-async function loadAllData(filenames) {
+async function loadAllData(filenames, options = {}) {
     const resourceIds = filenames.map(filename => getResourceDefinition(normalizeResourceFilename(filename)).id);
-    const loaded = await loadVersionedResources(resourceIds, {
-        preferRemote: true
-    });
+    const loaded = await loadVersionedResources(resourceIds, options);
     const result = {};
 
     for (const resourceId of resourceIds) {
