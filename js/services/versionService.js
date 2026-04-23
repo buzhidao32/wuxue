@@ -1,5 +1,5 @@
 import { isNativeApp } from '../runtimeConfig.js';
-import { getCachedData, saveCachedData } from './cacheService.js';
+import { getCachedData, getCachedRecord, saveCachedData } from './cacheService.js';
 import { debugError, debugInfo, debugWarn } from './debugLogService.js';
 import { fetchJsonFromCandidates } from './fetchService.js';
 import { getResourceDefinition, getVersionedResourceIds } from './resourceRegistry.js';
@@ -120,6 +120,25 @@ function getResourceRequestOptions(source) {
         preferRemote: false,
         localOnly: true
     };
+}
+
+async function getMissingCachedResourceIds(resourceIds) {
+    const missingResourceIds = [];
+
+    for (const resourceId of resourceIds) {
+        const definition = getResourceDefinition(resourceId);
+        const cachedRecord = await getCachedRecord(definition.cacheKey);
+
+        if (!cachedRecord || cachedRecord.data === null || cachedRecord.data === undefined) {
+            missingResourceIds.push(definition.id);
+        }
+    }
+
+    return missingResourceIds;
+}
+
+function uniqueResourceIds(resourceIds) {
+    return [...new Set(resourceIds)];
 }
 
 function normalizeSource(source) {
@@ -471,8 +490,12 @@ async function syncVersionedResources(resourceIds, options = {}) {
         };
     }
 
+    const missingResourceIds = await getMissingCachedResourceIds(resourceIds);
     const resourceIdsToUpdate = versionState.localVersion
-        ? versionState.changedResourceIds
+        ? uniqueResourceIds([
+            ...versionState.changedResourceIds,
+            ...missingResourceIds
+        ])
         : [...resourceIds];
     const updatedResourceIds = [];
     const failedResourceIds = [];
@@ -482,6 +505,7 @@ async function syncVersionedResources(resourceIds, options = {}) {
             resourceIds,
             selectedSource: versionState.selectedSource,
             resourceIdsToUpdate: [],
+            missingResourceIds,
             updatedResourceIds: [],
             failedResourceIds: [],
             savedVersion: false,
@@ -535,6 +559,7 @@ async function syncVersionedResources(resourceIds, options = {}) {
         resourceIds,
         selectedSource: versionState.selectedSource,
         resourceIdsToUpdate,
+        missingResourceIds,
         updatedResourceIds,
         failedResourceIds,
         savedVersion: shouldSaveVersion,
@@ -544,6 +569,7 @@ async function syncVersionedResources(resourceIds, options = {}) {
     return {
         ...versionState,
         resourceIdsToUpdate,
+        missingResourceIds,
         updatedResourceIds,
         failedResourceIds,
         savedVersion: shouldSaveVersion,
