@@ -123,18 +123,17 @@ function getResourceRequestOptions(source) {
 }
 
 async function getMissingCachedResourceIds(resourceIds) {
-    const missingResourceIds = [];
-
-    for (const resourceId of resourceIds) {
+    const results = await Promise.all(resourceIds.map(async (resourceId) => {
         const definition = getResourceDefinition(resourceId);
         const cachedRecord = await getCachedRecord(definition.cacheKey);
 
         if (!cachedRecord || cachedRecord.data === null || cachedRecord.data === undefined) {
-            missingResourceIds.push(definition.id);
+            return definition.id;
         }
-    }
+        return null;
+    }));
 
-    return missingResourceIds;
+    return results.filter(Boolean);
 }
 
 function uniqueResourceIds(resourceIds) {
@@ -522,23 +521,29 @@ async function syncVersionedResources(resourceIds, options = {}) {
         };
     }
 
-    for (const resourceId of resourceIdsToUpdate) {
-        try {
-            await fetchAndCacheResource(resourceId, {
-                source: versionState.selectedSource,
-                version: versionState.selectedVersion?.files?.[getResourceDefinition(resourceId).versionKey] ?? null
-            });
-            updatedResourceIds.push(resourceId);
-        } catch (error) {
-            console.error(`Source fetch failed for ${resourceId}:`, error);
-            debugWarn('sync.resource.failed', {
-                resourceId,
-                selectedSource: versionState.selectedSource,
-                message: String(error.message || error)
-            });
-            failedResourceIds.push(resourceId);
+    const settledResourceUpdates = await Promise.allSettled(resourceIdsToUpdate.map(async (resourceId) => {
+        await fetchAndCacheResource(resourceId, {
+            source: versionState.selectedSource,
+            version: versionState.selectedVersion?.files?.[getResourceDefinition(resourceId).versionKey] ?? null
+        });
+        return resourceId;
+    }));
+
+    settledResourceUpdates.forEach((result, index) => {
+        const resourceId = resourceIdsToUpdate[index];
+        if (result.status === 'fulfilled') {
+            updatedResourceIds.push(result.value);
+            return;
         }
-    }
+
+        console.error(`Source fetch failed for ${resourceId}:`, result.reason);
+        debugWarn('sync.resource.failed', {
+            resourceId,
+            selectedSource: versionState.selectedSource,
+            message: String(result.reason?.message || result.reason)
+        });
+        failedResourceIds.push(resourceId);
+    });
 
     const shouldSaveVersion = failedResourceIds.length === 0
         && (updatedResourceIds.length > 0 || versionState.versionChanged);

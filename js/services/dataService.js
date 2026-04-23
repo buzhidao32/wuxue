@@ -136,14 +136,13 @@ async function loadVersionedResource(resourceId, options = {}) {
 }
 
 async function loadVersionedResources(resourceIds, options = {}) {
-    const result = {};
-
-    for (const resourceId of resourceIds) {
+    const entries = await Promise.all(resourceIds.map(async (resourceId) => {
         const definition = getResourceDefinition(resourceId);
-        result[definition.id] = await loadVersionedResource(definition.id, options);
-    }
+        const data = await loadVersionedResource(definition.id, options);
+        return [definition.id, data];
+    }));
 
-    return result;
+    return Object.fromEntries(entries);
 }
 
 async function warmVersionedResources(resourceIds = getVersionedResourceIds(), options = {}) {

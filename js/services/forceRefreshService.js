@@ -25,6 +25,47 @@ const REMOTE_RESOURCE_OPTIONS = {
     remoteOnly: true
 };
 
+function createAbortBridge(signal) {
+    const controller = new AbortController();
+
+    if (!signal) {
+        return {
+            signal: controller.signal,
+            abort() {
+                controller.abort();
+            },
+            dispose() {}
+        };
+    }
+
+    if (signal.aborted) {
+        controller.abort();
+        return {
+            signal: controller.signal,
+            abort() {
+                controller.abort();
+            },
+            dispose() {}
+        };
+    }
+
+    const onAbort = () => {
+        controller.abort();
+    };
+
+    signal.addEventListener('abort', onAbort, { once: true });
+
+    return {
+        signal: controller.signal,
+        abort() {
+            controller.abort();
+        },
+        dispose() {
+            signal.removeEventListener('abort', onAbort);
+        }
+    };
+}
+
 function emitProgress(options, progress) {
     if (typeof options.onProgress === 'function') {
         options.onProgress(progress);
@@ -185,23 +226,33 @@ async function forceRefreshAllData(options = {}) {
         throwIfAborted(options.signal);
         const refreshSource = await resolveForceRefreshSource(options);
         const versionResult = refreshSource.versionResult;
-        const resourceResults = [];
+        const resourceAbortBridge = createAbortBridge(options.signal);
         completedSteps += 1;
         updateProgress('正在下载数据');
+        let resourceResults;
 
-        for (const resourceId of resourceIds) {
-            throwIfAborted(options.signal);
-            const definition = getResourceDefinition(resourceId);
-            const result = await fetchJsonFromCandidates(definition.requestPath, {
-                ...refreshSource.resourceOptions,
-                signal: options.signal
-            });
-            resourceResults.push({
-                definition,
-                result
-            });
-            completedSteps += 1;
-            updateProgress('正在下载数据');
+        try {
+            resourceResults = await Promise.all(resourceIds.map(async (resourceId) => {
+                try {
+                    throwIfAborted(resourceAbortBridge.signal);
+                    const definition = getResourceDefinition(resourceId);
+                    const result = await fetchJsonFromCandidates(definition.requestPath, {
+                        ...refreshSource.resourceOptions,
+                        signal: resourceAbortBridge.signal
+                    });
+                    completedSteps += 1;
+                    updateProgress('正在下载数据');
+                    return {
+                        definition,
+                        result
+                    };
+                } catch (error) {
+                    resourceAbortBridge.abort();
+                    throw error;
+                }
+            }));
+        } finally {
+            resourceAbortBridge.dispose();
         }
 
         throwIfAborted(options.signal);
