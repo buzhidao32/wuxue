@@ -6,6 +6,14 @@ import { updateSkillList } from './skillDisplay.js';
 export let skillData = null;
 export let activeSkillData = null;
 
+function refreshSkillList() {
+    if (!skillData?.skills) {
+        return;
+    }
+
+    updateSkillList(skillData, matchesFilters);
+}
+
 async function initializePage() {
     try {
         initModals();
@@ -15,7 +23,7 @@ async function initializePage() {
         createFilterBadges('methodsFilters', [], 'methods');
 
         document.getElementById('searchInput').addEventListener('input', () => {
-            updateSkillList(skillData, matchesFilters);
+            refreshSkillList();
         });
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -26,7 +34,7 @@ async function initializePage() {
 
         window.clearFilters = (filterType) => {
             clearFilters(filterType);
-            updateSkillList(skillData, matchesFilters);
+            refreshSkillList();
         };
 
         // 优先加载核心数据
@@ -34,7 +42,7 @@ async function initializePage() {
             skillData = data1;
             
             // 立即更新技能列表
-            updateSkillList(skillData, matchesFilters);
+            refreshSkillList();
             
             // 并行加载其他数据
             Promise.all([

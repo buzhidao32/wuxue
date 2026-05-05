@@ -3,6 +3,42 @@ import { loadVersionedResource } from '../../services/dataService.js';
 
 let skillData = null;
 let skillAutoData = null;
+let calcInitPromise = null;
+
+function getCalcSubmitButton() {
+    return document.querySelector('#calcForm button[type="submit"]');
+}
+
+function setCalcPending(isPending, label = '计算') {
+    const submitButton = getCalcSubmitButton();
+    if (!submitButton) {
+        return;
+    }
+
+    submitButton.disabled = isPending;
+    submitButton.textContent = label;
+}
+
+function showCalcStatus(message, type = 'info') {
+    const result = document.getElementById('result');
+    if (!result) {
+        return;
+    }
+
+    result.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+}
+
+async function ensureCalcDataLoaded() {
+    if (skillData?.skills && skillAutoData) {
+        return;
+    }
+
+    await init();
+
+    if (!skillData?.skills || !skillAutoData) {
+        throw new Error('计算数据加载失败，请稍后重试。');
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.dropdown-item').forEach(item => {
@@ -390,341 +426,368 @@ function calHitRate(skillId, dodgeValue, parryLv, parryFactor, enemyExp, prepSki
     return hitData;
 }
 
-document.getElementById('calcForm').addEventListener('submit', function (event) {
+document.getElementById('calcForm').addEventListener('submit', async function (event) {
     event.preventDefault();
-    const prepSkillLevel = parseFloat(document.getElementById('prepSkillLevel').value) || 0;
-    const maxNeili = parseFloat(document.getElementById('maxNeili').value) || 0;
-    const characterExp = parseFloat(document.getElementById('characterExp').value) || 0;
-    const powerValue = parseFloat(document.getElementById('powerValue').value) || 0;
-    const sortOrder = document.getElementById('sortOrder').value;
-    const currstr = parseFloat(document.getElementById('armStrength').value) || 0;
-    const currdex = parseFloat(document.getElementById('currDex').value) || 0;
-    const currcon = parseFloat(document.getElementById('currCon').value) || 0;
-    const effectiveArmStrength = parseFloat(document.getElementById('effectiveArmStrength').value) || 0;
-    const effectivedex = parseFloat(document.getElementById('effectiveDex').value) || 0;
-    const effectivecon = parseFloat(document.getElementById('effectiveCon').value) || 0;
-    const protect = parseFloat(document.getElementById('protect').value) || 0;
-    const opponentDefense = parseFloat(document.getElementById('opponentDefense').value) || 0;
-    const dodgeValue = parseFloat(document.getElementById('dodgeValue').value) || 0;
-    const parryLv = parseFloat(document.getElementById('parryLv').value) || 0;
-    const parryFactor = parseFloat(document.getElementById('parryFactor').value) || 0;
-    const enemyExp = parseFloat(document.getElementById('enemyExp').value) || 0;
-    const wxAtkSpeedFactor = parseFloat(document.getElementById('wxAtkSpeedFactor').value) || 0;
+    const wasDataReady = Boolean(skillData?.skills && skillAutoData);
+    setCalcPending(true, wasDataReady ? '计算中...' : '加载数据中...');
 
-    // 数据清洗
-    Object.keys(skillData.skills).forEach(skillId => {
-        if (needDeleteSkill(skillId)) {
-            delete skillData.skills[skillId];
+    try {
+        if (!wasDataReady) {
+            showCalcStatus('数据加载中，加载完成后将自动计算。', 'info');
         }
-        else if (skillData.skills[skillId].familyList !== undefined && needDeleteFamly(skillData.skills[skillId].familyList)) {
-            delete skillData.skills[skillId];
-        }
-    });
 
-    let results = [];
-    Object.keys(skillData.skills).forEach(skillId => {
-        const passiveSkills = skillAutoData[skillId];
-        if (passiveSkills) {
-            let atkData = calculateAverageQixueDamage(
-                skillId, prepSkillLevel,
-                maxNeili, characterExp,
-                effectiveArmStrength, effectivedex, wxAtkSpeedFactor,
-                powerValue,
-                opponentDefense, protect, currstr,
-                currdex, currcon
-            );
+        await ensureCalcDataLoaded();
 
-            let hitData = calHitRate(
-                skillId, dodgeValue,
-                parryLv, parryFactor,
-                enemyExp, prepSkillLevel,
-                characterExp, effectiveArmStrength
-            );
+        const prepSkillLevel = parseFloat(document.getElementById('prepSkillLevel').value) || 0;
+        const maxNeili = parseFloat(document.getElementById('maxNeili').value) || 0;
+        const characterExp = parseFloat(document.getElementById('characterExp').value) || 0;
+        const powerValue = parseFloat(document.getElementById('powerValue').value) || 0;
+        const sortOrder = document.getElementById('sortOrder').value;
+        const currstr = parseFloat(document.getElementById('armStrength').value) || 0;
+        const currdex = parseFloat(document.getElementById('currDex').value) || 0;
+        const currcon = parseFloat(document.getElementById('currCon').value) || 0;
+        const effectiveArmStrength = parseFloat(document.getElementById('effectiveArmStrength').value) || 0;
+        const effectivedex = parseFloat(document.getElementById('effectiveDex').value) || 0;
+        const effectivecon = parseFloat(document.getElementById('effectiveCon').value) || 0;
+        const protect = parseFloat(document.getElementById('protect').value) || 0;
+        const opponentDefense = parseFloat(document.getElementById('opponentDefense').value) || 0;
+        const dodgeValue = parseFloat(document.getElementById('dodgeValue').value) || 0;
+        const parryLv = parseFloat(document.getElementById('parryLv').value) || 0;
+        const parryFactor = parseFloat(document.getElementById('parryFactor').value) || 0;
+        const enemyExp = parseFloat(document.getElementById('enemyExp').value) || 0;
+        const wxAtkSpeedFactor = parseFloat(document.getElementById('wxAtkSpeedFactor').value) || 0;
 
-            atkData[0].dps = atkData[0].dps * hitData.battleHitRate;
-            if (atkData[1]) { atkData[1].dps = atkData[1].dps * hitData.battleHitRate; };
-
-            // NaN处理，只需考虑排序的两个变量
-            // 使用Number.isNaN() 而不是isNaN()
-            atkData[0].averageQixueDamage = Number.isNaN(atkData[0].averageQixueDamage) ? 0 : atkData[0].averageQixueDamage;
-            atkData[0].dps = Number.isNaN(atkData[0].dps) ? 0 : atkData[0].dps;
-
-            results.push({
-                skillId: skillId,
-                name: skillData.skills[skillId].name,
-                methods: skillData.skills[skillId].methods,
-                element: getElementName(skillData.skills[skillId].autoZhaoAtkDamageClass),
-                averageQixueDamage: parseFloat(atkData[0].averageQixueDamage.toFixed(3)),
-                averageQixueMaxDamage: parseFloat(atkData[0].averageQixueMaxDamage.toFixed(3)),
-                panelAttack: parseFloat(atkData[0].panelAttack.toFixed(3)),
-                avgAtk: parseFloat(atkData[0].avgAtk.toFixed(3)),
-                avgDuration: parseFloat(atkData[0].avgDuration.toFixed(3)),
-                avgDam: parseFloat(atkData[0].avgDam.toFixed(3)),
-                avgHitRate: parseFloat(hitData.avgHitRate.toFixed(3)),
-                avgPartFactor: parseFloat(atkData[0].avgPartFactor.toFixed(3)),
-                atkSpeed: parseFloat(atkData[0].atkSpeed.toFixed(3)),
-                battleHitRate: parseFloat(hitData.battleHitRate.toFixed(3)),
-                dps: parseFloat(atkData[0].dps.toFixed(3)),
-                addTrueDam: parseFloat(atkData[0].addTrueDam.toFixed(3)),
-                dam: parseFloat(atkData[0].dam.toFixed(3)),
-                addSpeedRate: parseFloat(atkData[0].addSpeedRate.toFixed(3)),
-                addPanelAtk: parseFloat(atkData[0].addPanelAtk.toFixed(3)),
-                finalAtkFactor: parseFloat(atkData[0].finalAtkFactor.toFixed(3)),
-                weaponName: atkData[0].weaponName,
-                SBWight: parseFloat(atkData[0].SBWight.toFixed(3)),
-                secSDBInfo: atkData[1] || '',
-            });
-        }
-    });
-
-    let categorizedSkills = categorizeSkillsByMethod(results);
-    categorizedSkills['全部'] = [];
-    categorizedSkills['全部'].push(...results);
-
-    // 根据选择的排序方式进行排序
-    Object.keys(categorizedSkills).forEach(methodName => {
-        if (sortOrder === 'qixueDamage') {
-            categorizedSkills[methodName].sort((a, b) => b.averageQixueDamage - a.averageQixueDamage);
-        } else if (sortOrder === 'dps') {
-            categorizedSkills[methodName].sort((a, b) => b.dps - a.dps);
-        }
-    });
-
-
-    // 创建标签页和内容
-    const tabContainer = document.getElementById('tabContainer');
-    const tabContentContainer = document.getElementById('tabContentContainer');
-    tabContainer.innerHTML = ''; // 清空现有标签页
-    tabContentContainer.innerHTML = ''; // 清空现有内容
-
-    Object.keys(categorizedSkills).forEach((methodName, index) => {
-        // 创建标签页
-        const tab = document.createElement('li');
-        tab.className = 'nav-item';
-        const tabLink = document.createElement('a');
-        tabLink.className = `nav-link ${index === 0 ? 'active' : ''}`;
-        tabLink.id = `${methodName}-tab`;
-        tabLink.setAttribute('data-bs-toggle', 'tab');
-        tabLink.setAttribute('href', `#${methodName}`);
-        tabLink.setAttribute('role', 'tab');
-        tabLink.setAttribute('aria-controls', methodName);
-        tabLink.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-        tabLink.textContent = methodName;
-        tab.appendChild(tabLink);
-        tabContainer.appendChild(tab);
-
-        // 创建标签页内容
-        const tabContent = document.createElement('div');
-        tabContent.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
-        tabContent.id = methodName;
-        tabContent.setAttribute('role', 'tabpanel');
-        tabContent.setAttribute('aria-labelledby', `${methodName}-tab`);
-
-        // 创建表格容器，用于实现表头固定
-        const tableContainer = document.createElement('div');
-        tableContainer.className = 'table-responsive';
-        tableContainer.style.overflowY = 'auto';
-        tableContainer.style.height = 'fit-content';
-        tableContainer.style.maxHeight = '80vh'; // 设置最大高度为视口高度的80%，确保在内容多时也能滚动
-
-        // 创建表格
-        const table = document.createElement('table');
-        table.className = 'table table-striped';
-
-        // 创建表头
-        const thead = document.createElement('thead');
-        thead.className = 'sticky-top bg-white'; // 添加sticky-top类和背景色
-        thead.style.top = '0'; // 设置top值
-        thead.style.zIndex = '10'; // 设置z-index确保表头在上方
-        const headerRow = document.createElement('tr');
-        const headers = [
-            '排位',
-            '武学',
-            '属性',
-            '气血攻击',
-            '气血上限攻击',
-            '面板攻击',
-            '招均攻击系数',
-            '前后摇',
-            '招均伤害力',
-            '招均命中率',
-            '平均部位系数',
-            '攻速',
-            '命中率',
-            '秒伤',
-            '神兵',
-            '次选参考'
-        ];
-        headers.forEach(headerText => {
-            const th = document.createElement('th');
-            th.textContent = headerText;
-            headerRow.appendChild(th);
+        // 数据清洗
+        Object.keys(skillData.skills).forEach(skillId => {
+            if (needDeleteSkill(skillId)) {
+                delete skillData.skills[skillId];
+            }
+            else if (skillData.skills[skillId].familyList !== undefined && needDeleteFamly(skillData.skills[skillId].familyList)) {
+                delete skillData.skills[skillId];
+            }
         });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
 
-        // 计数器
-        let count = 0;
+        let results = [];
+        Object.keys(skillData.skills).forEach(skillId => {
+            const passiveSkills = skillAutoData[skillId];
+            if (passiveSkills) {
+                let atkData = calculateAverageQixueDamage(
+                    skillId, prepSkillLevel,
+                    maxNeili, characterExp,
+                    effectiveArmStrength, effectivedex, wxAtkSpeedFactor,
+                    powerValue,
+                    opponentDefense, protect, currstr,
+                    currdex, currcon
+                );
 
-        // 创建表格主体
-        const tbody = document.createElement('tbody');
-        categorizedSkills[methodName].forEach(result => {
-            count++;
-            const row = document.createElement('tr');
+                let hitData = calHitRate(
+                    skillId, dodgeValue,
+                    parryLv, parryFactor,
+                    enemyExp, prepSkillLevel,
+                    characterExp, effectiveArmStrength
+                );
 
-            // '排位',
-            const ranlCell = document.createElement('td');
+                atkData[0].dps = atkData[0].dps * hitData.battleHitRate;
+                if (atkData[1]) { atkData[1].dps = atkData[1].dps * hitData.battleHitRate; };
 
-            ranlCell.textContent = count;
-            row.appendChild(ranlCell);
-            // '武学',
-            const nameCell = document.createElement('td');
-            const link = document.createElement('a');
-            // 添加Bootstrap链接样式和自定义类
-            link.className = 'text-decoration-none link-primary badge rounded-pill';
-            link.style.cssText = `
-            font-size: 0.95rem;
-            color: var(--bs-primary);
-            transition: all 0.2s ease;
-            underline-offset: 0.2em;
-            text-underline-offset: 0.2em;
-            text-decoration-color: rgba(13,110,253,0.3);
-            `;
-            link.style.transition = 'all 0.2s ease';
-            link.style.border = '1px solid rgba(13,110,253,0.25)';
-            link.href = `index.html?q=${result.name}`;
-            link.setAttribute('target', '_blank');
-            link.textContent = result.name;
-            // 悬停状态增强
-            link.addEventListener('mouseenter', function () {
-                this.style.textDecoration = 'underline solid';
-                this.style.color = 'var(--bs-primary-dark)';
-                this.style.textDecorationColor = 'var(--bs-primary)';
+                // NaN处理，只需考虑排序的两个变量
+                // 使用Number.isNaN() 而不是isNaN()
+                atkData[0].averageQixueDamage = Number.isNaN(atkData[0].averageQixueDamage) ? 0 : atkData[0].averageQixueDamage;
+                atkData[0].dps = Number.isNaN(atkData[0].dps) ? 0 : atkData[0].dps;
+
+                results.push({
+                    skillId: skillId,
+                    name: skillData.skills[skillId].name,
+                    methods: skillData.skills[skillId].methods,
+                    element: getElementName(skillData.skills[skillId].autoZhaoAtkDamageClass),
+                    averageQixueDamage: parseFloat(atkData[0].averageQixueDamage.toFixed(3)),
+                    averageQixueMaxDamage: parseFloat(atkData[0].averageQixueMaxDamage.toFixed(3)),
+                    panelAttack: parseFloat(atkData[0].panelAttack.toFixed(3)),
+                    avgAtk: parseFloat(atkData[0].avgAtk.toFixed(3)),
+                    avgDuration: parseFloat(atkData[0].avgDuration.toFixed(3)),
+                    avgDam: parseFloat(atkData[0].avgDam.toFixed(3)),
+                    avgHitRate: parseFloat(hitData.avgHitRate.toFixed(3)),
+                    avgPartFactor: parseFloat(atkData[0].avgPartFactor.toFixed(3)),
+                    atkSpeed: parseFloat(atkData[0].atkSpeed.toFixed(3)),
+                    battleHitRate: parseFloat(hitData.battleHitRate.toFixed(3)),
+                    dps: parseFloat(atkData[0].dps.toFixed(3)),
+                    addTrueDam: parseFloat(atkData[0].addTrueDam.toFixed(3)),
+                    dam: parseFloat(atkData[0].dam.toFixed(3)),
+                    addSpeedRate: parseFloat(atkData[0].addSpeedRate.toFixed(3)),
+                    addPanelAtk: parseFloat(atkData[0].addPanelAtk.toFixed(3)),
+                    finalAtkFactor: parseFloat(atkData[0].finalAtkFactor.toFixed(3)),
+                    weaponName: atkData[0].weaponName,
+                    SBWight: parseFloat(atkData[0].SBWight.toFixed(3)),
+                    secSDBInfo: atkData[1] || '',
+                });
+            }
+        });
+
+        let categorizedSkills = categorizeSkillsByMethod(results);
+        categorizedSkills['全部'] = [];
+        categorizedSkills['全部'].push(...results);
+
+        // 根据选择的排序方式进行排序
+        Object.keys(categorizedSkills).forEach(methodName => {
+            if (sortOrder === 'qixueDamage') {
+                categorizedSkills[methodName].sort((a, b) => b.averageQixueDamage - a.averageQixueDamage);
+            } else if (sortOrder === 'dps') {
+                categorizedSkills[methodName].sort((a, b) => b.dps - a.dps);
+            }
+        });
+
+
+        // 创建标签页和内容
+        const tabContainer = document.getElementById('tabContainer');
+        const tabContentContainer = document.getElementById('tabContentContainer');
+        tabContainer.innerHTML = ''; // 清空现有标签页
+        tabContentContainer.innerHTML = ''; // 清空现有内容
+
+        Object.keys(categorizedSkills).forEach((methodName, index) => {
+            // 创建标签页
+            const tab = document.createElement('li');
+            tab.className = 'nav-item';
+            const tabLink = document.createElement('a');
+            tabLink.className = `nav-link ${index === 0 ? 'active' : ''}`;
+            tabLink.id = `${methodName}-tab`;
+            tabLink.setAttribute('data-bs-toggle', 'tab');
+            tabLink.setAttribute('href', `#${methodName}`);
+            tabLink.setAttribute('role', 'tab');
+            tabLink.setAttribute('aria-controls', methodName);
+            tabLink.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+            tabLink.textContent = methodName;
+            tab.appendChild(tabLink);
+            tabContainer.appendChild(tab);
+
+            // 创建标签页内容
+            const tabContent = document.createElement('div');
+            tabContent.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
+            tabContent.id = methodName;
+            tabContent.setAttribute('role', 'tabpanel');
+            tabContent.setAttribute('aria-labelledby', `${methodName}-tab`);
+
+            // 创建表格容器，用于实现表头固定
+            const tableContainer = document.createElement('div');
+            tableContainer.className = 'table-responsive';
+            tableContainer.style.overflowY = 'auto';
+            tableContainer.style.height = 'fit-content';
+            tableContainer.style.maxHeight = '80vh'; // 设置最大高度为视口高度的80%，确保在内容多时也能滚动
+
+            // 创建表格
+            const table = document.createElement('table');
+            table.className = 'table table-striped';
+
+            // 创建表头
+            const thead = document.createElement('thead');
+            thead.className = 'sticky-top bg-white'; // 添加sticky-top类和背景色
+            thead.style.top = '0'; // 设置top值
+            thead.style.zIndex = '10'; // 设置z-index确保表头在上方
+            const headerRow = document.createElement('tr');
+            const headers = [
+                '排位',
+                '武学',
+                '属性',
+                '气血攻击',
+                '气血上限攻击',
+                '面板攻击',
+                '招均攻击系数',
+                '前后摇',
+                '招均伤害力',
+                '招均命中率',
+                '平均部位系数',
+                '攻速',
+                '命中率',
+                '秒伤',
+                '神兵',
+                '次选参考'
+            ];
+            headers.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                headerRow.appendChild(th);
             });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
 
-            link.addEventListener('mouseleave', function () {
-                this.style.textDecoration = 'underline dotted';
-                this.style.color = 'var(--bs-primary)';
-                this.style.textDecorationColor = 'rgba(13,110,253,0.3)';
-            });
-            // 响应式调整
-            nameCell.className = 'py-2'; // 增加单元格内边距
-            nameCell.appendChild(link);
-            row.appendChild(nameCell);
-            // '属性',
-            const elementCell = document.createElement('td');
-            elementCell.textContent = result.element;
-            row.appendChild(elementCell);
-            // '平均气血',
-            const averageQixueDamageCell = document.createElement('td');
-            averageQixueDamageCell.textContent = result.averageQixueDamage;
-            row.appendChild(averageQixueDamageCell);
-            // '气血上限',
-            const averageQixueMaxDamageCell = document.createElement('td');
-            averageQixueMaxDamageCell.textContent = result.averageQixueMaxDamage;
-            row.appendChild(averageQixueMaxDamageCell);
-            // '面板攻击',
-            const panelAttackCell = document.createElement('td');
-            panelAttackCell.textContent = result.panelAttack;
-            row.appendChild(panelAttackCell);
-            // '均攻击系数',
-            const avgAtkCell = document.createElement('td');
-            avgAtkCell.textContent = result.avgAtk;
-            row.appendChild(avgAtkCell);
-            // '前后摇',
-            const avgDurationCell = document.createElement('td');
-            avgDurationCell.textContent = result.avgDuration;
-            row.appendChild(avgDurationCell);
-            // '均伤害力',
-            const avgDamCell = document.createElement('td');
-            avgDamCell.textContent = result.avgDam;
-            row.appendChild(avgDamCell);
-            // '均命中率',
-            const avgHitRateCell = document.createElement('td');
-            avgHitRateCell.textContent = result.avgHitRate;
-            row.appendChild(avgHitRateCell);
-            // 部位系数
-            const avgPartFactorCell = document.createElement('td');
-            avgPartFactorCell.textContent = result.avgPartFactor;
-            row.appendChild(avgPartFactorCell);
-            // '攻速',
-            const atkSpeedCell = document.createElement('td');
-            atkSpeedCell.textContent = result.atkSpeed;
-            row.appendChild(atkSpeedCell);
-            // 命中率
-            const battleHitRateCell = document.createElement('td');
-            battleHitRateCell.textContent = result.battleHitRate;
-            row.appendChild(battleHitRateCell);
-            // '秒伤',
-            const dpsCell = document.createElement('td');
-            dpsCell.textContent = result.dps;
-            row.appendChild(dpsCell);
+            // 计数器
+            let count = 0;
 
-            // '神兵'
-            const sbInfoCell = document.createElement('td');
+            // 创建表格主体
+            const tbody = document.createElement('tbody');
+            categorizedSkills[methodName].forEach(result => {
+                count++;
+                const row = document.createElement('tr');
 
-            // 初始化一个数组来存储需要显示的信息
-            const sbInfo = [];
+                // '排位',
+                const ranlCell = document.createElement('td');
 
-            // 检查每个值是否为0，如果不为0则添加到数组中
-            if (result.weaponName !== '无') sbInfo.push(`神兵名 ${result.weaponName}`);
-            if (result.SBWight !== 0) sbInfo.push(`神兵重 ${result.SBWight}`);
-            if (result.addTrueDam !== 0) sbInfo.push(`附伤 ${result.addTrueDam}`);
-            if (result.dam !== 0) sbInfo.push(`伤害力 ${result.dam}`);
-            if (result.addPanelAtk !== 0) sbInfo.push(`面板攻击 ${result.addPanelAtk}`);
-            if (result.addSpeedRate !== 0) sbInfo.push(`期望加速 ${result.addSpeedRate}`);
-            if (result.finalAtkFactor !== 0) sbInfo.push(`折算加攻 ${result.finalAtkFactor}`);
-            // 将数组中的信息用换行符连接成一个字符串
-            sbInfoCell.textContent = sbInfo.join('\n');
-            sbInfoCell.style.whiteSpace = 'pre-line'; // 添加这一行
-            // 将新的 td 添加到 row 中
-            row.appendChild(sbInfoCell);
+                ranlCell.textContent = count;
+                row.appendChild(ranlCell);
+                // '武学',
+                const nameCell = document.createElement('td');
+                const link = document.createElement('a');
+                // 添加Bootstrap链接样式和自定义类
+                link.className = 'text-decoration-none link-primary badge rounded-pill';
+                link.style.cssText = `
+                font-size: 0.95rem;
+                color: var(--bs-primary);
+                transition: all 0.2s ease;
+                underline-offset: 0.2em;
+                text-underline-offset: 0.2em;
+                text-decoration-color: rgba(13,110,253,0.3);
+                `;
+                link.style.transition = 'all 0.2s ease';
+                link.style.border = '1px solid rgba(13,110,253,0.25)';
+                link.href = `index.html?q=${result.name}`;
+                link.setAttribute('target', '_blank');
+                link.textContent = result.name;
+                // 悬停状态增强
+                link.addEventListener('mouseenter', function () {
+                    this.style.textDecoration = 'underline solid';
+                    this.style.color = 'var(--bs-primary-dark)';
+                    this.style.textDecorationColor = 'var(--bs-primary)';
+                });
 
-            if (result.secSDBInfo !== '') {
-                const secSbInfoCell = document.createElement('td');
+                link.addEventListener('mouseleave', function () {
+                    this.style.textDecoration = 'underline dotted';
+                    this.style.color = 'var(--bs-primary)';
+                    this.style.textDecorationColor = 'rgba(13,110,253,0.3)';
+                });
+                // 响应式调整
+                nameCell.className = 'py-2'; // 增加单元格内边距
+                nameCell.appendChild(link);
+                row.appendChild(nameCell);
+                // '属性',
+                const elementCell = document.createElement('td');
+                elementCell.textContent = result.element;
+                row.appendChild(elementCell);
+                // '平均气血',
+                const averageQixueDamageCell = document.createElement('td');
+                averageQixueDamageCell.textContent = result.averageQixueDamage;
+                row.appendChild(averageQixueDamageCell);
+                // '气血上限',
+                const averageQixueMaxDamageCell = document.createElement('td');
+                averageQixueMaxDamageCell.textContent = result.averageQixueMaxDamage;
+                row.appendChild(averageQixueMaxDamageCell);
+                // '面板攻击',
+                const panelAttackCell = document.createElement('td');
+                panelAttackCell.textContent = result.panelAttack;
+                row.appendChild(panelAttackCell);
+                // '均攻击系数',
+                const avgAtkCell = document.createElement('td');
+                avgAtkCell.textContent = result.avgAtk;
+                row.appendChild(avgAtkCell);
+                // '前后摇',
+                const avgDurationCell = document.createElement('td');
+                avgDurationCell.textContent = result.avgDuration;
+                row.appendChild(avgDurationCell);
+                // '均伤害力',
+                const avgDamCell = document.createElement('td');
+                avgDamCell.textContent = result.avgDam;
+                row.appendChild(avgDamCell);
+                // '均命中率',
+                const avgHitRateCell = document.createElement('td');
+                avgHitRateCell.textContent = result.avgHitRate;
+                row.appendChild(avgHitRateCell);
+                // 部位系数
+                const avgPartFactorCell = document.createElement('td');
+                avgPartFactorCell.textContent = result.avgPartFactor;
+                row.appendChild(avgPartFactorCell);
+                // '攻速',
+                const atkSpeedCell = document.createElement('td');
+                atkSpeedCell.textContent = result.atkSpeed;
+                row.appendChild(atkSpeedCell);
+                // 命中率
+                const battleHitRateCell = document.createElement('td');
+                battleHitRateCell.textContent = result.battleHitRate;
+                row.appendChild(battleHitRateCell);
+                // '秒伤',
+                const dpsCell = document.createElement('td');
+                dpsCell.textContent = result.dps;
+                row.appendChild(dpsCell);
+
+                // '神兵'
+                const sbInfoCell = document.createElement('td');
+
                 // 初始化一个数组来存储需要显示的信息
-                const secSbInfo = [];
+                const sbInfo = [];
 
                 // 检查每个值是否为0，如果不为0则添加到数组中
-                if (result.secSDBInfo.weaponName !== '无') secSbInfo.push(`神兵名 ${result.secSDBInfo.weaponName}`);
-                if (result.secSDBInfo.SBWight !== 0) secSbInfo.push(`神兵重 ${result.secSDBInfo.SBWight}`);
-                if (result.secSDBInfo.addTrueDam !== 0) secSbInfo.push(`附伤 ${result.secSDBInfo.addTrueDam}`);
-                if (result.secSDBInfo.dam !== 0) secSbInfo.push(`伤害力 ${result.secSDBInfo.dam}`);
-                if (result.secSDBInfo.addPanelAtk !== 0) secSbInfo.push(`面板攻击 ${result.secSDBInfo.addPanelAtk}`);
-                if (result.secSDBInfo.addSpeedRate !== 0) secSbInfo.push(`期望加速 ${result.secSDBInfo.addSpeedRate}`);
-                if (result.secSDBInfo.finalAtkFactor !== 0) secSbInfo.push(`折算加攻 ${result.secSDBInfo.finalAtkFactor}`);
-                if (result.secSDBInfo.dps !== 0) secSbInfo.push(`秒伤 ${parseFloat(result.secSDBInfo.dps.toFixed(3))}`);
+                if (result.weaponName !== '无') sbInfo.push(`神兵名 ${result.weaponName}`);
+                if (result.SBWight !== 0) sbInfo.push(`神兵重 ${result.SBWight}`);
+                if (result.addTrueDam !== 0) sbInfo.push(`附伤 ${result.addTrueDam}`);
+                if (result.dam !== 0) sbInfo.push(`伤害力 ${result.dam}`);
+                if (result.addPanelAtk !== 0) sbInfo.push(`面板攻击 ${result.addPanelAtk}`);
+                if (result.addSpeedRate !== 0) sbInfo.push(`期望加速 ${result.addSpeedRate}`);
+                if (result.finalAtkFactor !== 0) sbInfo.push(`折算加攻 ${result.finalAtkFactor}`);
                 // 将数组中的信息用换行符连接成一个字符串
-                secSbInfoCell.textContent = secSbInfo.join('\n');
-                secSbInfoCell.style.whiteSpace = 'pre-line'; // 添加这一行
+                sbInfoCell.textContent = sbInfo.join('\n');
+                sbInfoCell.style.whiteSpace = 'pre-line'; // 添加这一行
                 // 将新的 td 添加到 row 中
-                row.appendChild(secSbInfoCell);
-            };
-            // 将 row 添加到 tbody 中
-            tbody.appendChild(row);
-        });
-        table.appendChild(tbody);
-        tableContainer.appendChild(table); // 将表格添加到容器中
+                row.appendChild(sbInfoCell);
 
-        tabContent.appendChild(tableContainer); // 将容器添加到tabContent中
-        tabContentContainer.appendChild(tabContent);
-    });
+                if (result.secSDBInfo !== '') {
+                    const secSbInfoCell = document.createElement('td');
+                    // 初始化一个数组来存储需要显示的信息
+                    const secSbInfo = [];
+
+                    // 检查每个值是否为0，如果不为0则添加到数组中
+                    if (result.secSDBInfo.weaponName !== '无') secSbInfo.push(`神兵名 ${result.secSDBInfo.weaponName}`);
+                    if (result.secSDBInfo.SBWight !== 0) secSbInfo.push(`神兵重 ${result.secSDBInfo.SBWight}`);
+                    if (result.secSDBInfo.addTrueDam !== 0) secSbInfo.push(`附伤 ${result.secSDBInfo.addTrueDam}`);
+                    if (result.secSDBInfo.dam !== 0) secSbInfo.push(`伤害力 ${result.secSDBInfo.dam}`);
+                    if (result.secSDBInfo.addPanelAtk !== 0) secSbInfo.push(`面板攻击 ${result.secSDBInfo.addPanelAtk}`);
+                    if (result.secSDBInfo.addSpeedRate !== 0) secSbInfo.push(`期望加速 ${result.secSDBInfo.addSpeedRate}`);
+                    if (result.secSDBInfo.finalAtkFactor !== 0) secSbInfo.push(`折算加攻 ${result.secSDBInfo.finalAtkFactor}`);
+                    if (result.secSDBInfo.dps !== 0) secSbInfo.push(`秒伤 ${parseFloat(result.secSDBInfo.dps.toFixed(3))}`);
+                    // 将数组中的信息用换行符连接成一个字符串
+                    secSbInfoCell.textContent = secSbInfo.join('\n');
+                    secSbInfoCell.style.whiteSpace = 'pre-line'; // 添加这一行
+                    // 将新的 td 添加到 row 中
+                    row.appendChild(secSbInfoCell);
+                };
+                // 将 row 添加到 tbody 中
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+            tableContainer.appendChild(table); // 将表格添加到容器中
+
+            tabContent.appendChild(tableContainer); // 将容器添加到tabContent中
+            tabContentContainer.appendChild(tabContent);
+        });
+    } catch (error) {
+        console.error('Calc submit failed:', error);
+        showCalcStatus(error.message || '计算失败，请稍后重试。', 'danger');
+    } finally {
+        setCalcPending(false);
+    }
 });
 
 async function init() {
-    try {
-        // 并行加载所有数据（速度更快）
-        console.log('开始并行加载数据...');
-        const [data1, data2] = await Promise.all([
-            loadSkillData(),
-            loadSkillAutoData()
-        ]);
-        skillData = data1;
-        skillAutoData = data2;
-        console.log('数据加载完成！');
-    } catch (error) {
-        console.error('Error initializing page:', error);
+    if (calcInitPromise) {
+        return calcInitPromise;
     }
+
+    calcInitPromise = (async () => {
+        try {
+            // 并行加载所有数据（速度更快）
+            console.log('开始并行加载数据...');
+            const [data1, data2] = await Promise.all([
+                loadSkillData(),
+                loadSkillAutoData()
+            ]);
+            skillData = data1;
+            skillAutoData = data2;
+            console.log('数据加载完成！');
+            return { skillData, skillAutoData };
+        } catch (error) {
+            console.error('Error initializing page:', error);
+            showCalcStatus('加载计算数据失败，请刷新页面后重试。', 'danger');
+            throw error;
+        }
+    })();
+
+    return calcInitPromise;
 }
 
 function getWeapontype(weapontypeId) {
@@ -897,4 +960,4 @@ function getPartFactor(skillId) {
     return partFactor[skillId] || partFactor['通用'];
 }
 
-init();
+void init();
