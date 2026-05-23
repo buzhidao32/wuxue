@@ -18,11 +18,31 @@ export const calcParamNames = {
   cost: "技能内力消耗",
   zhengqi: "侠义值",
   qimax: "当前气血上限",
-  qimax2: "初始气血上限",
+  qiMax2: "对方气血上限",
   W1: "武器重量",
   qi: "当前气血",
   neili: "当前内力",
   neiliMax: "内力上限",
   neili3: "对方当前内力",
   neiliMax3: "对方内力上限",
+  roleLv: "人物等级",
+  jingMax: "精力上限",
+  augment7num: "仙蛊层数（上限16）",
+  fragile4num: "毒蛊层数（上限16）",
+  fragile5num: "和息层数（上限4）",
+  currjqdamage: "单系谙技值",
+  jqdamage: "双系谙技值",
 };
+
+// 选择框参数配置：匹配参数名的正则 -> { label, options: [{label, value}], default }
+export const calcSelectParams = [
+  {
+    pattern: /^combatStack\d+num$/,
+    label: "隐脉加成",
+    options: [
+      { label: "无", value: 0 },
+      { label: "有", value: 1 },
+    ],
+    default: 0,
+  },
+];

@@ -7,7 +7,7 @@ import {
   skillData,
 } from "./dataLoader.js";
 import { modalManager, effectModal } from "./uiManager.js";
-import { calcParamNames } from "./calcNames.js";
+import { calcParamNames, calcSelectParams } from "./calcNames.js";
 
 // 渲染优化参数
 const renderBatchSize = 20; // 每次渲染的卡片数量
@@ -228,11 +228,35 @@ export function showEffectDetails(
           defVal = defaultParams[v];
         }
         const labelName = calcParamNames[v] ? calcParamNames[v] : v;
-        inputsHtml += `
+
+        // 检查是否为选择框参数
+        const selectConfig = calcSelectParams.find((cfg) =>
+          cfg.pattern.test(v),
+        );
+        if (selectConfig) {
+          const selectLabel = selectConfig.label;
+          const selectedDefault =
+            cachedValues[v] !== undefined
+              ? cachedValues[v]
+              : selectConfig.default;
+          const optionsHtml = selectConfig.options
+            .map(
+              (opt) =>
+                `<option value="${opt.value}"${opt.value == selectedDefault ? " selected" : ""}>${opt.label}</option>`,
+            )
+            .join("");
+          inputsHtml += `
+            <div class="col-4">
+              <label class="form-label mb-0" style="font-size: 0.8rem;" title="${v}">${selectLabel}</label>
+              <select class="form-select form-select-sm calc-input" data-var="${v}">${optionsHtml}</select>
+            </div>`;
+        } else {
+          inputsHtml += `
             <div class="col-4">
               <label class="form-label mb-0" style="font-size: 0.8rem;" title="${v}">${labelName}</label>
               <input type="number" class="form-control form-control-sm calc-input" data-var="${v}" value="${defVal}">
             </div>`;
+        }
       });
       inputsHtml +=
         '</div><div class="mt-2"><button type="button" class="btn btn-primary btn-sm" id="calcButton">计算</button></div><hr><div id="calcResults"></div>';
@@ -263,6 +287,7 @@ export function showEffectDetails(
         // 定义参数标签映射关系
         const paramLabelMap = {
           default: {
+            arg1: "计算结果",
             arg2: "计算结果",
           },
           汲取: {
@@ -541,9 +566,11 @@ export function showActiveSkills(skillId, activeSkillData, name) {
                 </div>
             </div>
             <div>
-                <h5>各重数差异</h5>
+                <h5>各重数差异
+                    <button class="btn btn-sm btn-outline-primary expand-levels-btn" data-skill-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px;">展开</button>
+                </h5>
                 <div class="table-responsive">
-                    <table class="table table-sm table-hover">
+                    <table class="table table-sm table-hover" data-levels-table="${activeId}">
                         <thead>
                             <tr>
                                 <th>重数</th>
@@ -567,8 +594,9 @@ export function showActiveSkills(skillId, activeSkillData, name) {
             .join("<br>");
 
           if (skillText) {
+            const isHidden = index < 8 ? 'style="display: none;"' : "";
             html += `
-                        <tr>
+                        <tr class="skill-level-row-${activeId}" data-level="${index + 1}" ${isHidden}>
                             <td>第${skill.level}重</td>
                             <td>${skillText}</td>
                         </tr>`;
@@ -585,6 +613,27 @@ export function showActiveSkills(skillId, activeSkillData, name) {
   });
 
   container.innerHTML = html;
+
+  // 为展开按钮添加事件处理
+  container.querySelectorAll(".expand-levels-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const skillId = e.target.getAttribute("data-skill-id");
+      const rows = container.querySelectorAll(`.skill-level-row-${skillId}`);
+      const isExpanded = e.target.dataset.expanded === "true";
+
+      rows.forEach((row) => {
+        const level = parseInt(row.getAttribute("data-level"));
+        // 只折叠第1-8重，第9和第10重始终显示
+        if (level <= 8) {
+          row.style.display = isExpanded ? "none" : "table-row";
+        }
+      });
+
+      e.target.dataset.expanded = !isExpanded;
+      e.target.textContent = isExpanded ? "展开" : "折叠";
+    });
+  });
 
   container.addEventListener("click", (e) => {
     const link = e.target.closest(".effect-link");
