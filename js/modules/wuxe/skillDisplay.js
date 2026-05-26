@@ -126,7 +126,9 @@ export function showEffectDetails(
           if (
             !isPotentialEffectId(val) &&
             val.trim() !== "" &&
-            (/\bz\d+\b/.test(val) || val.includes("return"))
+            (/\bz\d+\b/.test(val) ||
+              val.includes("return") ||
+              /[+\-*\/]/.test(val))
           ) {
             formulas.push({ key, script: val });
           }
@@ -207,6 +209,18 @@ export function showEffectDetails(
 
       allVars = Array.from(allVars);
 
+      // 检测特殊arg1类型（z3不显示在输入框，直接从defaultParams取）
+      const specialArg1Values = [
+        "qiAutoAtkFactor",
+        "qiAutoDefFactor",
+        "qiActiveAtkFactor",
+        "qiActiveDefFactor",
+      ];
+      const isSpecialArg1 = specialArg1Values.includes(effectData.arg1);
+      if (isSpecialArg1) {
+        allVars = allVars.filter((v) => v !== "z3");
+      }
+
       // 使用统一的缓存键保存所有参数
       const cacheKey = "calc_params_all";
       let cachedValues = {};
@@ -229,10 +243,10 @@ export function showEffectDetails(
         }
         const labelName = calcParamNames[v] ? calcParamNames[v] : v;
 
-        // 检查是否为选择框参数
-        const selectConfig = calcSelectParams.find((cfg) =>
-          cfg.pattern.test(v),
-        );
+        // 检查是否为选择框参数（仅在 calcParamNames 中未定义时才匹配）
+        const selectConfig =
+          !calcParamNames[v] &&
+          calcSelectParams.find((cfg) => cfg.pattern.test(v));
         if (selectConfig) {
           const selectLabel = selectConfig.label;
           const selectedDefault =
@@ -269,6 +283,11 @@ export function showEffectDetails(
         calcContainer.querySelectorAll(".calc-input").forEach((input) => {
           values[input.dataset.var] = parseFloat(input.value) || 0;
         });
+
+        // 特殊arg1类型：z3不在输入框，直接从defaultParams注入
+        if (isSpecialArg1 && defaultParams["z3"] !== undefined) {
+          values["z3"] = defaultParams["z3"];
+        }
 
         // 保存参数值到缓存（保留其他参数，不保存z开头和cost参数）
         try {
@@ -328,9 +347,59 @@ export function showEffectDetails(
           }
         });
 
+        // 计算持续时间 t（所有类型均尝试解析）
+        let durationT = 0;
+        if (effectData.duration !== undefined) {
+          try {
+            const durScript = String(effectData.duration);
+            // 合并输入框参数与上层传入的z参数（z参数优先使用defaultParams）
+            const durValues = { ...values };
+            Object.keys(defaultParams).forEach((k) => {
+              if (/^z\d+$/.test(k)) {
+                durValues[k] = defaultParams[k];
+              }
+            });
+            const argNames = Object.keys(durValues);
+            const argVals = Object.values(durValues);
+            const parsedDur = parseScriptToJS(durScript);
+            const funcBody = `
+                const math = Math;
+                const min = Math.min;
+                const max = Math.max;
+                const abs = Math.abs;
+                const floor = Math.floor;
+                const ceil = Math.ceil;
+                ${parsedDur}
+              `;
+            const func = new Function(...argNames, funcBody);
+            const durResult = func(...argVals);
+            if (typeof durResult === "number" && durResult > 0) {
+              durationT = durResult;
+            }
+          } catch (e) {
+            // duration 解析失败则忽略
+          }
+        }
+        const tickCount = durationT > 0 ? Math.ceil(durationT / 2) : 0;
+
+        // 检测特殊arg1类型：arg3不单独展示，而是作为最多生效次数附加到上一条
+        // arg3 可能是公式计算结果，也可能直接是数字字面量
+        let arg3MaxCount = null;
+        if (isSpecialArg1) {
+          if (allResults["arg3"] != null) {
+            arg3MaxCount = Math.round(allResults["arg3"]);
+          } else if (typeof effectData.arg3 === "number") {
+            arg3MaxCount = Math.round(effectData.arg3);
+          }
+        }
+
         // 生成结果HTML
         let isFirstFormula = true;
-        compiledFormulas.forEach((f) => {
+        const formulasToRender = compiledFormulas.filter(
+          (f) => !(isSpecialArg1 && f.key === "arg3"),
+        );
+        formulasToRender.forEach((f, renderIndex) => {
+          const isLastRendered = renderIndex === formulasToRender.length - 1;
           const res = allResults[f.key];
           if (res === null) {
             resultsHtml += `<div><strong>${f.key}</strong>: <span class="text-danger">计算错误</span></div>`;
@@ -355,7 +424,42 @@ export function showEffectDetails(
               displayRes = parseFloat((-res * allResults["arg2"]).toFixed(4));
             }
 
-            resultsHtml += `<div><strong>${labelName}</strong>: ${displayRes}</div>`;
+            // 属性变化类型取整
+            if (
+              effectData.type === "属性变化" &&
+              typeof displayRes === "number"
+            ) {
+              displayRes = Math.round(displayRes);
+            }
+
+            resultsHtml += `<div><strong>${labelName}</strong>: ${displayRes}`;
+
+            // 拼装括号内的注释
+            const notes = [];
+            if (durationT > 0 && effectData.type !== "属性变化") {
+              notes.push(`持续 ${durationT} 秒`);
+            }
+            if (isLastRendered && arg3MaxCount !== null) {
+              notes.push(`最多生效 ${arg3MaxCount} 次`);
+            }
+            if (notes.length > 0) {
+              resultsHtml += ` <span class="text-muted" style="font-size:0.85rem;">（${notes.join("，")}）</span>`;
+            }
+            resultsHtml += `</div>`;
+
+            // 持续时间附加信息（仅属性变化类型且 t > 0）
+            if (effectData.type === "属性变化" && durationT > 0) {
+              const total = Math.round(displayRes * tickCount);
+              const totalNotes = [
+                `持续 ${durationT} 秒`,
+                `生效 ${tickCount} 次`,
+              ];
+              if (isLastRendered && arg3MaxCount !== null) {
+                totalNotes.push(`最多生效 ${arg3MaxCount} 次`);
+              }
+              resultsHtml += `<div><strong>总${labelName}</strong>: ${total} <span class="text-muted" style="font-size:0.85rem;">（${totalNotes.join("，")}）</span></div>`;
+            }
+
             isFirstFormula = false;
           }
         });
@@ -495,8 +599,10 @@ export function showActiveSkills(skillId, activeSkillData, name) {
 
     html += `
         <div class="mb-4">
-            <h5>技能基础数据</h5>
-            <pre style="max-height: 200px; overflow-y: auto;">${JSON.stringify(baseActive, null, 2)}</pre>
+            <h5>技能基础数据
+                <button class="btn btn-sm btn-outline-primary expand-base-btn" data-active-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px;">展开</button>
+            </h5>
+            <pre id="base-data-${activeId}" style="max-height: 200px; overflow-y: auto; display: none;">${JSON.stringify(baseActive, null, 2)}</pre>
         </div>`;
 
     // 根据技能ID格式筛选第一重和第十重
@@ -615,6 +721,18 @@ export function showActiveSkills(skillId, activeSkillData, name) {
   container.innerHTML = html;
 
   // 为展开按钮添加事件处理
+  container.querySelectorAll(".expand-base-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const activeId = e.target.getAttribute("data-active-id");
+      const pre = container.querySelector(`#base-data-${activeId}`);
+      const isExpanded = e.target.dataset.expanded === "true";
+      pre.style.display = isExpanded ? "none" : "block";
+      e.target.dataset.expanded = !isExpanded;
+      e.target.textContent = isExpanded ? "展开" : "折叠";
+    });
+  });
+
   container.querySelectorAll(".expand-levels-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();

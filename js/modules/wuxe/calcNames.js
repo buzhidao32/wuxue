@@ -27,15 +27,29 @@ export const calcParamNames = {
   neiliMax3: "对方内力上限",
   roleLv: "人物等级",
   jingMax: "精力上限",
+  augment2num: "隐元层数（上限32）",
+  augment3num: "洞明层数（上限3）",
+  augment5num: "隐元层数（上限32）",
   augment7num: "仙蛊层数（上限16）",
   fragile4num: "毒蛊层数（上限16）",
   fragile5num: "和息层数（上限4）",
   currjqdamage: "单系谙技值",
   jqdamage: "双系谙技值",
+  CN: "淬炼次数",
+  nengGongRecoverNeiLiFactor: "内功内力系数",
 };
 
 // 选择框参数配置：匹配参数名的正则 -> { label, options: [{label, value}], default }
 export const calcSelectParams = [
+  {
+    pattern: /^combatStack6num$/,
+    label: "【缓】效果",
+    options: [
+      { label: "无", value: 0 },
+      { label: "有", value: 1 },
+    ],
+    default: 0,
+  },
   {
     pattern: /^combatStack\d+num$/,
     label: "隐脉加成",
