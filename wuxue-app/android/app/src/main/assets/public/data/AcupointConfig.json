@@ -1,0 +1,1156 @@
+{
+  "玄脉图": {
+    "1004": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 48030,
+      "id": "1004",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1105": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 49270,
+      "id": "1105",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1705": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 56690,
+      "id": "1705",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1008": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 48030,
+      "id": "1008",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1210": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 50510,
+      "id": "1210",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1710": {
+      "type": 2,
+      "class": 3,
+      "name": "守御天门窍",
+      "time": 56690,
+      "id": "1710",
+      "introduction": "可使用守御类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1304": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 51740,
+      "id": "1304",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1305": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 51740,
+      "id": "1305",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1707": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 56690,
+      "id": "1707",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1706": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 56690,
+      "id": "1706",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1711": {
+      "type": 3,
+      "class": 3,
+      "name": "共贯天门窍",
+      "time": 56690,
+      "id": "1711",
+      "introduction": "可使用共贯类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1704": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 56690,
+      "id": "1704",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1103": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 49270,
+      "id": "1103",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1405": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 52980,
+      "id": "1405",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1005": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 48030,
+      "id": "1005",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1702": {
+      "type": 1,
+      "class": 3,
+      "name": "参伐天门窍",
+      "time": 56690,
+      "id": "1702",
+      "introduction": "可使用参伐类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "704": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 40610,
+      "id": "704",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "604": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 38130,
+      "id": "604",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "904": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 45560,
+      "id": "904",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "804": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 43080,
+      "id": "804",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1507": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 54220,
+      "id": "1507",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1610": {
+      "type": 3,
+      "class": 3,
+      "name": "共贯天门窍",
+      "time": 55450,
+      "id": "1610",
+      "introduction": "可使用共贯类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1306": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 51740,
+      "id": "1306",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1508": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 54220,
+      "id": "1508",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "901": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 45560,
+      "id": "901",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1608": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 55450,
+      "id": "1608",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1509": {
+      "type": 2,
+      "class": 3,
+      "name": "守御天门窍",
+      "time": 54220,
+      "id": "1509",
+      "introduction": "可使用守御类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1201": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 50510,
+      "id": "1201",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1603": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 55450,
+      "id": "1603",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1102": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 49270,
+      "id": "1102",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "504": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 31950,
+      "id": "504",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "404": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 25760,
+      "id": "404",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "902": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 45560,
+      "id": "902",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "802": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 43080,
+      "id": "802",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "702": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 40610,
+      "id": "702",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "602": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 38130,
+      "id": "602",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1607": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 55450,
+      "id": "1607",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1602": {
+      "type": 1,
+      "class": 3,
+      "name": "参伐天门窍",
+      "time": 55450,
+      "id": "1602",
+      "introduction": "可使用参伐类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1606": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 55450,
+      "id": "1606",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1310": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 51740,
+      "id": "1310",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "102": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 7200,
+      "id": "102",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1605": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 55450,
+      "id": "1605",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1604": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 55450,
+      "id": "1604",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1601": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 55450,
+      "id": "1601",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "502": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 31950,
+      "id": "502",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "402": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 25760,
+      "id": "402",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "302": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 19570,
+      "id": "302",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "202": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 13390,
+      "id": "202",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1510": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 54220,
+      "id": "1510",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1301": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 51740,
+      "id": "1301",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1701": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 56690,
+      "id": "1701",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1506": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 54220,
+      "id": "1506",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1505": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 54220,
+      "id": "1505",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1308": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 51740,
+      "id": "1308",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1408": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 52980,
+      "id": "1408",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1206": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 50510,
+      "id": "1206",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1503": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 54220,
+      "id": "1503",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1502": {
+      "type": 1,
+      "class": 3,
+      "name": "参伐天门窍",
+      "time": 54220,
+      "id": "1502",
+      "introduction": "可使用参伐类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1207": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 50510,
+      "id": "1207",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1609": {
+      "type": 2,
+      "class": 3,
+      "name": "守御天门窍",
+      "time": 55450,
+      "id": "1609",
+      "introduction": "可使用守御类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1202": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 50510,
+      "id": "1202",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1410": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 52980,
+      "id": "1410",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1409": {
+      "type": 2,
+      "class": 3,
+      "name": "守御天门窍",
+      "time": 52980,
+      "id": "1409",
+      "introduction": "可使用守御类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "1303": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 51740,
+      "id": "1303",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1407": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 52980,
+      "id": "1407",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1208": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 50510,
+      "id": "1208",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1204": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 50510,
+      "id": "1204",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1406": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 52980,
+      "id": "1406",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1703": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 56690,
+      "id": "1703",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1404": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 52980,
+      "id": "1404",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1302": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 51740,
+      "id": "1302",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1109": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 49270,
+      "id": "1109",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "803": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 43080,
+      "id": "803",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "903": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 45560,
+      "id": "903",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "603": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 38130,
+      "id": "603",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "703": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 40610,
+      "id": "703",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "807": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 43080,
+      "id": "807",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "707": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 40610,
+      "id": "707",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1402": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 52980,
+      "id": "1402",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1401": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 52980,
+      "id": "1401",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "908": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 45560,
+      "id": "908",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1108": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 49270,
+      "id": "1108",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1504": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 54220,
+      "id": "1504",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1307": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 51740,
+      "id": "1307",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1106": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 49270,
+      "id": "1106",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1708": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 56690,
+      "id": "1708",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "708": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 40610,
+      "id": "708",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "808": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 43080,
+      "id": "808",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1709": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 56690,
+      "id": "1709",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1001": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 48030,
+      "id": "1001",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1209": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 50510,
+      "id": "1209",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1205": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 50510,
+      "id": "1205",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1203": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 50510,
+      "id": "1203",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1110": {
+      "type": 3,
+      "class": 2,
+      "name": "共贯气渊窍",
+      "time": 49270,
+      "id": "1110",
+      "introduction": "可使用共贯类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1403": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 52980,
+      "id": "1403",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1309": {
+      "type": 2,
+      "class": 3,
+      "name": "守御天门窍",
+      "time": 51740,
+      "id": "1309",
+      "introduction": "可使用守御类的后土、气渊、天门等级玄络进行调脉",
+      "resource": []
+    },
+    "701": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 40610,
+      "id": "701",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "601": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 38130,
+      "id": "601",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "501": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 31950,
+      "id": "501",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "401": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 25760,
+      "id": "401",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "706": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 40610,
+      "id": "706",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "806": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 43080,
+      "id": "806",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "405": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 25760,
+      "id": "405",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "505": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 31950,
+      "id": "505",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1107": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 49270,
+      "id": "1107",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1712": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 56690,
+      "id": "1712",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1104": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 49270,
+      "id": "1104",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1101": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 49270,
+      "id": "1101",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1007": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 48030,
+      "id": "1007",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1006": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 48030,
+      "id": "1006",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1002": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 48030,
+      "id": "1002",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "1003": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 48030,
+      "id": "1003",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "907": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 45560,
+      "id": "907",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "103": {
+      "type": 2,
+      "class": 1,
+      "name": "守御后土窍",
+      "time": 7200,
+      "id": "103",
+      "introduction": "可使用守御类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "906": {
+      "type": 3,
+      "class": 1,
+      "name": "共贯后土窍",
+      "time": 45560,
+      "id": "906",
+      "introduction": "可使用共贯类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "1501": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 54220,
+      "id": "1501",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "403": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 25760,
+      "id": "403",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "503": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 31950,
+      "id": "503",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "203": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 13390,
+      "id": "203",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "303": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 19570,
+      "id": "303",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "605": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 38130,
+      "id": "605",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "705": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 40610,
+      "id": "705",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "805": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 43080,
+      "id": "805",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "905": {
+      "type": 2,
+      "class": 2,
+      "name": "守御气渊窍",
+      "time": 45560,
+      "id": "905",
+      "introduction": "可使用守御类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "301": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 19570,
+      "id": "301",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    },
+    "201": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 13390,
+      "id": "201",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "101": {
+      "type": 1,
+      "class": 1,
+      "name": "参伐后土窍",
+      "time": 60,
+      "id": "101",
+      "introduction": "可使用参伐类的后土等级玄络进行调脉",
+      "resource": []
+    },
+    "801": {
+      "type": 1,
+      "class": 2,
+      "name": "参伐气渊窍",
+      "time": 43080,
+      "id": "801",
+      "introduction": "可使用参伐类的后土、气渊等级玄络进行调脉",
+      "resource": []
+    }
+  }
+}
