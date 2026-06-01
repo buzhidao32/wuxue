@@ -825,25 +825,27 @@ export function showActiveSkills(skillId, activeSkillData, name) {
 
   container.innerHTML = html;
 
-  // 为展开按钮添加事件处理
-  container.querySelectorAll(".expand-base-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+  container.addEventListener("click", (e) => {
+    // 处理基础数据展开按钮
+    if (e.target.closest(".expand-base-btn")) {
       e.stopPropagation();
-      const activeId = e.target.getAttribute("data-active-id");
+      const btn = e.target.closest(".expand-base-btn");
+      const activeId = btn.getAttribute("data-active-id");
       const pre = container.querySelector(`#base-data-${activeId}`);
-      const isExpanded = e.target.dataset.expanded === "true";
+      const isExpanded = btn.dataset.expanded === "true";
       pre.style.display = isExpanded ? "none" : "block";
-      e.target.dataset.expanded = !isExpanded;
-      e.target.textContent = isExpanded ? "展开" : "折叠";
-    });
-  });
+      btn.dataset.expanded = !isExpanded;
+      btn.textContent = isExpanded ? "展开" : "折叠";
+      return;
+    }
 
-  container.querySelectorAll(".expand-levels-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    // 处理各重数差异展开按钮
+    if (e.target.closest(".expand-levels-btn")) {
       e.stopPropagation();
-      const skillId = e.target.getAttribute("data-skill-id");
+      const btn = e.target.closest(".expand-levels-btn");
+      const skillId = btn.getAttribute("data-skill-id");
       const rows = container.querySelectorAll(`.skill-level-row-${skillId}`);
-      const isExpanded = e.target.dataset.expanded === "true";
+      const isExpanded = btn.dataset.expanded === "true";
 
       rows.forEach((row) => {
         const level = parseInt(row.getAttribute("data-level"));
@@ -853,12 +855,12 @@ export function showActiveSkills(skillId, activeSkillData, name) {
         }
       });
 
-      e.target.dataset.expanded = !isExpanded;
-      e.target.textContent = isExpanded ? "展开" : "折叠";
-    });
-  });
+      btn.dataset.expanded = !isExpanded;
+      btn.textContent = isExpanded ? "展开" : "折叠";
+      return;
+    }
 
-  container.addEventListener("click", (e) => {
+    // 处理效果链接
     const link = e.target.closest(".effect-link");
     if (link) {
       const effectId = link.getAttribute("data-effect-id");
