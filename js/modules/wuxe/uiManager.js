@@ -159,6 +159,11 @@ export function toggleFilter(badge, value, filterType) {
       badge.classList.add("active");
     }
   }
+
+  if (!skillData?.skills) {
+    return;
+  }
+
   updateSkillList(skillData, matchesFilters);
 }
 

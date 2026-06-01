@@ -1,0 +1,1988 @@
+{
+    "data": {
+        "10": {
+            "value": -100000,
+            "id": "10",
+            "logic": "小于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "30": {
+            "value": 1,
+            "id": "30",
+            "logic": "等于",
+            "param": [],
+            "class": "fb20",
+            "type": 500
+        },
+        "31": {
+            "value": 0,
+            "id": "31",
+            "logic": "等于",
+            "param": [],
+            "class": "fb40",
+            "type": 500
+        },
+        "999": {
+            "value": 100,
+            "id": "999",
+            "logic": "大于",
+            "param": [],
+            "class": "inheritCount",
+            "type": 100
+        },
+        "1000": {
+            "value": 1,
+            "id": "1000",
+            "logic": "等于",
+            "param": [],
+            "class": "fb20",
+            "type": 500
+        },
+        "1001": {
+            "value": 1,
+            "id": "1001",
+            "logic": "等于",
+            "param": [],
+            "class": "fb30",
+            "type": 500
+        },
+        "1002": {
+            "value": 1,
+            "id": "1002",
+            "logic": "等于",
+            "param": [],
+            "class": "fb35",
+            "type": 500
+        },
+        "1010": {
+            "value": 1,
+            "id": "1010",
+            "logic": "等于",
+            "param": [],
+            "class": "fb40",
+            "type": 500
+        },
+        "1015": {
+            "value": 1,
+            "id": "1015",
+            "logic": "等于",
+            "param": [],
+            "class": "fb45",
+            "type": 500
+        },
+        "1020": {
+            "value": 1,
+            "id": "1020",
+            "logic": "等于",
+            "param": [],
+            "class": "fb50",
+            "type": 500
+        },
+        "2001": {
+            "value": 1,
+            "id": "2001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "inheritCount",
+            "type": 100
+        },
+        "2002": {
+            "value": 2,
+            "id": "2002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "inheritCount",
+            "type": 100
+        },
+        "2003": {
+            "value": 3,
+            "id": "2003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "inheritCount",
+            "type": 100
+        },
+        "2004": {
+            "value": 4,
+            "id": "2004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "inheritCount",
+            "type": 100
+        },
+        "2005": {
+            "value": 5,
+            "id": "2005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "inheritCount",
+            "type": 100
+        },
+        "3010": {
+            "value": 1000,
+            "id": "3010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "lv",
+            "type": 100
+        },
+        "3020": {
+            "value": 2000,
+            "id": "3020",
+            "logic": "大于等于",
+            "param": [],
+            "class": "lv",
+            "type": 100
+        },
+        "4010": {
+            "value": 1,
+            "id": "4010",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0102",
+            "type": 600
+        },
+        "4011": {
+            "value": 1,
+            "id": "4011",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0103",
+            "type": 600
+        },
+        "4012": {
+            "value": 1,
+            "id": "4012",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0104",
+            "type": 600
+        },
+        "4013": {
+            "value": 1,
+            "id": "4013",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0105",
+            "type": 600
+        },
+        "4014": {
+            "value": 1,
+            "id": "4014",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0106",
+            "type": 600
+        },
+        "4030": {
+            "value": 1,
+            "id": "4030",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0202",
+            "type": 600
+        },
+        "4031": {
+            "value": 1,
+            "id": "4031",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0203",
+            "type": 600
+        },
+        "4032": {
+            "value": 1,
+            "id": "4032",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0204",
+            "type": 600
+        },
+        "4033": {
+            "value": 1,
+            "id": "4033",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0205",
+            "type": 600
+        },
+        "4034": {
+            "value": 1,
+            "id": "4034",
+            "logic": "等于",
+            "param": [],
+            "class": "tzfb0206",
+            "type": 600
+        },
+        "5000": {
+            "value": 400,
+            "id": "5000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "officialAchievement",
+            "type": 100
+        },
+        "5001": {
+            "value": 700,
+            "id": "5001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "officialAchievement",
+            "type": 100
+        },
+        "5002": {
+            "value": 1000,
+            "id": "5002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "officialAchievement",
+            "type": 100
+        },
+        "6000": {
+            "value": 3150,
+            "id": "6000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "kill",
+            "type": 100
+        },
+        "6001": {
+            "value": 4200,
+            "id": "6001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "kill",
+            "type": 100
+        },
+        "6002": {
+            "value": 5250,
+            "id": "6002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "kill",
+            "type": 100
+        },
+        "7000": {
+            "value": 6000,
+            "id": "7000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "meili",
+            "type": 100
+        },
+        "7001": {
+            "value": 8000,
+            "id": "7001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "meili",
+            "type": 100
+        },
+        "7002": {
+            "value": 10000,
+            "id": "7002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "meili",
+            "type": 100
+        },
+        "8011": {
+            "value": 1,
+            "id": "8011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "剑",
+            "type": 802
+        },
+        "8012": {
+            "value": 2,
+            "id": "8012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "剑",
+            "type": 802
+        },
+        "8013": {
+            "value": 3,
+            "id": "8013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "剑",
+            "type": 802
+        },
+        "8021": {
+            "value": 1,
+            "id": "8021",
+            "logic": "大于等于",
+            "param": [],
+            "class": "刀",
+            "type": 802
+        },
+        "8022": {
+            "value": 2,
+            "id": "8022",
+            "logic": "大于等于",
+            "param": [],
+            "class": "刀",
+            "type": 802
+        },
+        "8023": {
+            "value": 3,
+            "id": "8023",
+            "logic": "大于等于",
+            "param": [],
+            "class": "刀",
+            "type": 802
+        },
+        "8031": {
+            "value": 1,
+            "id": "8031",
+            "logic": "大于等于",
+            "param": [],
+            "class": "棍",
+            "type": 802
+        },
+        "8032": {
+            "value": 2,
+            "id": "8032",
+            "logic": "大于等于",
+            "param": [],
+            "class": "棍",
+            "type": 802
+        },
+        "8033": {
+            "value": 3,
+            "id": "8033",
+            "logic": "大于等于",
+            "param": [],
+            "class": "棍",
+            "type": 802
+        },
+        "8041": {
+            "value": 1,
+            "id": "8041",
+            "logic": "大于等于",
+            "param": [],
+            "class": "鞭",
+            "type": 802
+        },
+        "8042": {
+            "value": 2,
+            "id": "8042",
+            "logic": "大于等于",
+            "param": [],
+            "class": "鞭",
+            "type": 802
+        },
+        "8043": {
+            "value": 3,
+            "id": "8043",
+            "logic": "大于等于",
+            "param": [],
+            "class": "鞭",
+            "type": 802
+        },
+        "8051": {
+            "value": 1,
+            "id": "8051",
+            "logic": "大于等于",
+            "param": [],
+            "class": "双持",
+            "type": 802
+        },
+        "8052": {
+            "value": 2,
+            "id": "8052",
+            "logic": "大于等于",
+            "param": [],
+            "class": "双持",
+            "type": 802
+        },
+        "8053": {
+            "value": 3,
+            "id": "8053",
+            "logic": "大于等于",
+            "param": [],
+            "class": "双持",
+            "type": 802
+        },
+        "8061": {
+            "value": 1,
+            "id": "8061",
+            "logic": "大于等于",
+            "param": [],
+            "class": "暗器",
+            "type": 802
+        },
+        "8062": {
+            "value": 2,
+            "id": "8062",
+            "logic": "大于等于",
+            "param": [],
+            "class": "暗器",
+            "type": 802
+        },
+        "8063": {
+            "value": 3,
+            "id": "8063",
+            "logic": "大于等于",
+            "param": [],
+            "class": "暗器",
+            "type": 802
+        },
+        "8071": {
+            "value": 1,
+            "id": "8071",
+            "logic": "大于等于",
+            "param": [],
+            "class": "乐器",
+            "type": 802
+        },
+        "8072": {
+            "value": 2,
+            "id": "8072",
+            "logic": "大于等于",
+            "param": [],
+            "class": "乐器",
+            "type": 802
+        },
+        "8073": {
+            "value": 3,
+            "id": "8073",
+            "logic": "大于等于",
+            "param": [],
+            "class": "乐器",
+            "type": 802
+        },
+        "9000": {
+            "value": 1000,
+            "id": "9000",
+            "logic": "大于",
+            "param": [],
+            "class": "totalCollectScore",
+            "type": 101
+        },
+        "9001": {
+            "value": 3000,
+            "id": "9001",
+            "logic": "大于",
+            "param": [],
+            "class": "totalCollectScore",
+            "type": 101
+        },
+        "9002": {
+            "value": 6000,
+            "id": "9002",
+            "logic": "大于",
+            "param": [],
+            "class": "totalCollectScore",
+            "type": 101
+        },
+        "9003": {
+            "value": 9000,
+            "id": "9003",
+            "logic": "大于",
+            "param": [],
+            "class": "totalCollectScore",
+            "type": 101
+        },
+        "9004": {
+            "value": 15000,
+            "id": "9004",
+            "logic": "大于",
+            "param": [],
+            "class": "totalCollectScore",
+            "type": 101
+        },
+        "9005": {
+            "value": 30000,
+            "id": "9005",
+            "logic": "大于",
+            "param": [],
+            "class": "totalCollectScore",
+            "type": 101
+        },
+        "10000": {
+            "value": 635,
+            "id": "10000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "weiwang",
+            "type": 100
+        },
+        "10001": {
+            "value": 1000,
+            "id": "10001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "weiwang",
+            "type": 100
+        },
+        "10002": {
+            "value": 4000,
+            "id": "10002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "weiwang",
+            "type": 100
+        },
+        "10010": {
+            "value": 835,
+            "id": "10010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "weiwang",
+            "type": 100
+        },
+        "10011": {
+            "value": 1200,
+            "id": "10011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "weiwang",
+            "type": 100
+        },
+        "10012": {
+            "value": 4200,
+            "id": "10012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "weiwang",
+            "type": 100
+        },
+        "11000": {
+            "value": 1000,
+            "id": "11000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11001": {
+            "value": 4000,
+            "id": "11001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11002": {
+            "value": 7000,
+            "id": "11002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11003": {
+            "value": 10000,
+            "id": "11003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11004": {
+            "value": 13000,
+            "id": "11004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11005": {
+            "value": 20000,
+            "id": "11005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11010": {
+            "value": 1800,
+            "id": "11010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11011": {
+            "value": 4800,
+            "id": "11011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11012": {
+            "value": 7800,
+            "id": "11012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11013": {
+            "value": 10800,
+            "id": "11013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11014": {
+            "value": 13800,
+            "id": "11014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "11015": {
+            "value": 20800,
+            "id": "11015",
+            "logic": "大于等于",
+            "param": [],
+            "class": "yueli",
+            "type": 100
+        },
+        "12000": {
+            "value": 1000,
+            "id": "12000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12001": {
+            "value": 5000,
+            "id": "12001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12002": {
+            "value": 20000,
+            "id": "12002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12003": {
+            "value": 100000,
+            "id": "12003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12004": {
+            "value": 500000,
+            "id": "12004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12005": {
+            "value": 1000000,
+            "id": "12005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12010": {
+            "value": 1100,
+            "id": "12010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12011": {
+            "value": 5500,
+            "id": "12011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12012": {
+            "value": 22000,
+            "id": "12012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12013": {
+            "value": 110000,
+            "id": "12013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12014": {
+            "value": 550000,
+            "id": "12014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "12015": {
+            "value": 1100000,
+            "id": "12015",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13000": {
+            "value": -1000,
+            "id": "13000",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13001": {
+            "value": -5000,
+            "id": "13001",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13002": {
+            "value": -20000,
+            "id": "13002",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13003": {
+            "value": -100000,
+            "id": "13003",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13004": {
+            "value": -500000,
+            "id": "13004",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13005": {
+            "value": -1000000,
+            "id": "13005",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13010": {
+            "value": -1100,
+            "id": "13010",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13011": {
+            "value": -5500,
+            "id": "13011",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13012": {
+            "value": -22000,
+            "id": "13012",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13013": {
+            "value": -110000,
+            "id": "13013",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13014": {
+            "value": -550000,
+            "id": "13014",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "13015": {
+            "value": -1100000,
+            "id": "13015",
+            "logic": "小于等于",
+            "param": [],
+            "class": "zhengqi",
+            "type": 100
+        },
+        "14000": {
+            "value": 1000,
+            "id": "14000",
+            "logic": "大于",
+            "param": [],
+            "class": "bookPoint",
+            "type": 101
+        },
+        "14001": {
+            "value": 3000,
+            "id": "14001",
+            "logic": "大于",
+            "param": [],
+            "class": "bookPoint",
+            "type": 101
+        },
+        "14002": {
+            "value": 5000,
+            "id": "14002",
+            "logic": "大于",
+            "param": [],
+            "class": "bookPoint",
+            "type": 101
+        },
+        "14003": {
+            "value": 7000,
+            "id": "14003",
+            "logic": "大于",
+            "param": [],
+            "class": "bookPoint",
+            "type": 101
+        },
+        "14004": {
+            "value": 10000,
+            "id": "14004",
+            "logic": "大于",
+            "param": [],
+            "class": "bookPoint",
+            "type": 101
+        },
+        "14005": {
+            "value": 20000,
+            "id": "14005",
+            "logic": "大于",
+            "param": [],
+            "class": "bookPoint",
+            "type": 101
+        },
+        "15000": {
+            "value": 500,
+            "id": "15000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "pokedexPoint",
+            "type": 101
+        },
+        "15001": {
+            "value": 1800,
+            "id": "15001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "pokedexPoint",
+            "type": 101
+        },
+        "15002": {
+            "value": 4000,
+            "id": "15002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "pokedexPoint",
+            "type": 101
+        },
+        "15010": {
+            "value": 600,
+            "id": "15010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "pokedexPoint",
+            "type": 101
+        },
+        "15011": {
+            "value": 1900,
+            "id": "15011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "pokedexPoint",
+            "type": 101
+        },
+        "15012": {
+            "value": 4100,
+            "id": "15012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "pokedexPoint",
+            "type": 101
+        },
+        "16000": {
+            "value": 50,
+            "id": "16000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16001": {
+            "value": 140,
+            "id": "16001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16002": {
+            "value": 230,
+            "id": "16002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16003": {
+            "value": 300,
+            "id": "16003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16004": {
+            "value": 400,
+            "id": "16004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16010": {
+            "value": 90,
+            "id": "16010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16011": {
+            "value": 180,
+            "id": "16011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16012": {
+            "value": 270,
+            "id": "16012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "16013": {
+            "value": 340,
+            "id": "16013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "zhougongzhishu",
+            "type": 200
+        },
+        "17000": {
+            "value": 3,
+            "id": "17000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 201
+        },
+        "17001": {
+            "value": 6,
+            "id": "17001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 201
+        },
+        "17002": {
+            "value": 9,
+            "id": "17002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 201
+        },
+        "17010": {
+            "value": 4,
+            "id": "17010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 201
+        },
+        "17011": {
+            "value": 7,
+            "id": "17011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 201
+        },
+        "17012": {
+            "value": 10,
+            "id": "17012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 201
+        },
+        "18000": {
+            "value": 3,
+            "id": "18000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "18001": {
+            "value": 3,
+            "id": "18001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "18002": {
+            "value": 3,
+            "id": "18002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "18010": {
+            "value": 4,
+            "id": "18010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "18011": {
+            "value": 4,
+            "id": "18011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "18012": {
+            "value": 4,
+            "id": "18012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "19000": {
+            "value": 5,
+            "id": "19000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "19001": {
+            "value": 15,
+            "id": "19001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "19002": {
+            "value": 30,
+            "id": "19002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 202
+        },
+        "20000": {
+            "value": 2,
+            "id": "20000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 400
+        },
+        "20001": {
+            "value": 4,
+            "id": "20001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 400
+        },
+        "20002": {
+            "value": 6,
+            "id": "20002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 400
+        },
+        "21000": {
+            "value": 2,
+            "id": "21000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 401
+        },
+        "21001": {
+            "value": 4,
+            "id": "21001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 401
+        },
+        "21002": {
+            "value": 6,
+            "id": "21002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "0",
+            "type": 401
+        },
+        "22000": {
+            "value": 1,
+            "id": "22000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "effctNum",
+            "type": 801
+        },
+        "22001": {
+            "value": 1,
+            "id": "22001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "effctNum",
+            "type": 801
+        },
+        "22002": {
+            "value": 1,
+            "id": "22002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "effctNum",
+            "type": 801
+        },
+        "22010": {
+            "value": 2,
+            "id": "22010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "effctNum",
+            "type": 801
+        },
+        "22011": {
+            "value": 2,
+            "id": "22011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "effctNum",
+            "type": 801
+        },
+        "22012": {
+            "value": 2,
+            "id": "22012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "effctNum",
+            "type": 801
+        },
+        "23000": {
+            "value": 120,
+            "id": "23000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23001": {
+            "value": 225,
+            "id": "23001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23002": {
+            "value": 360,
+            "id": "23002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23003": {
+            "value": 420,
+            "id": "23003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23004": {
+            "value": 500,
+            "id": "23004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23010": {
+            "value": 160,
+            "id": "23010",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23011": {
+            "value": 265,
+            "id": "23011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23012": {
+            "value": 400,
+            "id": "23012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "23013": {
+            "value": 460,
+            "id": "23013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "basislv",
+            "type": 900
+        },
+        "24001": {
+            "value": 160,
+            "id": "24001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24002": {
+            "value": 275,
+            "id": "24002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24003": {
+            "value": 380,
+            "id": "24003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24004": {
+            "value": 430,
+            "id": "24004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24005": {
+            "value": 500,
+            "id": "24005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "25001": {
+            "value": 160,
+            "id": "25001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25002": {
+            "value": 275,
+            "id": "25002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25003": {
+            "value": 380,
+            "id": "25003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25004": {
+            "value": 430,
+            "id": "25004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25005": {
+            "value": 500,
+            "id": "25005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "26001": {
+            "value": 160,
+            "id": "26001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26002": {
+            "value": 275,
+            "id": "26002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26003": {
+            "value": 380,
+            "id": "26003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26004": {
+            "value": 430,
+            "id": "26004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26005": {
+            "value": 500,
+            "id": "26005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "27001": {
+            "value": 160,
+            "id": "27001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27002": {
+            "value": 275,
+            "id": "27002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27003": {
+            "value": 380,
+            "id": "27003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27004": {
+            "value": 430,
+            "id": "27004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27005": {
+            "value": 500,
+            "id": "27005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "28001": {
+            "value": 160,
+            "id": "28001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28002": {
+            "value": 275,
+            "id": "28002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28003": {
+            "value": 380,
+            "id": "28003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28004": {
+            "value": 430,
+            "id": "28004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28005": {
+            "value": 500,
+            "id": "28005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "24011": {
+            "value": 195,
+            "id": "24011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24012": {
+            "value": 310,
+            "id": "24012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24013": {
+            "value": 415,
+            "id": "24013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "24014": {
+            "value": 465,
+            "id": "24014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10010",
+            "type": 901
+        },
+        "25011": {
+            "value": 195,
+            "id": "25011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25012": {
+            "value": 310,
+            "id": "25012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25013": {
+            "value": 415,
+            "id": "25013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "25014": {
+            "value": 465,
+            "id": "25014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10020",
+            "type": 901
+        },
+        "26011": {
+            "value": 195,
+            "id": "26011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26012": {
+            "value": 310,
+            "id": "26012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26013": {
+            "value": 415,
+            "id": "26013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "26014": {
+            "value": 465,
+            "id": "26014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10030",
+            "type": 901
+        },
+        "27011": {
+            "value": 195,
+            "id": "27011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27012": {
+            "value": 310,
+            "id": "27012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27013": {
+            "value": 415,
+            "id": "27013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "27014": {
+            "value": 465,
+            "id": "27014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10040",
+            "type": 901
+        },
+        "28011": {
+            "value": 195,
+            "id": "28011",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28012": {
+            "value": 310,
+            "id": "28012",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28013": {
+            "value": 415,
+            "id": "28013",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "28014": {
+            "value": 465,
+            "id": "28014",
+            "logic": "大于等于",
+            "param": [],
+            "class": "10050",
+            "type": 901
+        },
+        "29000": {
+            "value": 16,
+            "id": "29000",
+            "logic": "大于等于",
+            "param": [],
+            "class": "lv",
+            "type": 1000
+        },
+        "29001": {
+            "value": 24,
+            "id": "29001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "lv",
+            "type": 1000
+        },
+        "29002": {
+            "value": 36,
+            "id": "29002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "lv",
+            "type": 1000
+        },
+        "30001": {
+            "value": 1,
+            "id": "30001",
+            "logic": "等于",
+            "param": [],
+            "class": "guanfu",
+            "type": 103
+        },
+        "30002": {
+            "value": 1,
+            "id": "30002",
+            "logic": "等于",
+            "param": [],
+            "class": "shaolin",
+            "type": 103
+        },
+        "30003": {
+            "value": 1,
+            "id": "30003",
+            "logic": "等于",
+            "param": [],
+            "class": "quanzhen",
+            "type": 103
+        },
+        "30004": {
+            "value": 1,
+            "id": "30004",
+            "logic": "等于",
+            "param": [],
+            "class": "dali",
+            "type": 103
+        },
+        "30005": {
+            "value": 1,
+            "id": "30005",
+            "logic": "等于",
+            "param": [],
+            "class": "gaibang",
+            "type": 103
+        },
+        "30006": {
+            "value": 1,
+            "id": "30006",
+            "logic": "等于",
+            "param": [],
+            "class": "emei",
+            "type": 103
+        },
+        "30007": {
+            "value": 1,
+            "id": "30007",
+            "logic": "等于",
+            "param": [],
+            "class": "wudang",
+            "type": 103
+        },
+        "30008": {
+            "value": 1,
+            "id": "30008",
+            "logic": "等于",
+            "param": [],
+            "class": "huashan",
+            "type": 103
+        },
+        "30009": {
+            "value": 1,
+            "id": "30009",
+            "logic": "等于",
+            "param": [],
+            "class": "kunlun",
+            "type": 103
+        },
+        "30010": {
+            "value": 1,
+            "id": "30010",
+            "logic": "等于",
+            "param": [],
+            "class": "wudu",
+            "type": 103
+        },
+        "30011": {
+            "value": 1,
+            "id": "30011",
+            "logic": "等于",
+            "param": [],
+            "class": "tiezhang",
+            "type": 103
+        },
+        "30012": {
+            "value": 1,
+            "id": "30012",
+            "logic": "等于",
+            "param": [],
+            "class": "riyueshenjiao",
+            "type": 103
+        },
+        "30013": {
+            "value": 1,
+            "id": "30013",
+            "logic": "等于",
+            "param": [],
+            "class": "mizong",
+            "type": 103
+        },
+        "30014": {
+            "value": 1,
+            "id": "30014",
+            "logic": "等于",
+            "param": [],
+            "class": "xingxiu",
+            "type": 103
+        },
+        "30015": {
+            "value": 1,
+            "id": "30015",
+            "logic": "等于",
+            "param": [],
+            "class": "baituoshan",
+            "type": 103
+        },
+        "30016": {
+            "value": 1,
+            "id": "30016",
+            "logic": "等于",
+            "param": [],
+            "class": "murong",
+            "type": 103
+        },
+        "30017": {
+            "value": 1,
+            "id": "30017",
+            "logic": "等于",
+            "param": [],
+            "class": "mingjiao",
+            "type": 103
+        },
+        "30018": {
+            "value": 1,
+            "id": "30018",
+            "logic": "等于",
+            "param": [],
+            "class": "tangmen",
+            "type": 103
+        },
+        "30019": {
+            "value": 1,
+            "id": "30019",
+            "logic": "等于",
+            "param": [],
+            "class": "taohuadao",
+            "type": 103
+        },
+        "30020": {
+            "value": 1,
+            "id": "30020",
+            "logic": "等于",
+            "param": [],
+            "class": "gumu",
+            "type": 103
+        },
+        "30021": {
+            "value": 1,
+            "id": "30021",
+            "logic": "等于",
+            "param": [],
+            "class": "kongtong",
+            "type": 103
+        },
+        "30022": {
+            "value": 1,
+            "id": "30022",
+            "logic": "等于",
+            "param": [],
+            "class": "haijing",
+            "type": 103
+        },
+        "30023": {
+            "value": 1,
+            "id": "30023",
+            "logic": "等于",
+            "param": [],
+            "class": "youming",
+            "type": 103
+        },
+        "30024": {
+            "value": 1,
+            "id": "30024",
+            "logic": "等于",
+            "param": [],
+            "class": "tianshan",
+            "type": 103
+        },
+        "30025": {
+            "value": 1,
+            "id": "30025",
+            "logic": "等于",
+            "param": [],
+            "class": "luoyue",
+            "type": 103
+        },
+        "30026": {
+            "value": 1,
+            "id": "30026",
+            "logic": "等于",
+            "param": [],
+            "class": "jinqianbang",
+            "type": 103
+        },
+        "30027": {
+            "value": 1,
+            "id": "30027",
+            "logic": "等于",
+            "param": [],
+            "class": "yongyelou",
+            "type": 103
+        },
+        "30028": {
+            "value": 1,
+            "id": "30028",
+            "logic": "等于",
+            "param": [],
+            "class": "tianjingmen",
+            "type": 103
+        },
+        "31001": {
+            "value": 1,
+            "id": "31001",
+            "logic": "等于",
+            "param": [],
+            "class": "10000",
+            "type": 1200
+        },
+        "31002": {
+            "value": 1,
+            "id": "31002",
+            "logic": "等于",
+            "param": [],
+            "class": "10001",
+            "type": 1200
+        },
+        "31003": {
+            "value": 1,
+            "id": "31003",
+            "logic": "等于",
+            "param": [],
+            "class": "10002",
+            "type": 1200
+        },
+        "32001": {
+            "value": 1,
+            "id": "32001",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        },
+        "32002": {
+            "value": 2,
+            "id": "32002",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        },
+        "32003": {
+            "value": 3,
+            "id": "32003",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        },
+        "32004": {
+            "value": 4,
+            "id": "32004",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        },
+        "32005": {
+            "value": 5,
+            "id": "32005",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        },
+        "32006": {
+            "value": 6,
+            "id": "32006",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        },
+        "32007": {
+            "value": 7,
+            "id": "32007",
+            "logic": "大于等于",
+            "param": [],
+            "class": "classlevel",
+            "type": 700
+        }
+    }
+}

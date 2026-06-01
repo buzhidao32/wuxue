@@ -112,15 +112,15 @@ function renderEquippedLinkDetails(grooveElement, selectedLink) {
 
     const propertyElement = document.createElement('p');
     propertyElement.className = 'highlight-property';
-    propertyElement.textContent = `灞炴€у姞鎴? ${selectedLink.property.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '闃插尽' : '浼ゅ'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
+    propertyElement.textContent = `属性加成: ${selectedLink.property.map(prop => `${getElementName(prop[2])}${prop[1] === 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
 
     const specialElement = document.createElement('p');
     specialElement.className = 'highlight-special';
-    specialElement.textContent = `鐗规畩鍔犳垚: ${selectedLink.specialproperty.map(prop => `${getElementName(prop[2])}${getElementName(prop[1]) == 'defDamageClass' ? '闃插尽' : '浼ゅ'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
+    specialElement.textContent = `特殊加成: ${selectedLink.specialproperty.map(prop => `${getElementName(prop[2])}${prop[1] === 'defDamageClass' ? '防御' : '伤害'}: ${Number(prop[3] * 100).toFixed(2)}%`).join(', ')}`;
 
     const unlockConditionsElement = document.createElement('p');
     unlockConditionsElement.className = 'highlight-unlock-conditions';
-    unlockConditionsElement.textContent = `瑙ｉ攣鏉′欢: ${selectedLink.Unlocktext}`;
+    unlockConditionsElement.textContent = `解锁条件: ${selectedLink.Unlocktext}`;
 
     const lastChild = grooveElement.lastElementChild;
     if (lastChild) {
@@ -391,6 +391,10 @@ function createMeridianLinkModal(xltype, xlclass, grooveElement) {
     });
 
     const bootstrapModal = new bootstrap.Modal(modal);
+    modal.addEventListener('hidden.bs.modal', () => {
+        bootstrapModal.dispose();
+        modal.remove();
+    }, { once: true });
     bootstrapModal.show();
 
     return modal;

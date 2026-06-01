@@ -1,0 +1,1037 @@
+{
+    "玄脉图": {
+        "minditem9": {
+            "groove8": "908",
+            "groove4": "904",
+            "precondition12": [],
+            "precondition11": [],
+            "groove7": "907",
+            "precondition10": [],
+            "precondition9": [],
+            "precondition8": [
+                [
+                    "906"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "902"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "905"
+                ]
+            ],
+            "groove3": "903",
+            "precondition2": [
+                [
+                    "901"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "904"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "903"
+                ]
+            ],
+            "groove2": "902",
+            "groove5": "905",
+            "groove6": "906",
+            "groove1": "901",
+            "precondition5": [
+                [
+                    "904"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem9",
+            "resource": [
+                [
+                    "dmartial",
+                    183
+                ]
+            ],
+            "time": 134100,
+            "imageIndex": 3,
+            "class": 9,
+            "precondition13": [],
+            "name": "沉三丹极势"
+        },
+        "minditem17": {
+            "groove8": "1708",
+            "groove9": "1709",
+            "groove4": "1704",
+            "precondition12": [
+                [
+                    "1709"
+                ]
+            ],
+            "groove12": "1712",
+            "precondition11": [
+                [
+                    "1708"
+                ]
+            ],
+            "precondition5": [
+                [
+                    "1703"
+                ]
+            ],
+            "precondition10": [
+                [
+                    "1707"
+                ]
+            ],
+            "groove7": "1707",
+            "groove10": "1710",
+            "precondition9": [
+                [
+                    "1706"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1706"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1701"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1706"
+                ]
+            ],
+            "groove3": "1703",
+            "precondition2": [
+                [
+                    "1701"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1704",
+                    "1705"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1702"
+                ]
+            ],
+            "groove2": "1702",
+            "groove5": "1705",
+            "groove6": "1706",
+            "groove1": "1701",
+            "groove11": "1711",
+            "precondition1": [],
+            "id": "minditem17",
+            "resource": [],
+            "time": 0,
+            "imageIndex": 5,
+            "class": 17,
+            "precondition13": [],
+            "name": "化劲通固势"
+        },
+        "minditem13": {
+            "groove9": "1309",
+            "groove8": "1308",
+            "groove4": "1304",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition10": [
+                [
+                    "1308"
+                ]
+            ],
+            "groove7": "1307",
+            "groove10": "1310",
+            "precondition9": [
+                [
+                    "1307"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1306"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1301"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1306"
+                ]
+            ],
+            "groove3": "1303",
+            "precondition2": [
+                [
+                    "1301"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1304",
+                    "1305"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1302"
+                ]
+            ],
+            "groove2": "1302",
+            "groove5": "1305",
+            "groove6": "1306",
+            "groove1": "1301",
+            "precondition5": [
+                [
+                    "1303"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem13",
+            "resource": [
+                [
+                    "dmartial",
+                    297
+                ]
+            ],
+            "time": 167640,
+            "imageIndex": 4,
+            "class": 13,
+            "precondition13": [],
+            "name": "化劲通起势"
+        },
+        "minditem8": {
+            "groove8": "808",
+            "groove4": "804",
+            "precondition12": [],
+            "precondition11": [],
+            "groove7": "807",
+            "precondition10": [],
+            "precondition9": [],
+            "precondition8": [
+                [
+                    "806"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "802"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "805"
+                ]
+            ],
+            "groove3": "803",
+            "precondition2": [
+                [
+                    "801"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "804"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "803"
+                ]
+            ],
+            "groove2": "802",
+            "groove5": "805",
+            "groove6": "806",
+            "groove1": "801",
+            "precondition5": [
+                [
+                    "804"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem8",
+            "resource": [
+                [
+                    "dmartial",
+                    167
+                ]
+            ],
+            "time": 134100,
+            "imageIndex": 3,
+            "class": 8,
+            "precondition13": [],
+            "name": "沉三丹极势"
+        },
+        "minditem16": {
+            "groove9": "1609",
+            "groove8": "1608",
+            "groove4": "1604",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition10": [
+                [
+                    "1608"
+                ]
+            ],
+            "groove7": "1607",
+            "groove10": "1610",
+            "precondition9": [
+                [
+                    "1607"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1606"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1601"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1606"
+                ]
+            ],
+            "groove3": "1603",
+            "precondition2": [
+                [
+                    "1601"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1604",
+                    "1605"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1602"
+                ]
+            ],
+            "groove2": "1602",
+            "groove5": "1605",
+            "groove6": "1606",
+            "groove1": "1601",
+            "precondition5": [
+                [
+                    "1603"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem16",
+            "resource": [
+                [
+                    "dmartial",
+                    409
+                ]
+            ],
+            "time": 167640,
+            "imageIndex": 4,
+            "class": 16,
+            "precondition13": [],
+            "name": "化劲通起势"
+        },
+        "minditem10": {
+            "groove8": "1008",
+            "groove4": "1004",
+            "precondition12": [],
+            "precondition11": [],
+            "groove7": "1007",
+            "precondition10": [],
+            "precondition9": [],
+            "precondition8": [
+                [
+                    "1006"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1002"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1005"
+                ]
+            ],
+            "groove3": "1003",
+            "precondition2": [
+                [
+                    "1001"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1004"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1003"
+                ]
+            ],
+            "groove2": "1002",
+            "groove5": "1005",
+            "groove6": "1006",
+            "groove1": "1001",
+            "precondition5": [
+                [
+                    "1004"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem10",
+            "resource": [
+                [
+                    "dmartial",
+                    232
+                ]
+            ],
+            "time": 134100,
+            "imageIndex": 3,
+            "class": 10,
+            "precondition13": [],
+            "name": "沉三丹极势"
+        },
+        "minditem14": {
+            "groove9": "1409",
+            "groove8": "1408",
+            "groove4": "1404",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition10": [
+                [
+                    "1408"
+                ]
+            ],
+            "groove7": "1407",
+            "groove10": "1410",
+            "precondition9": [
+                [
+                    "1407"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1406"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1401"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1406"
+                ]
+            ],
+            "groove3": "1403",
+            "precondition2": [
+                [
+                    "1401"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1404",
+                    "1405"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1402"
+                ]
+            ],
+            "groove2": "1402",
+            "groove5": "1405",
+            "groove6": "1406",
+            "groove1": "1401",
+            "precondition5": [
+                [
+                    "1403"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem14",
+            "resource": [
+                [
+                    "dmartial",
+                    316
+                ]
+            ],
+            "time": 167640,
+            "imageIndex": 4,
+            "class": 14,
+            "precondition13": [],
+            "name": "化劲通起势"
+        },
+        "minditem2": {
+            "precondition8": [],
+            "precondition12": [],
+            "precondition5": [],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "202"
+                ]
+            ],
+            "precondition11": [],
+            "groove3": "203",
+            "precondition2": [
+                [
+                    "201"
+                ]
+            ],
+            "precondition10": [],
+            "precondition4": [],
+            "groove2": "202",
+            "precondition9": [],
+            "precondition7": [],
+            "groove1": "201",
+            "precondition6": [],
+            "precondition1": [],
+            "id": "minditem2",
+            "resource": [
+                [
+                    "dmartial",
+                    25
+                ]
+            ],
+            "time": 50280,
+            "imageIndex": 1,
+            "class": 2,
+            "precondition13": [],
+            "name": "沉三丹起势"
+        },
+        "minditem11": {
+            "groove9": "1109",
+            "groove8": "1108",
+            "groove4": "1104",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition10": [
+                [
+                    "1108"
+                ]
+            ],
+            "groove7": "1107",
+            "groove10": "1110",
+            "precondition9": [
+                [
+                    "1107"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1106"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1101"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1106"
+                ]
+            ],
+            "groove3": "1103",
+            "precondition2": [
+                [
+                    "1101"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1104",
+                    "1105"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1102"
+                ]
+            ],
+            "groove2": "1102",
+            "groove5": "1105",
+            "groove6": "1106",
+            "groove1": "1101",
+            "precondition5": [
+                [
+                    "1103"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem11",
+            "resource": [
+                [
+                    "dmartial",
+                    262
+                ]
+            ],
+            "time": 167640,
+            "imageIndex": 4,
+            "class": 11,
+            "precondition13": [],
+            "name": "化劲通起势"
+        },
+        "minditem15": {
+            "groove9": "1509",
+            "groove8": "1508",
+            "groove4": "1504",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition10": [
+                [
+                    "1508"
+                ]
+            ],
+            "groove7": "1507",
+            "groove10": "1510",
+            "precondition9": [
+                [
+                    "1507"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1506"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1501"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1506"
+                ]
+            ],
+            "groove3": "1503",
+            "precondition2": [
+                [
+                    "1501"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1504",
+                    "1505"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1502"
+                ]
+            ],
+            "groove2": "1502",
+            "groove5": "1505",
+            "groove6": "1506",
+            "groove1": "1501",
+            "precondition5": [
+                [
+                    "1503"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem15",
+            "resource": [
+                [
+                    "dmartial",
+                    335
+                ]
+            ],
+            "time": 167640,
+            "imageIndex": 4,
+            "class": 15,
+            "precondition13": [],
+            "name": "化劲通起势"
+        },
+        "minditem4": {
+            "precondition10": [],
+            "precondition8": [],
+            "groove4": "404",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "402"
+                ]
+            ],
+            "precondition9": [],
+            "groove3": "403",
+            "precondition2": [
+                [
+                    "401"
+                ]
+            ],
+            "precondition7": [],
+            "precondition4": [
+                [
+                    "403"
+                ]
+            ],
+            "groove2": "402",
+            "groove5": "405",
+            "precondition6": [],
+            "groove1": "401",
+            "precondition5": [
+                [
+                    "404"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem4",
+            "resource": [
+                [
+                    "dmartial",
+                    64
+                ]
+            ],
+            "time": 83820,
+            "imageIndex": 2,
+            "class": 4,
+            "precondition13": [],
+            "name": "沉三丹固势"
+        },
+        "minditem7": {
+            "groove8": "708",
+            "groove4": "704",
+            "precondition12": [],
+            "precondition11": [],
+            "groove7": "707",
+            "precondition10": [],
+            "precondition9": [],
+            "precondition8": [
+                [
+                    "706"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "702"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "705"
+                ]
+            ],
+            "groove3": "703",
+            "precondition2": [
+                [
+                    "701"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "704"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "703"
+                ]
+            ],
+            "groove2": "702",
+            "groove5": "705",
+            "groove6": "706",
+            "groove1": "701",
+            "precondition5": [
+                [
+                    "704"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem7",
+            "resource": [
+                [
+                    "dmartial",
+                    151
+                ]
+            ],
+            "time": 134100,
+            "imageIndex": 3,
+            "class": 7,
+            "precondition13": [],
+            "name": "沉三丹极势"
+        },
+        "minditem6": {
+            "precondition10": [],
+            "precondition8": [],
+            "groove4": "604",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "602"
+                ]
+            ],
+            "precondition9": [],
+            "groove3": "603",
+            "precondition2": [
+                [
+                    "601"
+                ]
+            ],
+            "precondition7": [],
+            "precondition4": [
+                [
+                    "603"
+                ]
+            ],
+            "groove2": "602",
+            "groove5": "605",
+            "precondition6": [],
+            "groove1": "601",
+            "precondition5": [
+                [
+                    "604"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem6",
+            "resource": [
+                [
+                    "dmartial",
+                    122
+                ]
+            ],
+            "time": 83820,
+            "imageIndex": 2,
+            "class": 6,
+            "precondition13": [],
+            "name": "沉三丹固势"
+        },
+        "minditem12": {
+            "groove9": "1209",
+            "groove8": "1208",
+            "groove4": "1204",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition10": [
+                [
+                    "1208"
+                ]
+            ],
+            "groove7": "1207",
+            "groove10": "1210",
+            "precondition9": [
+                [
+                    "1207"
+                ]
+            ],
+            "precondition8": [
+                [
+                    "1206"
+                ]
+            ],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "1201"
+                ]
+            ],
+            "precondition7": [
+                [
+                    "1206"
+                ]
+            ],
+            "groove3": "1203",
+            "precondition2": [
+                [
+                    "1201"
+                ]
+            ],
+            "precondition6": [
+                [
+                    "1204",
+                    "1205"
+                ]
+            ],
+            "precondition4": [
+                [
+                    "1202"
+                ]
+            ],
+            "groove2": "1202",
+            "groove5": "1205",
+            "groove6": "1206",
+            "groove1": "1201",
+            "precondition5": [
+                [
+                    "1203"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem12",
+            "resource": [
+                [
+                    "dmartial",
+                    280
+                ]
+            ],
+            "time": 167640,
+            "imageIndex": 4,
+            "class": 12,
+            "precondition13": [],
+            "name": "化劲通起势"
+        },
+        "minditem5": {
+            "precondition10": [],
+            "precondition8": [],
+            "groove4": "504",
+            "precondition12": [],
+            "precondition11": [],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "502"
+                ]
+            ],
+            "precondition9": [],
+            "groove3": "503",
+            "precondition2": [
+                [
+                    "501"
+                ]
+            ],
+            "precondition7": [],
+            "precondition4": [
+                [
+                    "503"
+                ]
+            ],
+            "groove2": "502",
+            "groove5": "505",
+            "precondition6": [],
+            "groove1": "501",
+            "precondition5": [
+                [
+                    "504"
+                ]
+            ],
+            "precondition1": [],
+            "id": "minditem5",
+            "resource": [
+                [
+                    "dmartial",
+                    77
+                ]
+            ],
+            "time": 83820,
+            "imageIndex": 2,
+            "class": 5,
+            "precondition13": [],
+            "name": "沉三丹固势"
+        },
+        "minditem1": {
+            "precondition8": [],
+            "precondition12": [],
+            "precondition5": [],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "102"
+                ]
+            ],
+            "precondition11": [],
+            "groove3": "103",
+            "precondition2": [
+                [
+                    "101"
+                ]
+            ],
+            "precondition10": [],
+            "precondition4": [],
+            "groove2": "102",
+            "precondition9": [],
+            "precondition7": [],
+            "groove1": "101",
+            "precondition6": [],
+            "precondition1": [],
+            "id": "minditem1",
+            "resource": [
+                [
+                    "dmartial",
+                    19
+                ]
+            ],
+            "time": 50280,
+            "imageIndex": 1,
+            "class": 1,
+            "precondition13": [],
+            "name": "沉三丹起势"
+        },
+        "minditem3": {
+            "precondition8": [],
+            "precondition12": [],
+            "precondition5": [],
+            "precondition14": [],
+            "precondition3": [
+                [
+                    "302"
+                ]
+            ],
+            "precondition11": [],
+            "groove3": "303",
+            "precondition2": [
+                [
+                    "301"
+                ]
+            ],
+            "precondition10": [],
+            "precondition4": [],
+            "groove2": "302",
+            "precondition9": [],
+            "precondition7": [],
+            "groove1": "301",
+            "precondition6": [],
+            "precondition1": [],
+            "id": "minditem3",
+            "resource": [
+                [
+                    "dmartial",
+                    44
+                ]
+            ],
+            "time": 50280,
+            "imageIndex": 1,
+            "class": 3,
+            "precondition13": [],
+            "name": "沉三丹起势"
+        }
+    }
+}

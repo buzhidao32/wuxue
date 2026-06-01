@@ -1,0 +1,10577 @@
+{
+  "玄络": {
+    "玄络": {
+      "id": "玄络",
+      "Unlockcondition": [],
+      "property": [],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [],
+      "name": "",
+      "type": 0,
+      "class": 0,
+      "Unlocktext": "",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11011": {
+      "id": "11011",
+      "Unlockcondition": [
+        [
+          "1000",
+          "3020"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0673
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "无性参伐一重",
+      "type": 1,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《声震武林卷》、角色2000级以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11021": {
+      "id": "11021",
+      "Unlockcondition": [
+        [
+          "1002",
+          "2004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0673
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阳性参伐一重",
+      "type": 1,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《柳玄风卷下》、传承4次以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11031": {
+      "id": "11031",
+      "Unlockcondition": [
+        [
+          "1010",
+          "2003",
+          "3010"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0673
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阴性参伐一重",
+      "type": 1,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《章作之卷》、传承3次以上、角色1000级以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11041": {
+      "id": "11041",
+      "Unlockcondition": [
+        [
+          "1015",
+          "2004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0673
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "混元参伐一重",
+      "type": 1,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《折掌镇海卷》、传承4次以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11051": {
+      "id": "11051",
+      "Unlockcondition": [
+        [
+          "1020",
+          "2003",
+          "3010"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0673
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "外功参伐一重",
+      "type": 1,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《藏锋破阵卷》、传承3次以上、角色1000级以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "12011": {
+      "id": "12011",
+      "Unlockcondition": [
+        [
+          "1020",
+          "2003",
+          "3010"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.03
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "无性守御一重",
+      "type": 2,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《藏锋破阵卷》、传承3次以上、角色1000级以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "12021": {
+      "id": "12021",
+      "Unlockcondition": [
+        [
+          "1015",
+          "2004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.03
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阳性守御一重",
+      "type": 2,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《折掌镇海卷》、传承4次以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "12031": {
+      "id": "12031",
+      "Unlockcondition": [
+        [
+          "1010",
+          "2003",
+          "3010"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.03
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阴性守御一重",
+      "type": 2,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《章作之卷》、传承3次以上、角色1000级以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "12041": {
+      "id": "12041",
+      "Unlockcondition": [
+        [
+          "1002",
+          "2004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.03
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "混元守御一重",
+      "type": 2,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《柳玄风卷下》、传承4次以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "12051": {
+      "id": "12051",
+      "Unlockcondition": [
+        [
+          "1000",
+          "3020"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.03
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "外功守御一重",
+      "type": 2,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关《声震武林卷》、角色2000级以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13061": {
+      "id": "13061",
+      "Unlockcondition": [
+        [
+          "4010",
+          "8012",
+          "8062",
+          "5002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0404
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阳伐共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《天龙诡寺》探囊取物难度、拥有2把剑或2把暗器类神兵、为官政绩1000点以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13071": {
+      "id": "13071",
+      "Unlockcondition": [
+        [
+          "4011",
+          "7001",
+          "5000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0404
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "外伐共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《天龙诡寺》手到擒来难度、风度魅力8000点以上、为官政绩400点以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13081": {
+      "id": "13081",
+      "Unlockcondition": [
+        [
+          "4012",
+          "8031",
+          "8041",
+          "7000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0404
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "混伐共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《天龙诡寺》荆棘丛生难度、拥有1把棍或者1把鞭类神兵、风度魅力6000点以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13091": {
+      "id": "13091",
+      "Unlockcondition": [
+        [
+          "4013",
+          "5001",
+          "6002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0404
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "无伐共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《天龙诡寺》寸步难行难度、为官政绩700点以上、决斗胜利超过5250次",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13101": {
+      "id": "13101",
+      "Unlockcondition": [
+        [
+          "4014",
+          "7002",
+          "6000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0404
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阴伐共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《天龙诡寺》无计可施难度、风度魅力10000点以上、决斗胜利超过3150次",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14061": {
+      "id": "14061",
+      "Unlockcondition": [
+        [
+          "4030",
+          "8072",
+          "8052",
+          "7000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.018
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阳御通御共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《迷山寻凶》探囊取物难度、拥有2把乐器或者2把双持类神兵、风度魅力6000点以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14071": {
+      "id": "14071",
+      "Unlockcondition": [
+        [
+          "4031",
+          "8022",
+          "8072",
+          "5001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.018
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "外御通御共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《迷山寻凶》手到擒来难度、拥有2把刀或者2把乐器类神兵、为官政绩700点以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14081": {
+      "id": "14081",
+      "Unlockcondition": [
+        [
+          "4032",
+          "7001",
+          "6001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.018
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "混御通御共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《迷山寻凶》荆棘丛生难度、风度魅力8000点以上、决斗胜利超过4200次",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14091": {
+      "id": "14091",
+      "Unlockcondition": [
+        [
+          "4033",
+          "5002",
+          "6001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.018
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "无御通御共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《迷山寻凶》寸步难行难度、为官政绩1000点以上、决斗胜利超过4200次",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14101": {
+      "id": "14101",
+      "Unlockcondition": [
+        [
+          "4034",
+          "7000",
+          "5001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.018
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          720
+        ],
+        [
+          "bmartial",
+          80
+        ]
+      ],
+      "name": "阴御通御共贯一重",
+      "type": 3,
+      "class": 1,
+      "Unlocktext": "达成任一条件：通关江湖轶闻《迷山寻凶》无计可施难度、风度魅力6000点以上、为官政绩700点以上",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11012": {
+      "id": "11012",
+      "Unlockcondition": [
+        [
+          "29000"
+        ],
+        [
+          "22002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0973
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0487
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "无性参伐二重",
+      "type": 1,
+      "class": 2,
+      "Unlocktext": "经脉等级高于16级、拥有1把特性值高于300的神兵",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11022": {
+      "id": "11022",
+      "Unlockcondition": [
+        [
+          "11000"
+        ],
+        [
+          "9002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0973
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0487
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阳性参伐二重",
+      "type": 1,
+      "class": 2,
+      "Unlocktext": "江湖阅历高于1000、收藏评价达到《洋洋大观》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11032": {
+      "id": "11032",
+      "Unlockcondition": [
+        [
+          "12000",
+          "13000"
+        ],
+        [
+          "17002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0973
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0487
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阴性参伐二重",
+      "type": 1,
+      "class": 2,
+      "Unlocktext": "侠义正气高于1000或者低于-1000、有9门武学等级达1000级",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11042": {
+      "id": "11042",
+      "Unlockcondition": [
+        [
+          "18002"
+        ],
+        [
+          "20000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0973
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0487
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "混元参伐二重",
+      "type": 1,
+      "class": 2,
+      "Unlocktext": "有3门武学等级上限达1100级、在书架创作了2门自创武学",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "11052": {
+      "id": "11052",
+      "Unlockcondition": [
+        [
+          "10000"
+        ],
+        [
+          "14002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0973
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0487
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "外功参伐二重",
+      "type": 1,
+      "class": 2,
+      "Unlocktext": "江湖威望高于635、藏书评价达到《五花八门》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "12012": {
+      "id": "12012",
+      "Unlockcondition": [
+        [
+          "29002"
+        ],
+        [
+          "22000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.039
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0195
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "22010"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "无性守御通御二重",
+      "type": 2,
+      "class": 2,
+      "Unlocktext": "经脉等级高于36级、拥有1把特性值高于100的神兵",
+      "SUnlocktext": "拥有2把特性值高于50的神兵",
+      "specialtext": "",
+      "specialnaturetext": "增加210点无性、阳性、阴性、混元、外功防御"
+    },
+    "12022": {
+      "id": "12022",
+      "Unlockcondition": [
+        [
+          "12002",
+          "13002"
+        ],
+        [
+          "17000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.039
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0195
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "17010"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阳性守御通御二重",
+      "type": 2,
+      "class": 2,
+      "Unlocktext": "侠义正气高于20000或者低于-20000、有3门武学等级达1000级",
+      "SUnlocktext": "有4门武学等级达1000级",
+      "specialtext": "",
+      "specialnaturetext": "增加210点无性、阳性、阴性、混元、外功防御"
+    },
+    "12032": {
+      "id": "12032",
+      "Unlockcondition": [
+        [
+          "18000"
+        ],
+        [
+          "20002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.039
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0195
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "18010"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阴性守御通御二重",
+      "type": 2,
+      "class": 2,
+      "Unlocktext": "有3门武学等级上限达1010级、在书架创作了6门自创武学",
+      "SUnlocktext": "有4门武学等级上限达1005级",
+      "specialtext": "",
+      "specialnaturetext": "增加210点无性、阳性、阴性、混元、外功防御"
+    },
+    "12042": {
+      "id": "12042",
+      "Unlockcondition": [
+        [
+          "10002"
+        ],
+        [
+          "14000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.039
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0195
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "10012"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "混元守御通御二重",
+      "type": 2,
+      "class": 2,
+      "Unlocktext": "江湖威望高于4000、藏书评价达到《兼收并蓄》",
+      "SUnlocktext": "江湖威望高于4200",
+      "specialtext": "",
+      "specialnaturetext": "增加210点无性、阳性、阴性、混元、外功防御"
+    },
+    "12052": {
+      "id": "12052",
+      "Unlockcondition": [
+        [
+          "11002"
+        ],
+        [
+          "9000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.039
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0195
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "11012"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "外功守御通御二重",
+      "type": 2,
+      "class": 2,
+      "Unlocktext": "江湖阅历高于7000、收藏评价达到《什袭而藏》",
+      "SUnlocktext": "江湖阅历高于7800",
+      "specialtext": "",
+      "specialnaturetext": "增加210点无性、阳性、阴性、混元、外功防御"
+    },
+    "13062": {
+      "id": "13062",
+      "Unlockcondition": [
+        [
+          "10001"
+        ],
+        [
+          "14002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0584
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0389
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阳伐共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "江湖威望高于1000、藏书评价达到《五花八门》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13072": {
+      "id": "13072",
+      "Unlockcondition": [
+        [
+          "11001"
+        ],
+        [
+          "9002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0584
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0389
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "外伐共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "江湖阅历高于4000、收藏评价达到《洋洋大观》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13082": {
+      "id": "13082",
+      "Unlockcondition": [
+        [
+          "29001"
+        ],
+        [
+          "22002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0584
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0389
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "混伐共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "经脉等级高于24级、拥有1把特性值高于300的神兵",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13092": {
+      "id": "13092",
+      "Unlockcondition": [
+        [
+          "11002"
+        ],
+        [
+          "9001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0584
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0389
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "无伐共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "江湖阅历高于7000、收藏评价达到《琳琅满目》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13102": {
+      "id": "13102",
+      "Unlockcondition": [
+        [
+          "18002"
+        ],
+        [
+          "20001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0584
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0389
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阴伐共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "有3门武学等级上限达1100级、在书架创作了4门自创武学",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14062": {
+      "id": "14062",
+      "Unlockcondition": [
+        [
+          "12002",
+          "13002"
+        ],
+        [
+          "17001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0152
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0075
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0393
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "17011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阳御通御共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "侠义正气高于20000或者低于-20000、有6门武学等级达1000级",
+      "SUnlocktext": "有7门武学等级达1000级",
+      "specialtext": "",
+      "specialnaturetext": "增加393点无性、阳性、阴性、混元、外功防御"
+    },
+    "14072": {
+      "id": "14072",
+      "Unlockcondition": [
+        [
+          "29002"
+        ],
+        [
+          "22001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0152
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0075
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0393
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "22011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "外御通御共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "经脉等级高于36级、拥有1把特性值高于200的神兵",
+      "SUnlocktext": "拥有2把特性值高于150的神兵",
+      "specialtext": "",
+      "specialnaturetext": "增加393点无性、阳性、阴性、混元、外功防御"
+    },
+    "14082": {
+      "id": "14082",
+      "Unlockcondition": [
+        [
+          "12001",
+          "13001"
+        ],
+        [
+          "17002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0152
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0075
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0393
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "12011",
+          "13011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "混御通御共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "侠义正气高于5000或者低于-5000、有9门武学等级达1000级",
+      "SUnlocktext": "侠义正气高于5500或者低于-5500",
+      "specialtext": "",
+      "specialnaturetext": "增加393点无性、阳性、阴性、混元、外功防御"
+    },
+    "14092": {
+      "id": "14092",
+      "Unlockcondition": [
+        [
+          "18001"
+        ],
+        [
+          "20002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0152
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0075
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0393
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "18011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "无御通御共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "有3门武学等级上限达1040级、在书架创作了6门自创武学",
+      "SUnlocktext": "有4门武学等级上限达1030级",
+      "specialtext": "",
+      "specialnaturetext": "增加393点无性、阳性、阴性、混元、外功防御"
+    },
+    "14102": {
+      "id": "14102",
+      "Unlockcondition": [
+        [
+          "10002"
+        ],
+        [
+          "14001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0152
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0075
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0393
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0393
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "10012"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1800
+        ],
+        [
+          "bmartial",
+          200
+        ]
+      ],
+      "name": "阴御通御共贯二重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "江湖威望高于4000、藏书评价达到《充箱盈架》",
+      "SUnlocktext": "江湖威望高于4200",
+      "specialtext": "",
+      "specialnaturetext": "增加393点无性、阳性、阴性、混元、外功防御"
+    },
+    "11013": {
+      "id": "11013",
+      "Unlockcondition": [
+        [
+          "21002"
+        ],
+        [
+          "12003",
+          "13003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.1227
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0614
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0491
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "2005"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "无性参伐三重",
+      "type": 1,
+      "class": 3,
+      "Unlocktext": "书架任意一门自创武学至少有6招的招式词缀数达到5个、侠义正气高于100000或者低于-100000",
+      "SUnlocktext": "传承5次",
+      "specialtext": "",
+      "specialnaturetext": "增加491点无性伤害"
+    },
+    "11023": {
+      "id": "11023",
+      "Unlockcondition": [
+        [
+          "23000"
+        ],
+        [
+          "9005"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.1227
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0614
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0491
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "2005"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阳性参伐三重",
+      "type": 1,
+      "class": 3,
+      "Unlocktext": "拳脚潜思高于120级、收藏评价达到《剑胆琴心》",
+      "SUnlocktext": "传承5次",
+      "specialtext": "",
+      "specialnaturetext": "增加491点阳性伤害"
+    },
+    "11033": {
+      "id": "11033",
+      "Unlockcondition": [
+        [
+          "24001",
+          "25001",
+          "26001",
+          "27001",
+          "\"28001\"}",
+          "{\"15002\""
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.1227
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0614
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0491
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "2005"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阴性参伐三重",
+      "type": 1,
+      "class": 3,
+      "Unlocktext": "任意拳脚锻境高于160级、装饰图鉴成就点达到达到4000",
+      "SUnlocktext": "传承5次",
+      "specialtext": "",
+      "specialnaturetext": "增加491点阴性伤害"
+    },
+    "11043": {
+      "id": "11043",
+      "Unlockcondition": [
+        [
+          "11005"
+        ],
+        [
+          "19000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.1227
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0614
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0491
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "2005"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "混元参伐三重",
+      "type": 1,
+      "class": 3,
+      "Unlocktext": "江湖阅历高于20000、有5门武学等级上限达1100级",
+      "SUnlocktext": "传承5次",
+      "specialtext": "",
+      "specialnaturetext": "增加491点混元伤害"
+    },
+    "11053": {
+      "id": "11053",
+      "Unlockcondition": [
+        [
+          "16000"
+        ],
+        [
+          "14005"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.1227
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0614
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0491
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "2005"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "外功参伐三重",
+      "type": 1,
+      "class": 3,
+      "Unlocktext": "武学《周公之术》达50级、藏书评价达到《包罗万象》",
+      "SUnlocktext": "传承5次",
+      "specialtext": "",
+      "specialnaturetext": "增加491点外功伤害"
+    },
+    "12013": {
+      "id": "12013",
+      "Unlockcondition": [
+        [
+          "9003"
+        ],
+        [
+          "23003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0568
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0284
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0666
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "23013"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "无性守御通御三重",
+      "type": 2,
+      "class": 3,
+      "Unlocktext": "收藏评价达到《武库充实》、拳脚潜思高于420级",
+      "SUnlocktext": "拳脚潜思高于460级",
+      "specialtext": "",
+      "specialnaturetext": "增加666点无性、阳性、阴性、混元、外功防御"
+    },
+    "12023": {
+      "id": "12023",
+      "Unlockcondition": [
+        [
+          "\"15000\"}",
+          "{\"24004\"",
+          "25004",
+          "26004",
+          "27004",
+          "28004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0568
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0284
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0666
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "24014",
+          "25014",
+          "26014",
+          "27014",
+          "28014"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阳性守御通御三重",
+      "type": 2,
+      "class": 3,
+      "Unlocktext": "装饰图鉴成就点达到达到500、任意拳脚锻境高于430级",
+      "SUnlocktext": "任意拳脚锻境高于465级",
+      "specialtext": "",
+      "specialnaturetext": "增加666点无性、阳性、阴性、混元、外功防御"
+    },
+    "12033": {
+      "id": "12033",
+      "Unlockcondition": [
+        [
+          "19002"
+        ],
+        [
+          "11003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0568
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0284
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0666
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "11013"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阴性守御通御三重",
+      "type": 2,
+      "class": 3,
+      "Unlocktext": "有30门武学等级上限达1100级、江湖阅历高于10000",
+      "SUnlocktext": "江湖阅历高于10800",
+      "specialtext": "",
+      "specialnaturetext": "增加666点无性、阳性、阴性、混元、外功防御"
+    },
+    "12043": {
+      "id": "12043",
+      "Unlockcondition": [
+        [
+          "14003"
+        ],
+        [
+          "16003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0568
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0284
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0666
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "16013"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "混元守御通御三重",
+      "type": 2,
+      "class": 3,
+      "Unlocktext": "藏书评价达到《汗牛充栋》、武学《周公之术》达300级",
+      "SUnlocktext": "武学《周公之术》达340级",
+      "specialtext": "",
+      "specialnaturetext": "增加666点无性、阳性、阴性、混元、外功防御"
+    },
+    "12053": {
+      "id": "12053",
+      "Unlockcondition": [
+        [
+          "12005",
+          "13005"
+        ],
+        [
+          "21000"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0568
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0284
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0666
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0666
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "12015",
+          "13015"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "外功守御通御三重",
+      "type": 2,
+      "class": 3,
+      "Unlocktext": "侠义正气高于1000000或者低于-1000000、书架任意一门自创武学至少有2招的招式词缀数达到5个",
+      "SUnlocktext": "侠义正气高于1100000或者低于-1100000",
+      "specialtext": "",
+      "specialnaturetext": "增加666点无性、阳性、阴性、混元、外功防御"
+    },
+    "13063": {
+      "id": "13063",
+      "Unlockcondition": [
+        [
+          "16002"
+        ],
+        [
+          "14004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0736
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0491
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阳伐共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "武学《周公之术》达230级、藏书评价达到《书盈四壁》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13073": {
+      "id": "13073",
+      "Unlockcondition": [
+        [
+          "9004"
+        ],
+        [
+          "23002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0736
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0491
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "外伐共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "收藏评价达到《紫电清霜》、拳脚潜思高于360级",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13083": {
+      "id": "13083",
+      "Unlockcondition": [
+        [
+          "23001"
+        ],
+        [
+          "9005"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0736
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0491
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "混伐共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "拳脚潜思高于225级、收藏评价达到《剑胆琴心》",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13093": {
+      "id": "13093",
+      "Unlockcondition": [
+        [
+          "21002"
+        ],
+        [
+          "12004",
+          "13004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0736
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0491
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "无伐共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "书架任意一门自创武学至少有6招的招式词缀数达到5个、侠义正气高于500000或者低于-500000",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "13103": {
+      "id": "13103",
+      "Unlockcondition": [
+        [
+          "19001"
+        ],
+        [
+          "11005"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0736
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0491
+        ]
+      ],
+      "specialproperty": [],
+      "specialpropertyul": [],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阴伐共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "有15门武学等级上限达1100级、江湖阅历高于20000",
+      "SUnlocktext": "",
+      "specialtext": "",
+      "specialnaturetext": ""
+    },
+    "14063": {
+      "id": "14063",
+      "Unlockcondition": [
+        [
+          "24003",
+          "25003",
+          "26003",
+          "27003",
+          "\"28003\"}",
+          "{\"15001\""
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0205
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0101
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0687
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "24013",
+          "25013",
+          "26013",
+          "27013",
+          "28013"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阳御通御共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "任意拳脚锻境高于380级、装饰图鉴成就点达到达到1800",
+      "SUnlocktext": "任意拳脚锻境高于415级",
+      "specialtext": "",
+      "specialnaturetext": "增加687点无性、阳性、阴性、混元、外功防御"
+    },
+    "14073": {
+      "id": "14073",
+      "Unlockcondition": [
+        [
+          "12003",
+          "13003"
+        ],
+        [
+          "21001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0205
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0101
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0687
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "12013",
+          "13013"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "外御通御共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "侠义正气高于100000或者低于-100000、书架任意一门自创武学至少有4招的招式词缀数达到5个",
+      "SUnlocktext": "侠义正气高于110000或者低于-110000",
+      "specialtext": "",
+      "specialnaturetext": "增加687点无性、阳性、阴性、混元、外功防御"
+    },
+    "14083": {
+      "id": "14083",
+      "Unlockcondition": [
+        [
+          "\"15000\"}",
+          "{\"24005\"",
+          "25005",
+          "26005",
+          "27005",
+          "28005"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0205
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0101
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0687
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "23000"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "混御通御共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "装饰图鉴成就点达到达到500、任意拳脚锻境高于500级",
+      "SUnlocktext": "拳脚潜思高于120级",
+      "specialtext": "",
+      "specialnaturetext": "增加687点无性、阳性、阴性、混元、外功防御"
+    },
+    "14093": {
+      "id": "14093",
+      "Unlockcondition": [
+        [
+          "11004"
+        ],
+        [
+          "19002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0205
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0101
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0687
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "11014"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "无御通御共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "江湖阅历高于13000、有30门武学等级上限达1100级",
+      "SUnlocktext": "江湖阅历高于13800",
+      "specialtext": "",
+      "specialnaturetext": "增加687点无性、阳性、阴性、混元、外功防御"
+    },
+    "14103": {
+      "id": "14103",
+      "Unlockcondition": [
+        [
+          "14005"
+        ],
+        [
+          "16001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0205
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0101
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0687
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0687
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "16011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          3600
+        ],
+        [
+          "bmartial",
+          400
+        ]
+      ],
+      "name": "阴御通御共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "藏书评价达到《包罗万象》、武学《周公之术》达140级",
+      "SUnlocktext": "武学《周公之术》达180级",
+      "specialtext": "",
+      "specialnaturetext": "增加687点无性、阳性、阴性、混元、外功防御"
+    },
+    "40101": {
+      "id": "40101",
+      "Unlockcondition": [
+        [
+          "30001"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30001"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "301"
+        ]
+      ],
+      "showCondition": [
+        [
+          "301"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "官府共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "官府师门名衔到达《无名捕快》",
+      "SUnlocktext": "官府师门名衔到达《驰名捕快》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加210点阴性防御"
+    },
+    "40201": {
+      "id": "40201",
+      "Unlockcondition": [
+        [
+          "30002"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30002"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "302"
+        ]
+      ],
+      "showCondition": [
+        [
+          "302"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "少林共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "少林派师门名衔到达《无名僧众》",
+      "SUnlocktext": "少林派师门名衔到达《护寺武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加210点阴性防御"
+    },
+    "40301": {
+      "id": "40301",
+      "Unlockcondition": [
+        [
+          "30003"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30003"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "303"
+        ]
+      ],
+      "showCondition": [
+        [
+          "303"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "全真共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "全真教师门名衔到达《传剑弟子》",
+      "SUnlocktext": "全真教师门名衔到达《护山弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点外功防御"
+    },
+    "40401": {
+      "id": "40401",
+      "Unlockcondition": [
+        [
+          "30004"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30004"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "304"
+        ]
+      ],
+      "showCondition": [
+        [
+          "304"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "天龙共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天龙寺师门名衔到达《无名僧众》",
+      "SUnlocktext": "天龙寺师门名衔到达《护寺武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加210点混元防御"
+    },
+    "40501": {
+      "id": "40501",
+      "Unlockcondition": [
+        [
+          "30005"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30005"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "305"
+        ]
+      ],
+      "showCondition": [
+        [
+          "305"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "丐帮共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "丐帮师门名衔到达《二袋弟子》",
+      "SUnlocktext": "丐帮师门名衔到达《四袋弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点无性伤害、增加210点阴性防御"
+    },
+    "40601": {
+      "id": "40601",
+      "Unlockcondition": [
+        [
+          "30006"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30006"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "306"
+        ]
+      ],
+      "showCondition": [
+        [
+          "306"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "峨眉共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "峨眉派师门名衔到达《无名平尼》",
+      "SUnlocktext": "峨眉派师门名衔到达《护山良尼》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点外功伤害、增加210点阳性防御"
+    },
+    "40701": {
+      "id": "40701",
+      "Unlockcondition": [
+        [
+          "30007"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30007"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "307"
+        ]
+      ],
+      "showCondition": [
+        [
+          "307"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "武当共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "武当派师门名衔到达《传剑弟子》",
+      "SUnlocktext": "武当派师门名衔到达《护山弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加289点阴性伤害"
+    },
+    "40801": {
+      "id": "40801",
+      "Unlockcondition": [
+        [
+          "30008"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30008"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "308"
+        ]
+      ],
+      "showCondition": [
+        [
+          "308"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "华山共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "华山师门名衔到达《传剑弟子》",
+      "SUnlocktext": "华山师门名衔到达《护山弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点无性防御"
+    },
+    "40901": {
+      "id": "40901",
+      "Unlockcondition": [
+        [
+          "30009"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30009"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "309"
+        ]
+      ],
+      "showCondition": [
+        [
+          "309"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "昆仑共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "昆仑派师门名衔到达《传剑弟子》",
+      "SUnlocktext": "昆仑派师门名衔到达《护山弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点外功防御"
+    },
+    "41001": {
+      "id": "41001",
+      "Unlockcondition": [
+        [
+          "30010"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30010"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "310"
+        ]
+      ],
+      "showCondition": [
+        [
+          "310"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "万灵共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "万灵谷师门名衔到达《侍灵药师》",
+      "SUnlocktext": "万灵谷师门名衔到达《育灵蛊师》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阴性伤害、增加210点阳性防御"
+    },
+    "41101": {
+      "id": "41101",
+      "Unlockcondition": [
+        [
+          "30011"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30011"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "311"
+        ]
+      ],
+      "showCondition": [
+        [
+          "311"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "伏龙共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "伏龙山师门名衔到达《无名帮众》",
+      "SUnlocktext": "伏龙山师门名衔到达《护山帮众》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点外功伤害、增加210点混元防御"
+    },
+    "41201": {
+      "id": "41201",
+      "Unlockcondition": [
+        [
+          "30012"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30012"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "312"
+        ]
+      ],
+      "showCondition": [
+        [
+          "312"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "拜日共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "拜日教师门名衔到达《无名教众》",
+      "SUnlocktext": "拜日教师门名衔到达《护教教众》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加289点阴性伤害"
+    },
+    "41301": {
+      "id": "41301",
+      "Unlockcondition": [
+        [
+          "30013"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30013"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "313"
+        ]
+      ],
+      "showCondition": [
+        [
+          "313"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "雪山共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "雪山寺师门名衔到达《无名喇嘛》",
+      "SUnlocktext": "雪山寺师门名衔到达《护寺武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点阳性防御"
+    },
+    "41401": {
+      "id": "41401",
+      "Unlockcondition": [
+        [
+          "30014"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30014"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "314"
+        ]
+      ],
+      "showCondition": [
+        [
+          "314"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "天狼共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天狼教师门名衔到达《侍毒毒师》",
+      "SUnlocktext": "天狼教师门名衔到达《千毒毒怪》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阴性伤害、增加210点外功防御"
+    },
+    "41501": {
+      "id": "41501",
+      "Unlockcondition": [
+        [
+          "30015"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30015"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "315"
+        ]
+      ],
+      "showCondition": [
+        [
+          "315"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "鸩羽共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "鸩羽山师门名衔到达《侍蛇药师》",
+      "SUnlocktext": "鸩羽山师门名衔到达《百蛇蛇使》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点外功伤害、增加210点混元防御"
+    },
+    "41601": {
+      "id": "41601",
+      "Unlockcondition": [
+        [
+          "30016"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30016"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "316"
+        ]
+      ],
+      "showCondition": [
+        [
+          "316"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "燕皇共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "燕氏皇族师门名衔到达《内门弟子》",
+      "SUnlocktext": "燕氏皇族师门名衔到达《赐姓弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点外功防御"
+    },
+    "41701": {
+      "id": "41701",
+      "Unlockcondition": [
+        [
+          "30017"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30017"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "317"
+        ]
+      ],
+      "showCondition": [
+        [
+          "317"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "明教共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "明教师门名衔到达《无名教众》",
+      "SUnlocktext": "明教师门名衔到达《护教教众》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加210点混元防御"
+    },
+    "41801": {
+      "id": "41801",
+      "Unlockcondition": [
+        [
+          "30018"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30018"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "318"
+        ]
+      ],
+      "showCondition": [
+        [
+          "318"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "唐门共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "唐门师门名衔到达《内门弟子》",
+      "SUnlocktext": "唐门师门名衔到达《卓荦弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点外功伤害、增加210点阳性防御"
+    },
+    "41901": {
+      "id": "41901",
+      "Unlockcondition": [
+        [
+          "30019"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30019"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "319"
+        ]
+      ],
+      "showCondition": [
+        [
+          "319"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "蓬莱共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "蓬莱岛师门名衔到达《无名门生》",
+      "SUnlocktext": "蓬莱岛师门名衔到达《护岛门生》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点无性防御"
+    },
+    "42001": {
+      "id": "42001",
+      "Unlockcondition": [
+        [
+          "30020"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30020"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "320"
+        ]
+      ],
+      "showCondition": [
+        [
+          "320"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "问情共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "问情宫师门名衔到达《授剑弟子》",
+      "SUnlocktext": "问情宫师门名衔到达《护宫弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点外功防御"
+    },
+    "42101": {
+      "id": "42101",
+      "Unlockcondition": [
+        [
+          "30021"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30021"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "321"
+        ]
+      ],
+      "showCondition": [
+        [
+          "321"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "崆峒共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "崆峒派师门名衔到达《传剑弟子》",
+      "SUnlocktext": "崆峒派师门名衔到达《护山弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加289点阴性伤害"
+    },
+    "42201": {
+      "id": "42201",
+      "Unlockcondition": [
+        [
+          "30022"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30022"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "322"
+        ]
+      ],
+      "showCondition": [
+        [
+          "322"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "海鲸共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "海鲸帮师门名衔到达《无名帮众》",
+      "SUnlocktext": "海鲸帮师门名衔到达《护海帮众》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阳性伤害、增加210点混元防御"
+    },
+    "42301": {
+      "id": "42301",
+      "Unlockcondition": [
+        [
+          "30023"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "6",
+          0.0124
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "6",
+          0.0289
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30023"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "323"
+        ]
+      ],
+      "showCondition": [
+        [
+          "323"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "幽冥共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "幽冥教师门名衔到达《无名鬼差》",
+      "SUnlocktext": "幽冥教师门名衔到达《拘魂鬼差》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阴性伤害、增加289点阴性毒伤"
+    },
+    "42401": {
+      "id": "42401",
+      "Unlockcondition": [
+        [
+          "30024"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30024"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "324"
+        ]
+      ],
+      "showCondition": [
+        [
+          "324"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "虚渺共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "虚渺宫师门名衔到达《授剑弟子》",
+      "SUnlocktext": "虚渺宫师门名衔到达《护宫弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点外功伤害、增加210点阴性防御"
+    },
+    "42501": {
+      "id": "42501",
+      "Unlockcondition": [
+        [
+          "30025"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30025"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "325"
+        ]
+      ],
+      "showCondition": [
+        [
+          "325"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "落月共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "落月山庄师门名衔到达《内庄弟子》",
+      "SUnlocktext": "落月山庄师门名衔到达《卓荦弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点阴性伤害、增加210点无性防御"
+    },
+    "42601": {
+      "id": "42601",
+      "Unlockcondition": [
+        [
+          "30026"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30026"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "326"
+        ]
+      ],
+      "showCondition": [
+        [
+          "326"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "财神共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "财神帮师门名衔到达《无名伙计》",
+      "SUnlocktext": "财神帮师门名衔到达《守店护院》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加210点阴性防御"
+    },
+    "42701": {
+      "id": "42701",
+      "Unlockcondition": [
+        [
+          "30027"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.009
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.021
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30027"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "327"
+        ]
+      ],
+      "showCondition": [
+        [
+          "327"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "永夜共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "永夜楼师门名衔到达《亥夜死士》",
+      "SUnlocktext": "永夜楼师门名衔到达《丑夜死士》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点无性伤害、增加210点阳性防御"
+    },
+    "42801": {
+      "id": "42801",
+      "Unlockcondition": [
+        [
+          "30028"
+        ],
+        [
+          "32003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0124
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0124
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0289
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0289
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30028"
+        ],
+        [
+          "32005"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "328"
+        ]
+      ],
+      "showCondition": [
+        [
+          "328"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          1080
+        ],
+        [
+          "bmartial",
+          120
+        ]
+      ],
+      "name": "天竞共贯一重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天竞门师门名衔到达《授音弟子》",
+      "SUnlocktext": "天竞门师门名衔到达《玉音弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加289点混元伤害、增加289点外功伤害"
+    },
+    "40102": {
+      "id": "40102",
+      "Unlockcondition": [
+        [
+          "30001"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30001"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "301"
+        ]
+      ],
+      "showCondition": [
+        [
+          "301"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "官府共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "官府师门名衔到达《初展捕快》",
+      "SUnlocktext": "官府师门名衔到达《郡城名捕》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加281点阴性防御"
+    },
+    "40202": {
+      "id": "40202",
+      "Unlockcondition": [
+        [
+          "30002"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30002"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "302"
+        ]
+      ],
+      "showCondition": [
+        [
+          "302"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "少林共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "少林派师门名衔到达《杰出武僧》",
+      "SUnlocktext": "少林派师门名衔到达《守经武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加281点阴性防御"
+    },
+    "40302": {
+      "id": "40302",
+      "Unlockcondition": [
+        [
+          "30003"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30003"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "303"
+        ]
+      ],
+      "showCondition": [
+        [
+          "303"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "全真共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "全真教师门名衔到达《掌剑弟子》",
+      "SUnlocktext": "全真教师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点外功防御"
+    },
+    "40402": {
+      "id": "40402",
+      "Unlockcondition": [
+        [
+          "30004"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30004"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "304"
+        ]
+      ],
+      "showCondition": [
+        [
+          "304"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "天龙共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天龙寺师门名衔到达《杰出武僧》",
+      "SUnlocktext": "天龙寺师门名衔到达《守经武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加281点混元防御"
+    },
+    "40502": {
+      "id": "40502",
+      "Unlockcondition": [
+        [
+          "30005"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30005"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "305"
+        ]
+      ],
+      "showCondition": [
+        [
+          "305"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "丐帮共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "丐帮师门名衔到达《三袋弟子》",
+      "SUnlocktext": "丐帮师门名衔到达《五袋弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点无性伤害、增加281点阴性防御"
+    },
+    "40602": {
+      "id": "40602",
+      "Unlockcondition": [
+        [
+          "30006"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30006"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "306"
+        ]
+      ],
+      "showCondition": [
+        [
+          "306"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "峨眉共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "峨眉派师门名衔到达《执剑良尼》",
+      "SUnlocktext": "峨眉派师门名衔到达《守经良尼》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点外功伤害、增加281点阳性防御"
+    },
+    "40702": {
+      "id": "40702",
+      "Unlockcondition": [
+        [
+          "30007"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30007"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "307"
+        ]
+      ],
+      "showCondition": [
+        [
+          "307"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "武当共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "武当派师门名衔到达《掌剑弟子》",
+      "SUnlocktext": "武当派师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加387点阴性伤害"
+    },
+    "40802": {
+      "id": "40802",
+      "Unlockcondition": [
+        [
+          "30008"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30008"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "308"
+        ]
+      ],
+      "showCondition": [
+        [
+          "308"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "华山共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "华山师门名衔到达《掌剑弟子》",
+      "SUnlocktext": "华山师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点无性防御"
+    },
+    "40902": {
+      "id": "40902",
+      "Unlockcondition": [
+        [
+          "30009"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30009"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "309"
+        ]
+      ],
+      "showCondition": [
+        [
+          "309"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "昆仑共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "昆仑派师门名衔到达《掌剑弟子》",
+      "SUnlocktext": "昆仑派师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点外功防御"
+    },
+    "41002": {
+      "id": "41002",
+      "Unlockcondition": [
+        [
+          "30010"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30010"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "310"
+        ]
+      ],
+      "showCondition": [
+        [
+          "310"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "万灵共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "万灵谷师门名衔到达《授蛊药师》",
+      "SUnlocktext": "万灵谷师门名衔到达《千灵蛊师》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阴性伤害、增加281点阳性防御"
+    },
+    "41102": {
+      "id": "41102",
+      "Unlockcondition": [
+        [
+          "30011"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30011"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "311"
+        ]
+      ],
+      "showCondition": [
+        [
+          "311"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "伏龙共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "伏龙山师门名衔到达《杰出帮众》",
+      "SUnlocktext": "伏龙山师门名衔到达《守经帮众》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点外功伤害、增加281点混元防御"
+    },
+    "41202": {
+      "id": "41202",
+      "Unlockcondition": [
+        [
+          "30012"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30012"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "312"
+        ]
+      ],
+      "showCondition": [
+        [
+          "312"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "拜日共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "拜日教师门名衔到达《杰出教众》",
+      "SUnlocktext": "拜日教师门名衔到达《守经教众》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加387点阴性伤害"
+    },
+    "41302": {
+      "id": "41302",
+      "Unlockcondition": [
+        [
+          "30013"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30013"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "313"
+        ]
+      ],
+      "showCondition": [
+        [
+          "313"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "雪山共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "雪山寺师门名衔到达《杰出武僧》",
+      "SUnlocktext": "雪山寺师门名衔到达《守经武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点阳性防御"
+    },
+    "41402": {
+      "id": "41402",
+      "Unlockcondition": [
+        [
+          "30014"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30014"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "314"
+        ]
+      ],
+      "showCondition": [
+        [
+          "314"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "天狼共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天狼教师门名衔到达《百毒毒师》",
+      "SUnlocktext": "天狼教师门名衔到达《万毒毒怪》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阴性伤害、增加281点外功防御"
+    },
+    "41502": {
+      "id": "41502",
+      "Unlockcondition": [
+        [
+          "30015"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30015"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "315"
+        ]
+      ],
+      "showCondition": [
+        [
+          "315"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "鸩羽共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "鸩羽山师门名衔到达《侍蛇蛇使》",
+      "SUnlocktext": "鸩羽山师门名衔到达《万蛇蛇使》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点外功伤害、增加281点混元防御"
+    },
+    "41602": {
+      "id": "41602",
+      "Unlockcondition": [
+        [
+          "30016"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30016"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "316"
+        ]
+      ],
+      "showCondition": [
+        [
+          "316"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "燕皇共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "燕氏皇族师门名衔到达《杰出弟子》",
+      "SUnlocktext": "燕氏皇族师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点外功防御"
+    },
+    "41702": {
+      "id": "41702",
+      "Unlockcondition": [
+        [
+          "30017"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30017"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "317"
+        ]
+      ],
+      "showCondition": [
+        [
+          "317"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "明教共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "明教师门名衔到达《杰出教众》",
+      "SUnlocktext": "明教师门名衔到达《守经教众》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加281点混元防御"
+    },
+    "41802": {
+      "id": "41802",
+      "Unlockcondition": [
+        [
+          "30018"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30018"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "318"
+        ]
+      ],
+      "showCondition": [
+        [
+          "318"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "唐门共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "唐门师门名衔到达《杰出弟子》",
+      "SUnlocktext": "唐门师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点外功伤害、增加281点阳性防御"
+    },
+    "41902": {
+      "id": "41902",
+      "Unlockcondition": [
+        [
+          "30019"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30019"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "319"
+        ]
+      ],
+      "showCondition": [
+        [
+          "319"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "蓬莱共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "蓬莱岛师门名衔到达《杰出门生》",
+      "SUnlocktext": "蓬莱岛师门名衔到达《守经门生》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点无性防御"
+    },
+    "42002": {
+      "id": "42002",
+      "Unlockcondition": [
+        [
+          "30020"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30020"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "320"
+        ]
+      ],
+      "showCondition": [
+        [
+          "320"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "问情共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "问情宫师门名衔到达《执剑弟子》",
+      "SUnlocktext": "问情宫师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点外功防御"
+    },
+    "42102": {
+      "id": "42102",
+      "Unlockcondition": [
+        [
+          "30021"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30021"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "321"
+        ]
+      ],
+      "showCondition": [
+        [
+          "321"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "崆峒共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "崆峒派师门名衔到达《掌剑弟子》",
+      "SUnlocktext": "崆峒派师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加387点阴性伤害"
+    },
+    "42202": {
+      "id": "42202",
+      "Unlockcondition": [
+        [
+          "30022"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30022"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "322"
+        ]
+      ],
+      "showCondition": [
+        [
+          "322"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "海鲸共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "海鲸帮师门名衔到达《杰出帮众》",
+      "SUnlocktext": "海鲸帮师门名衔到达《守经帮众》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阳性伤害、增加281点混元防御"
+    },
+    "42302": {
+      "id": "42302",
+      "Unlockcondition": [
+        [
+          "30023"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "6",
+          0.0165
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "6",
+          0.0387
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30023"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "323"
+        ]
+      ],
+      "showCondition": [
+        [
+          "323"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "幽冥共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "幽冥教师门名衔到达《勾魂鬼差》",
+      "SUnlocktext": "幽冥教师门名衔到达《审罪判官》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阴性伤害、增加387点阴性毒伤"
+    },
+    "42402": {
+      "id": "42402",
+      "Unlockcondition": [
+        [
+          "30024"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30024"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "324"
+        ]
+      ],
+      "showCondition": [
+        [
+          "324"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "虚渺共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "虚渺宫师门名衔到达《执剑弟子》",
+      "SUnlocktext": "虚渺宫师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点外功伤害、增加281点阴性防御"
+    },
+    "42502": {
+      "id": "42502",
+      "Unlockcondition": [
+        [
+          "30025"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30025"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "325"
+        ]
+      ],
+      "showCondition": [
+        [
+          "325"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "落月共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "落月山庄师门名衔到达《杰出弟子》",
+      "SUnlocktext": "落月山庄师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点阴性伤害、增加281点无性防御"
+    },
+    "42602": {
+      "id": "42602",
+      "Unlockcondition": [
+        [
+          "30026"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30026"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "326"
+        ]
+      ],
+      "showCondition": [
+        [
+          "326"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "财神共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "财神帮师门名衔到达《杰出伙计》",
+      "SUnlocktext": "财神帮师门名衔到达《守经护卫》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加281点阴性防御"
+    },
+    "42702": {
+      "id": "42702",
+      "Unlockcondition": [
+        [
+          "30027"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0121
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0281
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30027"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "327"
+        ]
+      ],
+      "showCondition": [
+        [
+          "327"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "永夜共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "永夜楼师门名衔到达《子夜死士》",
+      "SUnlocktext": "永夜楼师门名衔到达《寅夜死士》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点无性伤害、增加281点阳性防御"
+    },
+    "42802": {
+      "id": "42802",
+      "Unlockcondition": [
+        [
+          "30028"
+        ],
+        [
+          "32004"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0165
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0165
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0387
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0387
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30028"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "328"
+        ]
+      ],
+      "showCondition": [
+        [
+          "328"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "天竞共贯二重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天竞门师门名衔到达《通音弟子》",
+      "SUnlocktext": "天竞门师门名衔到达《妙音弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加387点混元伤害、增加387点外功伤害"
+    },
+    "40103": {
+      "id": "40103",
+      "Unlockcondition": [
+        [
+          "30001"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30001"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "301",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "301"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "官府共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "官府师门名衔到达《初展捕快》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "官府师门名衔到达《郡城名捕》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加315点阴性防御"
+    },
+    "40203": {
+      "id": "40203",
+      "Unlockcondition": [
+        [
+          "30002"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30002"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "302",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "302"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "少林共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "少林派师门名衔到达《杰出武僧》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "少林派师门名衔到达《守经武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加315点阴性防御"
+    },
+    "40303": {
+      "id": "40303",
+      "Unlockcondition": [
+        [
+          "30003"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30003"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "303",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "303"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "全真共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "全真教师门名衔到达《掌剑弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "全真教师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点外功防御"
+    },
+    "40403": {
+      "id": "40403",
+      "Unlockcondition": [
+        [
+          "30004"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30004"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "304",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "304"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "天龙共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天龙寺师门名衔到达《杰出武僧》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "天龙寺师门名衔到达《守经武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加315点混元防御"
+    },
+    "40503": {
+      "id": "40503",
+      "Unlockcondition": [
+        [
+          "30005"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30005"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "305",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "305"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "丐帮共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "丐帮师门名衔到达《三袋弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "丐帮师门名衔到达《五袋弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点无性伤害、增加315点阴性防御"
+    },
+    "40603": {
+      "id": "40603",
+      "Unlockcondition": [
+        [
+          "30006"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30006"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "306",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "306"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "峨眉共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "峨眉派师门名衔到达《执剑良尼》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "峨眉派师门名衔到达《守经良尼》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点外功伤害、增加315点阳性防御"
+    },
+    "40703": {
+      "id": "40703",
+      "Unlockcondition": [
+        [
+          "30007"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30007"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "307",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "307"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "武当共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "武当派师门名衔到达《掌剑弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "武当派师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加433点阴性伤害"
+    },
+    "40803": {
+      "id": "40803",
+      "Unlockcondition": [
+        [
+          "30008"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30008"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "308",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "308"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "华山共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "华山师门名衔到达《掌剑弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "华山师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点无性防御"
+    },
+    "40903": {
+      "id": "40903",
+      "Unlockcondition": [
+        [
+          "30009"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30009"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "309",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "309"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "昆仑共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "昆仑派师门名衔到达《掌剑弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "昆仑派师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点外功防御"
+    },
+    "41003": {
+      "id": "41003",
+      "Unlockcondition": [
+        [
+          "30010"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30010"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "310",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "310"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "万灵共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "万灵谷师门名衔到达《授蛊药师》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "万灵谷师门名衔到达《千灵蛊师》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阴性伤害、增加315点阳性防御"
+    },
+    "41103": {
+      "id": "41103",
+      "Unlockcondition": [
+        [
+          "30011"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30011"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "311",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "311"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "伏龙共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "伏龙山师门名衔到达《杰出帮众》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "伏龙山师门名衔到达《守经帮众》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点外功伤害、增加315点混元防御"
+    },
+    "41203": {
+      "id": "41203",
+      "Unlockcondition": [
+        [
+          "30012"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30012"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "312",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "312"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "拜日共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "拜日教师门名衔到达《杰出教众》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "拜日教师门名衔到达《守经教众》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加433点阴性伤害"
+    },
+    "41303": {
+      "id": "41303",
+      "Unlockcondition": [
+        [
+          "30013"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30013"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "313",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "313"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "雪山共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "雪山寺师门名衔到达《杰出武僧》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "雪山寺师门名衔到达《守经武僧》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点阳性防御"
+    },
+    "41403": {
+      "id": "41403",
+      "Unlockcondition": [
+        [
+          "30014"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30014"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "314",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "314"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "天狼共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天狼教师门名衔到达《百毒毒师》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "天狼教师门名衔到达《万毒毒怪》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阴性伤害、增加315点外功防御"
+    },
+    "41503": {
+      "id": "41503",
+      "Unlockcondition": [
+        [
+          "30015"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30015"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "315",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "315"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "鸩羽共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "鸩羽山师门名衔到达《侍蛇蛇使》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "鸩羽山师门名衔到达《万蛇蛇使》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点外功伤害、增加315点混元防御"
+    },
+    "41603": {
+      "id": "41603",
+      "Unlockcondition": [
+        [
+          "30016"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30016"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "316",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "316"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "燕皇共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "燕氏皇族师门名衔到达《杰出弟子》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "燕氏皇族师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点外功防御"
+    },
+    "41703": {
+      "id": "41703",
+      "Unlockcondition": [
+        [
+          "30017"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30017"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "317",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "317"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "明教共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "明教师门名衔到达《杰出教众》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "明教师门名衔到达《守经教众》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加315点混元防御"
+    },
+    "41803": {
+      "id": "41803",
+      "Unlockcondition": [
+        [
+          "30018"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30018"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "318",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "318"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "唐门共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "唐门师门名衔到达《杰出弟子》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "唐门师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点外功伤害、增加315点阳性防御"
+    },
+    "41903": {
+      "id": "41903",
+      "Unlockcondition": [
+        [
+          "30019"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30019"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "319",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "319"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "蓬莱共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "蓬莱岛师门名衔到达《杰出门生》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "蓬莱岛师门名衔到达《守经门生》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点无性防御"
+    },
+    "42003": {
+      "id": "42003",
+      "Unlockcondition": [
+        [
+          "30020"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30020"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "320",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "320"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "问情共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "问情宫师门名衔到达《执剑弟子》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "问情宫师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点外功防御"
+    },
+    "42103": {
+      "id": "42103",
+      "Unlockcondition": [
+        [
+          "30021"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30021"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "321",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "321"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "崆峒共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "崆峒派师门名衔到达《掌剑弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "崆峒派师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加433点阴性伤害"
+    },
+    "42203": {
+      "id": "42203",
+      "Unlockcondition": [
+        [
+          "30022"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "3",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30022"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "322",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "322"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "海鲸共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "海鲸帮师门名衔到达《杰出帮众》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "海鲸帮师门名衔到达《守经帮众》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阳性伤害、增加315点混元防御"
+    },
+    "42303": {
+      "id": "42303",
+      "Unlockcondition": [
+        [
+          "30023"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "6",
+          0.0185
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "6",
+          0.0433
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30023"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "323",
+          "401"
+        ]
+      ],
+      "showCondition": [
+        [
+          "323"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "幽冥共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "幽冥教师门名衔到达《勾魂鬼差》、拥有门派称号《肝胆相照》",
+      "SUnlocktext": "幽冥教师门名衔到达《审罪判官》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阴性伤害、增加433点阴性毒伤"
+    },
+    "42403": {
+      "id": "42403",
+      "Unlockcondition": [
+        [
+          "30024"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30024"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "324",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "324"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "虚渺共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "虚渺宫师门名衔到达《执剑弟子》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "虚渺宫师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点外功伤害、增加315点阴性防御"
+    },
+    "42503": {
+      "id": "42503",
+      "Unlockcondition": [
+        [
+          "30025"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "5",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30025"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "325",
+          "400"
+        ]
+      ],
+      "showCondition": [
+        [
+          "325"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "落月共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "落月山庄师门名衔到达《杰出弟子》、拥有门派称号《丹心赤忱》",
+      "SUnlocktext": "落月山庄师门名衔到达《守经弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点阴性伤害、增加315点无性防御"
+    },
+    "42603": {
+      "id": "42603",
+      "Unlockcondition": [
+        [
+          "30026"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30026"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "326",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "326"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "财神共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "财神帮师门名衔到达《杰出伙计》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "财神帮师门名衔到达《守经护卫》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加315点阴性防御"
+    },
+    "42703": {
+      "id": "42703",
+      "Unlockcondition": [
+        [
+          "30027"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0135
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "1",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0315
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30027"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "327",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "327"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "永夜共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "永夜楼师门名衔到达《子夜死士》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "永夜楼师门名衔到达《寅夜死士》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点无性伤害、增加315点阳性防御"
+    },
+    "42803": {
+      "id": "42803",
+      "Unlockcondition": [
+        [
+          "30028"
+        ],
+        [
+          "32004"
+        ],
+        [
+          "31003"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0185
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0185
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "7",
+          0.0433
+        ],
+        [
+          "damageAttr",
+          "atkDamageClass",
+          "9",
+          0.0433
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "30028"
+        ],
+        [
+          "32006"
+        ]
+      ],
+      "deleteCondition": [
+        [
+          "100",
+          "200",
+          "328",
+          "402"
+        ]
+      ],
+      "showCondition": [
+        [
+          "328"
+        ]
+      ],
+      "resource": [
+        [
+          "amartial",
+          2520
+        ],
+        [
+          "bmartial",
+          280
+        ]
+      ],
+      "name": "天竞共贯三重",
+      "type": 3,
+      "class": 3,
+      "Unlocktext": "天竞门师门名衔到达《通音弟子》、拥有门派称号《义薄云天》",
+      "SUnlocktext": "天竞门师门名衔到达《妙音弟子》",
+      "specialtext": "",
+      "specialnaturetext": "增加433点混元伤害、增加433点外功伤害"
+    },
+    "50102": {
+      "id": "50102",
+      "Unlockcondition": [
+        [
+          "18001"
+        ],
+        [
+          "20002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHHF",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "18011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "恢复无御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "有3门武学等级上限达1040级、在书架创作了6门自创武学",
+      "SUnlocktext": "有4门武学等级上限达1030级",
+      "specialtext": "增强气血恢复效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50202": {
+      "id": "50202",
+      "Unlockcondition": [
+        [
+          "12002",
+          "13002"
+        ],
+        [
+          "17001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHHD",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "17011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "护盾阳御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "侠义正气高于20000或者低于-20000、有6门武学等级达1000级",
+      "SUnlocktext": "有7门武学等级达1000级",
+      "specialtext": "增强护盾效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50302": {
+      "id": "50302",
+      "Unlockcondition": [
+        [
+          "10002"
+        ],
+        [
+          "14001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHSH",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "10012"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "耀回阴御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "江湖威望高于4000、藏书评价达到《充箱盈架》",
+      "SUnlocktext": "江湖威望高于4200",
+      "specialtext": "增强【耀】闪躲回血效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50402": {
+      "id": "50402",
+      "Unlockcondition": [
+        [
+          "12001",
+          "13001"
+        ],
+        [
+          "17002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHZH",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "12011",
+          "13011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "御回混御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "侠义正气高于5000或者低于-5000、有9门武学等级达1000级",
+      "SUnlocktext": "侠义正气高于5500或者低于-5500",
+      "specialtext": "增强【御】招架回血效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50502": {
+      "id": "50502",
+      "Unlockcondition": [
+        [
+          "29002"
+        ],
+        [
+          "22001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHFZ",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "22011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "反震外御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "经脉等级高于36级、拥有1把特性值高于200的神兵",
+      "SUnlocktext": "拥有2把特性值高于150的神兵",
+      "specialtext": "增强【震】伤害效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50602": {
+      "id": "50602",
+      "Unlockcondition": [
+        [
+          "18001"
+        ],
+        [
+          "20002"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHNX",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "18011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "凝血无御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "有3门武学等级上限达1040级、在书架创作了6门自创武学",
+      "SUnlocktext": "有4门武学等级上限达1030级",
+      "specialtext": "增强【凝】回血效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50702": {
+      "id": "50702",
+      "Unlockcondition": [
+        [
+          "12002",
+          "13002"
+        ],
+        [
+          "17001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHXL",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "17011"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "卸力阳御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "侠义正气高于20000或者低于-20000、有6门武学等级达1000级",
+      "SUnlocktext": "有7门武学等级达1000级",
+      "specialtext": "增强【卸】减伤效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    },
+    "50802": {
+      "id": "50802",
+      "Unlockcondition": [
+        [
+          "10002"
+        ],
+        [
+          "14001"
+        ]
+      ],
+      "property": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0144
+        ]
+      ],
+      "specialproperty": [
+        [
+          "damageAttr",
+          "defDamageClass",
+          "1",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "3",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "5",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "7",
+          0.0373
+        ],
+        [
+          "damageAttr",
+          "defDamageClass",
+          "9",
+          0.0373
+        ],
+        [
+          "activeEffect",
+          "YMXLFYQHZG",
+          0,
+          0,
+          0
+        ]
+      ],
+      "specialpropertyul": [
+        [
+          "10012"
+        ]
+      ],
+      "deleteCondition": [],
+      "showCondition": [],
+      "resource": [
+        [
+          "amartial",
+          1890
+        ],
+        [
+          "bmartial",
+          210
+        ]
+      ],
+      "name": "真罡阴御通御一重",
+      "type": 3,
+      "class": 2,
+      "Unlocktext": "江湖威望高于4000、藏书评价达到《充箱盈架》",
+      "SUnlocktext": "江湖威望高于4200",
+      "specialtext": "增强【真】承伤效果",
+      "specialnaturetext": "增加373点无性、阳性、阴性、混元、外功防御"
+    }
+  }
+}

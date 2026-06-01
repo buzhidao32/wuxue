@@ -9,12 +9,23 @@ import {
   getEnterEffectLinks,
   getPassiveEffectLinks,
 } from "./dataLoader.js";
-import { modalManager, effectModal } from "./uiManager.js";
 import { calcParamNames, calcSelectParams } from "./calcNames.js";
+import { jsonModal, modalManager, effectModal } from "./uiManager.js";
 
 // 渲染优化参数
 const renderBatchSize = 20; // 每次渲染的卡片数量
 let renderTimeout = null; // 渲染超时定时器
+
+function renderLoadingState(container) {
+  container.innerHTML = `
+        <div class="loading" id="initialLoading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>加载数据中...</p>
+        </div>
+    `;
+}
 
 // 解析effects字符串，返回效果ID数组
 function parseEffects(effectsStr) {
@@ -650,6 +661,7 @@ export function showPassiveSkills(skillId, skillAutoData) {
 export function showActiveSkills(skillId, activeSkillData, name) {
   const container = document.getElementById("activeSkillsList");
   const skillGroups = findActiveSkills(skillId, activeSkillData, name);
+  container.onclick = null;
 
   if (skillGroups.length === 0) {
     container.innerHTML =
@@ -865,6 +877,8 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       showEffectDetails(effectId, activeSkillData, defaultParams);
     }
   });
+
+  container.innerHTML = html;
 }
 
 // 批处理渲染函数
@@ -891,6 +905,15 @@ function renderSkillCards(cards, container, startIndex = 0) {
 // 更新技能列表
 export function updateSkillList(skillData, matchesFilters) {
   const container = document.getElementById("skillList");
+  if (!skillData?.skills || typeof skillData.skills !== "object") {
+    if (renderTimeout) {
+      clearTimeout(renderTimeout);
+      renderTimeout = null;
+    }
+    renderLoadingState(container);
+    return;
+  }
+
   container.innerHTML = "";
 
   let filteredCount = 0;
@@ -918,9 +941,7 @@ export function updateSkillList(skillData, matchesFilters) {
         card.style.cursor = "pointer";
 
         card.onclick = async () => {
-          const modal = new bootstrap.Modal(
-            document.getElementById("jsonModal"),
-          );
+          const modalElement = document.getElementById("jsonModal");
           const jsonContent = document.getElementById("jsonContent");
           jsonContent.textContent = JSON.stringify(skill, null, 2);
           document.getElementById("jsonModalLabel").textContent =
@@ -952,9 +973,7 @@ export function updateSkillList(skillData, matchesFilters) {
               '<div class="alert alert-danger">加载技能数据时出错</div>';
           }
 
-          // modal.show();
-          // 武学窗口也使用模态框管理器打开，以修复第一次点击打开效果详情时被武学窗口挡住的问题
-          modalManager.open(modal, document.getElementById("jsonModal"));
+          modalManager.open(jsonModal, modalElement);
         };
 
         const cardHeader = document.createElement("div");
