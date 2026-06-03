@@ -686,7 +686,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
     html += `
         <div class="mb-4">
             <h5>技能基础数据
-                <button class="btn btn-sm btn-outline-primary expand-base-btn" data-active-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px;">展开</button>
+                <button class="btn btn-sm btn-outline-primary expand-base-btn" data-active-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px; box-shadow: none;">展开</button>
             </h5>
             <pre id="base-data-${activeId}" style="max-height: 200px; overflow-y: auto; display: none;">${JSON.stringify(baseActive, null, 2)}</pre>
         </div>`;
@@ -759,7 +759,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
             </div>
             <div>
                 <h5>各重数差异
-                    <button class="btn btn-sm btn-outline-primary expand-levels-btn" data-skill-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px;">展开</button>
+                    <button class="btn btn-sm btn-outline-primary expand-levels-btn" data-skill-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px; box-shadow: none;">展开</button>
                 </h5>
                 <div class="table-responsive">
                     <table class="table table-sm table-hover" data-levels-table="${activeId}">
@@ -825,7 +825,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
 
   container.innerHTML = html;
 
-  container.addEventListener("click", (e) => {
+  container.onclick = (e) => {
     // 处理基础数据展开按钮
     if (e.target.closest(".expand-base-btn")) {
       e.stopPropagation();
@@ -878,9 +878,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       }
       showEffectDetails(effectId, activeSkillData, defaultParams);
     }
-  });
-
-  container.innerHTML = html;
+  };
 }
 
 // 批处理渲染函数
