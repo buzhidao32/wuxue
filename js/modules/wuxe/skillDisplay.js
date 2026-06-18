@@ -729,8 +729,8 @@ export function showActiveSkills(skillId, activeSkillData, name) {
     };
     const levelColors = {
       1: "bg-secondary",
-      2: "bg-info",
-      3: "bg-warning",
+      2: "bg-primary",
+      3: "bg-success",
       4: "bg-danger",
     };
     const levelBadge =
