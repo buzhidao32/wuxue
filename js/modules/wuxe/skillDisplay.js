@@ -694,77 +694,6 @@ export function showPassiveSkills(skillId, skillAutoData) {
   container.innerHTML = html;
 }
 
-/**
- * 从数据行中收集指定前缀的条件（learn 或 use）
- * @param {string} prefix - "learn" 或 "use"
- * @param {Object} dataRow - selectedSkills[0].data
- * @returns {string[]}
- */
-function collectConditions(prefix, dataRow) {
-  const conditions = [];
-  for (let i = 1; i <= 10; i++) {
-    const idKey = `${prefix}_id_${i}`;
-    const logicKey = `${prefix}_logic_${i}`;
-    const typeKey = `${prefix}_type_${i}`;
-    const valueKey = `${prefix}_value_${i}`;
-
-    if (
-      dataRow[idKey] === undefined ||
-      dataRow[logicKey] === undefined ||
-      dataRow[valueKey] === undefined
-    )
-      continue;
-
-    const ids = String(dataRow[idKey]).split(";");
-    const logics = String(dataRow[logicKey]).split(";");
-    const values = String(dataRow[valueKey]).split(";");
-    const typeStr = dataRow[typeKey] || "";
-
-    for (let j = 0; j < ids.length; j++) {
-      const rawId = ids[j].trim();
-      let logicStr = (logics[j] || logics[0] || "").trim();
-      let valueStr = (values[j] || values[0] || "").trim();
-
-      const cnText = conditionToCN(typeStr, rawId, logicStr, valueStr);
-      if (cnText) {
-        conditions.push(cnText);
-      } else {
-        if (typeStr === "装备武器") {
-          logicStr = "";
-          valueStr = "";
-        }
-        conditions.push(
-          `${typeStr} ${getCHAttrName(rawId) || rawId} ${logicStr} ${valueStr}`,
-        );
-      }
-    }
-  }
-  return conditions;
-}
-
-/**
- * 渲染条件卡片 HTML
- * @param {string} label - 卡片标题
- * @param {string[]} conditions - 条件文本数组
- * @param {{ border:string, bg:string, text:string, sep:string }} colors
- * @returns {string} HTML 字符串
- */
-function renderConditionCard(label, conditions, colors) {
-  let html = `
-    <div class="mb-2 rounded overflow-hidden" style="border:1px solid ${colors.border};">
-      <div class="px-3 py-1" style="background:${colors.bg};font-size:0.75rem;font-weight:600;color:${colors.text};">${label}</div>
-      <div class="px-3 py-2">`;
-  conditions.forEach((cond, idx) => {
-    const sepStyle =
-      idx < conditions.length - 1
-        ? `border-bottom:1px solid ${colors.sep};`
-        : "";
-    html += `<div style="font-size:0.85rem;padding:3px 0;${sepStyle}">${cond}</div>`;
-  });
-  html += `</div></div>`;
-  return html;
-}
-
 // 显示主动技能信息
 export function showActiveSkills(skillId, activeSkillData, name) {
   const container = document.getElementById("activeSkillsList");
@@ -800,8 +729,8 @@ export function showActiveSkills(skillId, activeSkillData, name) {
     };
     const levelColors = {
       1: "bg-secondary",
-      2: "bg-primary",
-      3: "bg-success",
+      2: "bg-info",
+      3: "bg-warning",
       4: "bg-danger",
     };
     const levelBadge =
@@ -810,64 +739,192 @@ export function showActiveSkills(skillId, activeSkillData, name) {
         : "";
 
     html += `
-        <div class="d-flex align-items-center justify-content-between mb-3 pb-2" style="border-bottom:2px solid #e9ecef;">
-            <div class="d-flex align-items-center gap-2 flex-wrap">
-                <span class="fw-bold" style="font-size:1.05rem;color:#0d6efd;">${baseActive.name || activeId}</span>
-                ${typeBadge}${levelBadge}
-            </div>
-            <button class="btn btn-link btn-sm expand-base-btn p-0 ms-3" data-active-id="${activeId}" style="font-size:0.75rem;color:#adb5bd;white-space:nowrap;flex-shrink:0;text-decoration:none;outline:none;box-shadow:none!important;">原始数据 ▾</button>
-        </div>
-        <pre id="base-data-${activeId}" class="bg-light rounded p-2 mb-3" style="max-height:180px;overflow-y:auto;display:none;font-size:0.72rem;">${JSON.stringify(baseActive, null, 2)}</pre>`;
+        <div class="mb-3">
+            <h4 class="text-primary">${baseActive.name || activeId}${typeBadge}${levelBadge}</h4>
+        </div>`;
 
+    html += `
+        <div class="mb-4">
+            <h5>技能基础数据
+                <button class="btn btn-sm btn-outline-primary expand-base-btn" data-active-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px; box-shadow: none;">展开</button>
+            </h5>
+            <pre id="base-data-${activeId}" style="max-height: 200px; overflow-y: auto; display: none;">${JSON.stringify(baseActive, null, 2)}</pre>
+        </div>`;
+
+    // 根据技能ID格式筛选第一重和第十重
+    // const selectedSkills = allActives.filter(skill => {
+    //     const activeId = skill.id;
+    //     const isLevel1 = /^[a-zA-Z]+$/.test(activeId);
+    //     const isLevel10 = /^[a-zA-Z]+10$/.test(activeId);
+    //     return isLevel1 || isLevel10;
+    // });
     const selectedSkills = allActives;
 
     if (selectedSkills.length > 1) {
-      const firstData = selectedSkills[0].data;
+      // 学习条件 — 调用 conditionToCN 生成中文描述
+      const learnConditions = [];
+      for (let i = 1; i <= 10; i++) {
+        const learnIdKey = `learn_id_${i}`;
+        const learnLogicKey = `learn_logic_${i}`;
+        const learnTypeKey = `learn_type_${i}`;
+        const learnValueKey = `learn_value_${i}`;
 
-      // 学习条件
-      const learnConditions = collectConditions("learn", firstData);
-      const bookLearnText = getActiveSkillLearnForBookText(activeId);
-      if (bookLearnText) learnConditions.unshift(bookLearnText);
-      if (learnConditions.length > 0) {
-        html += renderConditionCard("学习条件", learnConditions, {
-          border: "#fde68a",
-          bg: "#fef3c7",
-          text: "#92400e",
-          sep: "#fef9ec",
-        });
+        if (
+          selectedSkills[0].data[learnIdKey] !== undefined &&
+          selectedSkills[0].data[learnLogicKey] !== undefined &&
+          selectedSkills[0].data[learnValueKey] !== undefined
+        ) {
+          const ids = String(selectedSkills[0].data[learnIdKey]).split(";");
+          const logics = String(selectedSkills[0].data[learnLogicKey]).split(
+            ";",
+          );
+          const values = String(selectedSkills[0].data[learnValueKey]).split(
+            ";",
+          );
+          const typeStr = selectedSkills[0].data[learnTypeKey] || "";
+
+          for (let j = 0; j < ids.length; j++) {
+            const rawId = ids[j].trim();
+            let logicStr = (logics[j] || logics[0] || "").trim();
+            let valueStr = (values[j] || values[0] || "").trim();
+
+            const cnText = conditionToCN(typeStr, rawId, logicStr, valueStr);
+            if (cnText) {
+              learnConditions.push(cnText);
+            } else {
+              if (typeStr === "装备武器") {
+                logicStr = "";
+                valueStr = "";
+              }
+              // 未知条件类型的兜底显示
+              learnConditions.push(
+                `${typeStr} ${getCHAttrName(rawId) || rawId} ${logicStr} ${valueStr}`,
+              );
+            }
+          }
+        }
       }
 
-      // 使用条件
-      const useConditions = collectConditions("use", firstData);
+      // 追加书页解锁条件（置于学习条件第一条）
+      const bookLearnText = getActiveSkillLearnForBookText(activeId);
+      if (bookLearnText) {
+        learnConditions.unshift(bookLearnText);
+      }
+
+      if (learnConditions.length > 0) {
+        html += `
+            <div>
+                <h5>学习条件</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>条件</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+        learnConditions.forEach((cond) => {
+          html += `
+                            <tr>
+                                <td><strong>${cond}</strong></td>
+                            </tr>`;
+        });
+        html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>`;
+      }
+
+      // 使用条件 — 调用 conditionToCN 生成中文描述
+      const useConditions = [];
+      for (let i = 1; i <= 10; i++) {
+        const useIdKey = `use_id_${i}`;
+        const useLogicKey = `use_logic_${i}`;
+        const useTypeKey = `use_type_${i}`;
+        const useValueKey = `use_value_${i}`;
+
+        if (
+          selectedSkills[0].data[useIdKey] !== undefined &&
+          selectedSkills[0].data[useLogicKey] !== undefined &&
+          selectedSkills[0].data[useValueKey] !== undefined
+        ) {
+          const ids = String(selectedSkills[0].data[useIdKey]).split(";");
+          const logics = String(selectedSkills[0].data[useLogicKey]).split(";");
+          const values = String(selectedSkills[0].data[useValueKey]).split(";");
+          const typeStr = selectedSkills[0].data[useTypeKey] || "";
+
+          for (let j = 0; j < ids.length; j++) {
+            const rawId = ids[j].trim();
+            let logicStr = (logics[j] || logics[0] || "").trim();
+            let valueStr = (values[j] || values[0] || "").trim();
+
+            const cnText = conditionToCN(typeStr, rawId, logicStr, valueStr);
+            if (cnText) {
+              useConditions.push(cnText);
+            } else {
+              if (typeStr === "装备武器") {
+                logicStr = "";
+                valueStr = "";
+              }
+              // 未知条件类型的兜底显示
+              useConditions.push(
+                `${typeStr} ${getCHAttrName(rawId) || rawId} ${logicStr} ${valueStr}`,
+              );
+            }
+          }
+        }
+      }
+
       const methodNum = baseActive.methods;
       if (methodNum !== undefined && methodNum !== null) {
         const methodName = getMethodCN(Number(methodNum));
         if (methodName) useConditions.push("准备在【" + methodName + "】位置");
       }
+
       if (useConditions.length > 0) {
-        html += renderConditionCard("使用条件", useConditions, {
-          border: "#bfdbfe",
-          bg: "#dbeafe",
-          text: "#1e40af",
-          sep: "#eff6ff",
+        html += `
+            <div>
+                <h5>使用条件</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>条件</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+        useConditions.forEach((cond) => {
+          html += `
+                            <tr>
+                                <td><strong>${cond}</strong></td>
+                            </tr>`;
         });
+        html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>`;
       }
 
       html += `
-            <div class="mb-2 rounded overflow-hidden" style="border:1px solid #e2e8f0;">
-                <div class="px-3 py-1 d-flex justify-content-between align-items-center" style="background:#f1f5f9;">
-                    <span style="font-size:0.75rem;font-weight:600;color:#475569;">各重数差异</span>
-                    <button class="btn btn-link btn-sm expand-levels-btn p-0" data-skill-id="${activeId}" style="font-size:0.75rem;color:#94a3b8;text-decoration:none;box-shadow:none;">展开 ▾</button>
-                </div>`;
+            <div>
+                <h5>各重数差异
+                    <button class="btn btn-sm btn-outline-primary expand-levels-btn" data-skill-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px; box-shadow: none;">展开</button>
+                </h5>
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover" data-levels-table="${activeId}">
+                        <thead>
+                            <tr>
+                                <th>重数</th>
+                                <th>属性</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
 
       selectedSkills.forEach((skill, index) => {
         if (index <= 9) {
           const textParts = [];
-          const fieldLabel = {
-            desc: "描述",
-            pvpcd: "PVP冷却",
-            cost: "内力消耗",
-          };
           Object.entries(skill.data)
             .filter(([key]) =>
               ["desc", "pvpcd", "cost", "effects"].includes(key),
@@ -875,7 +932,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
             .forEach(([key, value]) => {
               if (key === "effects") {
                 textParts.push(
-                  `<span class="text-muted" style="font-size:0.75rem;">主动效果</span> ${createEffectLinks(value, skill.data.cost)}`,
+                  `主动效果: ${createEffectLinks(value, skill.data.cost)}`,
                 );
                 // 在主动效果下方追加入场效果与被动效果
                 const enterLinks = getEnterEffectLinks(
@@ -887,38 +944,33 @@ export function showActiveSkills(skillId, activeSkillData, name) {
                   skill.id,
                 );
                 if (enterLinks) {
-                  textParts.push(
-                    `<span class="text-muted" style="font-size:0.75rem;">入场效果</span> ${enterLinks}`,
-                  );
+                  textParts.push(`入场效果: ${enterLinks}`);
                 }
                 if (passiveLinks) {
-                  textParts.push(
-                    `<span class="text-muted" style="font-size:0.75rem;">被动效果</span> ${passiveLinks}`,
-                  );
+                  textParts.push(`被动效果: ${passiveLinks}`);
                 }
               } else {
-                const label = fieldLabel[key] || key;
-                textParts.push(
-                  `<span class="text-muted" style="font-size:0.75rem;">${label}</span> ${value}`,
-                );
+                textParts.push(`${key}: ${value}`);
               }
             });
-          const skillText = textParts
-            .map((p) => `<div style="line-height:1.6;">${p}</div>`)
-            .join("");
+          const skillText = textParts.join("<br>");
 
           if (skillText) {
-            const isHidden = index < 8 ? "display:none;" : "";
-            const rowBg = index % 2 === 0 ? "#fff" : "#fafbfc";
-            html += `<div class="skill-level-row-${activeId}" data-level="${index + 1}" style="display:${isHidden ? "none" : "flex"};gap:12px;padding:7px 12px;border-top:1px solid #f1f5f9;background:${rowBg};align-items:flex-start;">
-                <span style="font-size:0.78rem;color:#64748b;font-weight:600;white-space:nowrap;min-width:2.8rem;padding-top:2px;">第${skill.level}重</span>
-                <div style="font-size:0.85rem;flex:1;">${skillText}</div>
-            </div>`;
+            const isHidden = index < 8 ? 'style="display: none;"' : "";
+            html += `
+                        <tr class="skill-level-row-${activeId}" data-level="${index + 1}" ${isHidden}>
+                            <td>第${skill.level}重</td>
+                            <td>${skillText}</td>
+                        </tr>`;
           }
         }
       });
 
-      html += `</div>`;
+      html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>`;
     }
   });
 
@@ -934,7 +986,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       const isExpanded = btn.dataset.expanded === "true";
       pre.style.display = isExpanded ? "none" : "block";
       btn.dataset.expanded = !isExpanded;
-      btn.textContent = isExpanded ? "原始数据 ▾" : "原始数据 ▴";
+      btn.textContent = isExpanded ? "展开" : "折叠";
       return;
     }
 
@@ -950,12 +1002,12 @@ export function showActiveSkills(skillId, activeSkillData, name) {
         const level = parseInt(row.getAttribute("data-level"));
         // 只折叠第1-8重，第9和第10重始终显示
         if (level <= 8) {
-          row.style.display = isExpanded ? "none" : "flex";
+          row.style.display = isExpanded ? "none" : "table-row";
         }
       });
 
       btn.dataset.expanded = !isExpanded;
-      btn.textContent = isExpanded ? "展开 ▾" : "收起 ▴";
+      btn.textContent = isExpanded ? "展开" : "折叠";
       return;
     }
 
