@@ -9,4 +9,4 @@
 原作者静态网站：https://sancon458.github.io/wuxue/index.html
 原作者github仓库：https://github.com/sancon458/wuxue
 
-感谢杨依霜同志提供的技能效果计算功能和部分细节优化
+感谢杨依霜同志提供的技能效果计算功能、技能学习条件、技能使用条件展示优化和大量bug修复
