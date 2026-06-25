@@ -10,6 +10,7 @@ export let skillData = {
 };
 export let activeSkillData = null;
 export let skillAutoData = null;
+export let bookSkillUnlockData = null;
 export let skillRelationData = null;
 let backgroundRefreshPromise = null;
 
@@ -78,6 +79,19 @@ export async function loadSkillAutoData() {
     return skillAutoData;
   } catch (error) {
     console.error("Error loading skill auto data:", error);
+    return null;
+  }
+}
+
+// 加载书页技能解锁数据（带缓存和版本检查，使用 gzip 压缩）
+export async function loadBookSkillUnlockData() {
+  if (bookSkillUnlockData) return bookSkillUnlockData;
+
+  try {
+    bookSkillUnlockData = await loadVersionedResource("bookSkills");
+    return bookSkillUnlockData;
+  } catch (error) {
+    console.error("Error loading book skill unlock data:", error);
     return null;
   }
 }

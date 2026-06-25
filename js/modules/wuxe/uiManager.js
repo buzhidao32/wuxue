@@ -4,8 +4,61 @@ import {
   getElementName,
   getMethodName,
 } from "./dataLoader.js";
-import { updateSkillList } from "./skillDisplay.js"; // 导入 updateSkillList 函数
-import { skillData } from "./wuxue.js"; // 导入 skillData
+import { updateSkillList } from "./skillDisplay.js";
+import { skillData } from "./wuxue.js";
+
+const LOAD_STATUS = {
+  INITIAL: "initial",
+  LOADING: "loading",
+  LOADED: "loaded",
+  ERROR: "error",
+};
+
+let loadStatus = LOAD_STATUS.INITIAL;
+let pendingSearchRequest = null;
+let searchThrottleTimer = null;
+
+export function setLoadStatus(status) {
+  loadStatus = status;
+  if (status === LOAD_STATUS.LOADED && pendingSearchRequest) {
+    const request = pendingSearchRequest;
+    pendingSearchRequest = null;
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.value = request.searchText;
+    }
+    if (skillData?.skills) {
+      updateSkillList(skillData, matchesFilters);
+    }
+  }
+}
+
+export function scheduleRefresh() {
+  if (loadStatus === LOAD_STATUS.INITIAL || loadStatus === LOAD_STATUS.LOADING) {
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput && searchInput.value.trim()) {
+      pendingSearchRequest = {
+        searchText: searchInput.value.trim(),
+        timestamp: Date.now(),
+      };
+    }
+    return;
+  }
+
+  if (!skillData?.skills) {
+    return;
+  }
+
+  updateSkillList(skillData, matchesFilters);
+}
+
+export function getSearchThrottleTimer() {
+  return searchThrottleTimer;
+}
+
+export function setSearchThrottleTimer(timer) {
+  searchThrottleTimer = timer;
+}
 
 // 搜索索引：初始化后建立，key 为 skillId，value 为可搜索文本展开字符串
 let searchIndex = new Map();
@@ -164,7 +217,8 @@ export function initModals() {
 // 初始化过滤器状态
 export const skillFilters = {
   family: new Set(),
-  element: new Set(), // 新增 element 过滤器状态
+  element: new Set(), // 伤害属性过滤器状态
+  zhaojia: new Set(), // 招架属性过滤器状态
   methods: new Set(), // 新增 methods 过滤器状态
   isJueXue: false,
   isZhiShi: false,
@@ -180,6 +234,7 @@ export function createFilterBadges(containerId, values, filterType) {
 
     const typeHandlers = {
       element: (val) => getElementName(val),
+      zhaojia: (val) => getElementName(val),
       methods: (val) => getMethodName(val),
     };
     badge.textContent = typeHandlers[filterType]?.(value) ?? value;
@@ -196,6 +251,7 @@ export function clearFilters(filterType) {
   const containerId = {
     family: "familyFilters",
     element: "elementFilters",
+    zhaojia: "zhaojiaFilters",
     methods: "methodsFilters",
   }[filterType];
   if (!containerId) {
@@ -224,11 +280,13 @@ export function toggleFilter(badge, value, filterType) {
     }
   }
 
-  if (!skillData?.skills) {
-    return;
+  const timer = getSearchThrottleTimer();
+  if (timer) {
+    clearTimeout(timer);
   }
-
-  updateSkillList(skillData, matchesFilters);
+  setSearchThrottleTimer(setTimeout(() => {
+    scheduleRefresh();
+  }, 100));
 }
 
 // 检查技能是否匹配过滤条件
@@ -265,9 +323,14 @@ export function matchesFilters(skill) {
     (skill.wxclassify && skill.wxclassify === "zhishi");
 
   const elementMatch =
-    skillFilters.element.size === 0 || // 处理 element 过滤器
+    skillFilters.element.size === 0 || // 处理伤害属性过滤器
+    (skill.autoZhaoAtkDamageClass &&
+      skillFilters.element.has(String(skill.autoZhaoAtkDamageClass)));
+
+  const zhaojiaMatch =
+    skillFilters.zhaojia.size === 0 || // 处理招架属性过滤器
     (skill.zhaoJiaDefDamageClass &&
-      skillFilters.element.has(String(skill.zhaoJiaDefDamageClass)));
+      skillFilters.zhaojia.has(String(skill.zhaoJiaDefDamageClass)));
 
   const methodsMatch =
     skillFilters.methods.size === 0 || // 处理 methods 过滤器
@@ -282,6 +345,7 @@ export function matchesFilters(skill) {
     juexueMatch &&
     zhishiMatch &&
     elementMatch &&
+    zhaojiaMatch &&
     methodsMatch
   );
 }

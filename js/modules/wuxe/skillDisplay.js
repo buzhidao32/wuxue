@@ -11,6 +11,12 @@ import {
 } from "./dataLoader.js";
 import { calcParamNames, calcSelectParams } from "./calcNames.js";
 import { jsonModal, modalManager, effectModal } from "./uiManager.js";
+import {
+  conditionToCN,
+  getCHAttrName,
+  getMethodCN,
+  getActiveSkillLearnForBookText,
+} from "./conditionToCN.js";
 
 // 禁止公式函数访问的全局对象白名单（Bug 7：变量访问安全边界）
 const _BLOCKED_GLOBALS = [
@@ -688,6 +694,77 @@ export function showPassiveSkills(skillId, skillAutoData) {
   container.innerHTML = html;
 }
 
+/**
+ * 从数据行中收集指定前缀的条件（learn 或 use）
+ * @param {string} prefix - "learn" 或 "use"
+ * @param {Object} dataRow - selectedSkills[0].data
+ * @returns {string[]}
+ */
+function collectConditions(prefix, dataRow) {
+  const conditions = [];
+  for (let i = 1; i <= 10; i++) {
+    const idKey = `${prefix}_id_${i}`;
+    const logicKey = `${prefix}_logic_${i}`;
+    const typeKey = `${prefix}_type_${i}`;
+    const valueKey = `${prefix}_value_${i}`;
+
+    if (
+      dataRow[idKey] === undefined ||
+      dataRow[logicKey] === undefined ||
+      dataRow[valueKey] === undefined
+    )
+      continue;
+
+    const ids = String(dataRow[idKey]).split(";");
+    const logics = String(dataRow[logicKey]).split(";");
+    const values = String(dataRow[valueKey]).split(";");
+    const typeStr = dataRow[typeKey] || "";
+
+    for (let j = 0; j < ids.length; j++) {
+      const rawId = ids[j].trim();
+      let logicStr = (logics[j] || logics[0] || "").trim();
+      let valueStr = (values[j] || values[0] || "").trim();
+
+      const cnText = conditionToCN(typeStr, rawId, logicStr, valueStr);
+      if (cnText) {
+        conditions.push(cnText);
+      } else {
+        if (typeStr === "装备武器") {
+          logicStr = "";
+          valueStr = "";
+        }
+        conditions.push(
+          `${typeStr} ${getCHAttrName(rawId) || rawId} ${logicStr} ${valueStr}`,
+        );
+      }
+    }
+  }
+  return conditions;
+}
+
+/**
+ * 渲染条件卡片 HTML
+ * @param {string} label - 卡片标题
+ * @param {string[]} conditions - 条件文本数组
+ * @param {{ border:string, bg:string, text:string, sep:string }} colors
+ * @returns {string} HTML 字符串
+ */
+function renderConditionCard(label, conditions, colors) {
+  let html = `
+    <div class="mb-2 rounded overflow-hidden" style="border:1px solid ${colors.border};">
+      <div class="px-3 py-1" style="background:${colors.bg};font-size:0.75rem;font-weight:600;color:${colors.text};">${label}</div>
+      <div class="px-3 py-2">`;
+  conditions.forEach((cond, idx) => {
+    const sepStyle =
+      idx < conditions.length - 1
+        ? `border-bottom:1px solid ${colors.sep};`
+        : "";
+    html += `<div style="font-size:0.85rem;padding:3px 0;${sepStyle}">${cond}</div>`;
+  });
+  html += `</div></div>`;
+  return html;
+}
+
 // 显示主动技能信息
 export function showActiveSkills(skillId, activeSkillData, name) {
   const container = document.getElementById("activeSkillsList");
@@ -709,88 +786,78 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       html += '<hr class="my-4">';
     }
 
-    html += `
-        <div class="mb-3">
-            <h4 class="text-primary">${baseActive.name || activeId}</h4>
-        </div>`;
+    const skillType = baseActive.type;
+    const typeBadge = skillType
+      ? ` <span class="badge ${skillType === "释放" ? "bg-success" : skillType === "攻击" ? "bg-danger" : "bg-secondary"}" style="font-size: 0.65rem; vertical-align: middle;">${skillType}类</span>`
+      : "";
+
+    const skillLevel = baseActive.level;
+    const levelNames = {
+      1: "低级残页",
+      2: "中级残页",
+      3: "高级残页",
+      4: "顶级残页",
+    };
+    const levelColors = {
+      1: "bg-secondary",
+      2: "bg-primary",
+      3: "bg-success",
+      4: "bg-danger",
+    };
+    const levelBadge =
+      skillLevel && levelNames[skillLevel]
+        ? ` <span class="badge ${levelColors[skillLevel] || "bg-secondary"}" style="font-size: 0.65rem; vertical-align: middle;">${levelNames[skillLevel]}</span>`
+        : "";
 
     html += `
-        <div class="mb-4">
-            <h5>技能基础数据
-                <button class="btn btn-sm btn-outline-primary expand-base-btn" data-active-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px; box-shadow: none;">展开</button>
-            </h5>
-            <pre id="base-data-${activeId}" style="max-height: 200px; overflow-y: auto; display: none;">${JSON.stringify(baseActive, null, 2)}</pre>
-        </div>`;
+        <div class="d-flex align-items-center justify-content-between mb-3 pb-2" style="border-bottom:2px solid #e9ecef;">
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <span class="fw-bold" style="font-size:1.05rem;color:#0d6efd;">${baseActive.name || activeId}</span>
+                ${typeBadge}${levelBadge}
+            </div>
+            <button class="btn btn-link btn-sm expand-base-btn p-0 ms-3" data-active-id="${activeId}" style="font-size:0.75rem;color:#adb5bd;white-space:nowrap;flex-shrink:0;text-decoration:none;outline:none;box-shadow:none!important;">原始数据 ▾</button>
+        </div>
+        <pre id="base-data-${activeId}" class="bg-light rounded p-2 mb-3" style="max-height:180px;overflow-y:auto;display:none;font-size:0.72rem;">${JSON.stringify(baseActive, null, 2)}</pre>`;
 
-    // 根据技能ID格式筛选第一重和第十重
-    // const selectedSkills = allActives.filter(skill => {
-    //     const activeId = skill.id;
-    //     const isLevel1 = /^[a-zA-Z]+$/.test(activeId);
-    //     const isLevel10 = /^[a-zA-Z]+10$/.test(activeId);
-    //     return isLevel1 || isLevel10;
-    // });
     const selectedSkills = allActives;
 
     if (selectedSkills.length > 1) {
+      const firstData = selectedSkills[0].data;
+
+      // 学习条件
+      const learnConditions = collectConditions("learn", firstData);
+      const bookLearnText = getActiveSkillLearnForBookText(activeId);
+      if (bookLearnText) learnConditions.unshift(bookLearnText);
+      if (learnConditions.length > 0) {
+        html += renderConditionCard("学习条件", learnConditions, {
+          border: "#fde68a",
+          bg: "#fef3c7",
+          text: "#92400e",
+          sep: "#fef9ec",
+        });
+      }
+
+      // 使用条件
+      const useConditions = collectConditions("use", firstData);
+      const methodNum = baseActive.methods;
+      if (methodNum !== undefined && methodNum !== null) {
+        const methodName = getMethodCN(Number(methodNum));
+        if (methodName) useConditions.push("准备在【" + methodName + "】位置");
+      }
+      if (useConditions.length > 0) {
+        html += renderConditionCard("使用条件", useConditions, {
+          border: "#bfdbfe",
+          bg: "#dbeafe",
+          text: "#1e40af",
+          sep: "#eff6ff",
+        });
+      }
+
       html += `
             <div>
-                <h5>绑定武学</h5>
-                <div class="table-responsive">
-                    <table class="table table-sm table-hover">
-                        <thead>
-                            <tr>
-                                <th>绑定武学</th>
-                            </tr>
-                        </thead>
-                        <tbody>`;
-      // 检查 use_id_2, use_id_3, use_id_4 等字段
-      for (let i = 2; i <= 4; i++) {
-        const useIdKey = `use_id_${i}`;
-        const useTypeKey = `use_type_${i}`;
-        const useValueKey = `use_value_${i}`;
-        if (
-          selectedSkills[0].data[useIdKey] &&
-          selectedSkills[0].data[useTypeKey] &&
-          selectedSkills[0].data[useValueKey]
-        ) {
-          const boundactiveId = selectedSkills[0].data[useIdKey].split(" or ");
-          const boundMethodId = selectedSkills[0].data[useValueKey];
-          if (boundMethodId == "是") {
-            boundactiveId.forEach((id) => {
-              const boundSkillName = skillData.skills[id]?.name ?? id;
-
-              html += `
-                                <tr>
-                                    <td> <strong>准备 ${boundSkillName}</td>
-                                </tr>`;
-            });
-          } else {
-            boundactiveId.forEach((id) => {
-              const boundSkillName = skillData.skills[id]?.name ?? id;
-
-              html += `
-                                <tr>
-                                    <td> <strong>准备 ${boundSkillName} 为 ${getMethodName(boundMethodId)}</td>
-                                </tr>`;
-            });
-          }
-        }
-      }
-      // 主动准备位置条件
-      if (selectedSkills[0].data["methods"]) {
-        html += `
-                        <tr>
-                            <td> <strong>准备 ${name} 为 ${getMethodName(selectedSkills[0].data["methods"])}</td>
-                        </tr>`;
-      }
-      html += `
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div>
-                <h5>各重数差异
-                    <button class="btn btn-sm btn-outline-primary expand-levels-btn" data-skill-id="${activeId}" style="font-size: 0.75rem; margin-left: 10px; box-shadow: none;">展开</button>
+                <h5 style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>各重数差异</span>
+                    <button class="btn btn-link btn-sm expand-levels-btn p-0" data-skill-id="${activeId}" style="font-size:0.75rem;color:#94a3b8;text-decoration:none;box-shadow:none;">展开 ▾</button>
                 </h5>
                 <div class="table-responsive">
                     <table class="table table-sm table-hover" data-levels-table="${activeId}">
@@ -805,6 +872,11 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       selectedSkills.forEach((skill, index) => {
         if (index <= 9) {
           const textParts = [];
+          const fieldLabel = {
+            desc: "描述",
+            pvpcd: "PVP冷却",
+            cost: "内力消耗",
+          };
           Object.entries(skill.data)
             .filter(([key]) =>
               ["desc", "pvpcd", "cost", "effects"].includes(key),
@@ -830,7 +902,8 @@ export function showActiveSkills(skillId, activeSkillData, name) {
                   textParts.push(`被动效果: ${passiveLinks}`);
                 }
               } else {
-                textParts.push(`${key}: ${value}`);
+                const label = fieldLabel[key] || key;
+                textParts.push(`${label}: ${value}`);
               }
             });
           const skillText = textParts.join("<br>");
@@ -866,7 +939,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       const isExpanded = btn.dataset.expanded === "true";
       pre.style.display = isExpanded ? "none" : "block";
       btn.dataset.expanded = !isExpanded;
-      btn.textContent = isExpanded ? "展开" : "折叠";
+      btn.textContent = isExpanded ? "原始数据 ▾" : "原始数据 ▴";
       return;
     }
 
@@ -887,7 +960,7 @@ export function showActiveSkills(skillId, activeSkillData, name) {
       });
 
       btn.dataset.expanded = !isExpanded;
-      btn.textContent = isExpanded ? "展开" : "折叠";
+      btn.textContent = isExpanded ? "展开 ▾" : "收起 ▴";
       return;
     }
 
@@ -1073,7 +1146,8 @@ export function updateSkillList(skillData, matchesFilters) {
           { key: "atkSpd", label: "攻速系数" },
           { key: "neili", label: "内力系数" },
           { key: "HpRate", label: "生命系数" },
-          { key: "zhaoJiaDefDamageClass", label: "伤害/招架类型" },
+          { key: "autoZhaoAtkDamageClass", label: "伤害属性" },
+          { key: "zhaoJiaDefDamageClass", label: "招架属性" },
           { key: "zhaoJiaDefDamageParam", label: "招架减伤率" },
         ];
 
@@ -1082,7 +1156,7 @@ export function updateSkillList(skillData, matchesFilters) {
             content += `
                     <div class="attribute-row">
                         <span class="attribute-label">${attr.label}：</span>
-                        <span class="attribute-value">${attr.key === "zhaoJiaDefDamageClass" ? getElementName(skill[attr.key]) : skill[attr.key]}</span>
+                        <span class="attribute-value">${["autoZhaoAtkDamageClass", "zhaoJiaDefDamageClass"].includes(attr.key) ? getElementName(skill[attr.key]) : skill[attr.key]}</span>
                     </div>`;
           }
         });
